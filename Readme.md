@@ -26,3 +26,7 @@
 * Travis pour la CI (tests, déploiment de la doc et de docker)
 * CodeCov pour la couverture des test (avec jacoco)
 * CodeInspector pour la qualité du code
+
+
+## Mail
+noel.depalma@imag.fr
