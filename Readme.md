@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.com/A-Julien/devops.svg?branch=master)](https://travis-ci.com/A-Julien/ECOM) 
 [![codecov](https://codecov.io/gh/A-Julien/devops/branch/master/graph/badge.svg)](https://codecov.io/gh/A-Julien/ECOM)
-[![codeinsp](https://www.code-inspector.com/project/5990/score/svg)](https://frontend.code-inspector.com/public/project/5990/devops/dashboard)
+[![codeinsp](https://www.code-inspector.com/project/13966/score/svg)](https://frontend.code-inspector.com/public/project/13966/ECOM/dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/a-julien/ECOM/badge)](https://www.codefactor.io/repository/github/a-julien/ECOM)
 
 ## Project architecture:
