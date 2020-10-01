@@ -30,3 +30,4 @@
 
 ## Mail
 noel.depalma@imag.fr
+kergan.kergan@gmail.com (Antoine)
