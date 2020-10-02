@@ -31,7 +31,7 @@
 ## Mail
 noel.depalma@imag.fr
 
-kergan.kergan@gmail.com (Antoine)
+kergan.kergan@gmail.com (Antoine Rotival)
 
 julien.alaimo@gmail.com
 
