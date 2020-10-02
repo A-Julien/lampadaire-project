@@ -36,3 +36,5 @@ kergan.kergan@gmail.com (Antoine)
 julien.alaimo@gmail.com
 
 feydel.hugo@gmail.com
+
+vincent.arnone@hotmail.fr
