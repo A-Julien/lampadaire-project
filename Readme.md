@@ -30,6 +30,9 @@
 
 ## Mail
 noel.depalma@imag.fr
+
 kergan.kergan@gmail.com (Antoine)
+
 julien.alaimo@gmail.com
+
 feydel.hugo@gmail.com
