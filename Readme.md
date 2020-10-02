@@ -38,3 +38,5 @@ julien.alaimo@gmail.com
 feydel.hugo@gmail.com
 
 vincent.arnone@hotmail.fr
+
+gary.prat@etu.univ-grenoble-alpes.fr 
