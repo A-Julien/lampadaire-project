@@ -17,9 +17,7 @@
 
 ## Déploiement :
 
-
 ## Documentation
-
 
 ## Outils utilisés
 
@@ -27,16 +25,38 @@
 * CodeCov pour la couverture des test (avec jacoco)
 * CodeInspector pour la qualité du code
 
+## Politique de développement 
 
-## Mail
+* Tous noms de fonctions, variables, documentations etc.. doit être impérativement en **anglais** .
+* Api REST convention, se référer au site officiel : https://restfulapi.net/resource-naming .
+* Pour tout renseignement sur les tâches ou demandes, se référer au Trello : https://trello.com/b/aXuA8Jp8/agile .
+* Suivre impérativement le git flow .
+* Toutes communications à distance doit passer par discord dans les bons channels, de manière à garder une trace.
+ 
+## Contacts
+
+### Responsables projet ECOM
 noel.depalma@imag.fr
+
+sybile.caffiau@univ-grenoble-alpes.fr
+
+sebastien.chassande@soprasteria.com
+
+### Equipe : 
+
+#### Scrum-Master : 
+
+gary.prat@etu.univ-grenoble-alpes.fr (Gary Prat)
+
+#### Chef d'équipe : 
+
+julien.alaimo@gmail.com (Julien Alaimo)
+
+#### Dévelopeurs : 
 
 kergan.kergan@gmail.com (Antoine Rotival)
 
-julien.alaimo@gmail.com
+feydel.hugo@gmail.com (Hugo Feydel)
 
-feydel.hugo@gmail.com
+vincent.arnone@hotmail.fr (Vincent Arnone)
 
-vincent.arnone@hotmail.fr
-
-gary.prat@etu.univ-grenoble-alpes.fr 
