@@ -27,7 +27,7 @@
 
 ## Politique de développement 
 
-* Tous noms de fonctions, variables, documentations etc.. doit être impérativement en **anglais** .
+* Tous noms de fonctions, variables, documentations etc.. doit être impérativement en **anglais** et en **CamelCase**.
 * Api REST convention, se référer au site officiel : https://restfulapi.net/resource-naming .
 * Pour tout renseignement sur les tâches ou demandes, se référer au Trello : https://trello.com/b/aXuA8Jp8/agile .
 * Suivre impérativement le git flow .
@@ -52,11 +52,13 @@ gary.prat@etu.univ-grenoble-alpes.fr (Gary Prat)
 
 julien.alaimo@gmail.com (Julien Alaimo)
 
-#### Dévelopeurs : 
+#### Chargé de Com
+
+vincent.arnone@hotmail.fr (Vincent Arnone)
+
+#### Pélerins : 
 
 kergan.kergan@gmail.com (Antoine Rotival)
 
 feydel.hugo@gmail.com (Hugo Feydel)
-
-vincent.arnone@hotmail.fr (Vincent Arnone)
 
