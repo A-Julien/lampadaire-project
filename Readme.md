@@ -44,7 +44,7 @@ sebastien.chassande@soprasteria.com
 
 ### Equipe : 
 
-#### Scrum-Master (Dayallama) : 
+#### Scrum-Master (Grand Dayallama) : 
 
 gary.prat@etu.univ-grenoble-alpes.fr (Gary Prat)
 
