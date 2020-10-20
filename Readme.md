@@ -44,11 +44,11 @@ sebastien.chassande@soprasteria.com
 
 ### Equipe : 
 
-#### Scrum-Master : 
+#### Scrum-Master (Dayallama) : 
 
 gary.prat@etu.univ-grenoble-alpes.fr (Gary Prat)
 
-#### Chef d'équipe : 
+#### Chef d'équipe (Skippy): 
 
 julien.alaimo@gmail.com (Julien Alaimo)
 
