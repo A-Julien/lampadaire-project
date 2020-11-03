@@ -1,6 +1,6 @@
 # Lampaderum
 
-[![Build Status](https://travis-ci.com/A-Julien/devops.svg?branch=master)](https://travis-ci.com/A-Julien/ECOM)
+[![Build Status](https://travis-ci.com/A-Julien/lampadaire-project.svg?branch=master)](https://travis-ci.com/A-Julien/lampadaire-project)
 [![codecov](https://codecov.io/gh/A-Julien/devops/branch/master/graph/badge.svg)](https://codecov.io/gh/A-Julien/ECOM)
 [![codeinsp](https://www.code-inspector.com/project/13966/score/svg)](https://frontend.code-inspector.com/public/project/13966/ECOM/dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/a-julien/ECOM/badge)](https://www.codefactor.io/repository/github/a-julien/ECOM)
