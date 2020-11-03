@@ -10,5 +10,5 @@ TAG=${PROJECT_VERSION}_${PARAM}
 cd ${HOME} || return
 echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
 docker images
-docker tag travis-ci-build-devops $DOCKER_USERNAME/lampaderum:${TAG}
-docker push $DOCKER_USERNAME/travis-ci-build-devops:${TAG}
+docker tag lampaderum $DOCKER_USERNAME/lampaderum:${TAG}
+docker push $DOCKER_USERNAME/lampaderum:${TAG}
