@@ -57,6 +57,7 @@ script:
   - ./mvnw -ntp clean verify
   - ./mvnw -ntp com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test' -Dmaven.repo.local=$MAVEN_USER_HOME
   - ./mvnw -ntp verify -Pprod -DskipTests
+
 notifications:
   webhooks:
     on_success: change # options: [always|never|change] default: always
