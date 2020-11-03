@@ -1,0 +1,14 @@
+com.lampaderum
+com.lampaderum.aop.logging
+com.lampaderum.config
+com.lampaderum.config.audit
+com.lampaderum.domain
+com.lampaderum.repository
+com.lampaderum.security
+com.lampaderum.security.jwt
+com.lampaderum.service
+com.lampaderum.service.dto
+com.lampaderum.service.mapper
+com.lampaderum.web.rest
+com.lampaderum.web.rest.errors
+com.lampaderum.web.rest.vm
