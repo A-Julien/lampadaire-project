@@ -10,7 +10,7 @@ merge_branch() {
     git stash || exit
     git checkout recette || exit
     git merge --no-ff "$TRAVIS_COMMIT" || exit
-    git push https://${GH_TOKEN}@github.com/A-Julien/devops.git
+    git push https://${GH_TOKEN}@github.com/A-Julien/lampadaire-project.git
 }
 
 setup_git
