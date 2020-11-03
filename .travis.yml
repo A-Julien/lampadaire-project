@@ -1,3 +1,4 @@
+sudo: required
 os:
   - linux
 dist: trusty
@@ -63,6 +64,7 @@ notifications:
     on_start: false # default: false
 
 after_success:
+  - mvn javadoc:javadoc
   - PROJECT_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
   - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
@@ -98,3 +100,12 @@ deploy:
     on:
       tags: false
       branch: prod
+
+  - provider: pages
+    skip_cleanup: true
+    local_dir: target/site
+    github_token: '$GH_TOKEN'
+    keep_history: true
+    on:
+      tags: false
+      branch: master
