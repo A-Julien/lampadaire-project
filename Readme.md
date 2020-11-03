@@ -1,9 +1,10 @@
 # Lampaderum
 
-[![Build Status](https://travis-ci.com/A-Julien/devops.svg?branch=master)](https://travis-ci.com/A-Julien/ECOM)
-[![codecov](https://codecov.io/gh/A-Julien/devops/branch/master/graph/badge.svg)](https://codecov.io/gh/A-Julien/ECOM)
-[![codeinsp](https://www.code-inspector.com/project/13966/score/svg)](https://frontend.code-inspector.com/public/project/13966/ECOM/dashboard)
-[![CodeFactor](https://www.codefactor.io/repository/github/a-julien/ECOM/badge)](https://www.codefactor.io/repository/github/a-julien/ECOM)
+[![Build Status](https://travis-ci.com/A-Julien/lampadaire-project.svg?branch=master)](https://travis-ci.com/A-Julien/lampadaire-project)
+[![codecov](https://codecov.io/gh/A-Julien/lampadaire-project/branch/master/graph/badge.svg?token=XBa0XJZpdA)](https://codecov.io/gh/A-Julien/lampadaire-project)
+[![codeinsp](https://www.code-inspector.com/project/13966/score/svg)](https://frontend.code-inspector.com/public/project/13966/lampadaire-project/dashboard)
+[![codeinsp](https://www.code-inspector.com/project/13966/status/svg)](https://frontend.code-inspector.com/public/project/13966/lampadaire-project/dashboard)
+[![CodeFactor](https://www.codefactor.io/repository/github/a-julien/lampadaire-project/badge)](https://www.codefactor.io/repository/github/a-julien/lampadaire-project)
 
 This application was generated using JHipster 6.10.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.3](https://www.jhipster.tech/documentation-archive/v6.10.3).
 
