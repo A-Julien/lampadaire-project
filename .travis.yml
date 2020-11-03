@@ -1,10 +1,20 @@
 os:
   - linux
+dist: trusty
+
 services:
   - docker
+branches:
+  only:
+    - master
+    - recette
+    - prod
+
 language: node_js
+
 node_js:
   - '12.16.1'
+
 cache:
   directories:
     - node
@@ -18,6 +28,7 @@ env:
     - JHI_DISABLE_WEBPACK_LOGS=true
     - NG_CLI_ANALYTICS="false"
     - MAVEN_USER_HOME=$HOME/.m2/repository/
+    - PROJECT_VERSION="default"
 before_install:
   - |
     if [[ $JHI_JDK = '8' ]]; then
@@ -51,15 +62,39 @@ notifications:
     on_failure: always # options: [always|never|change] default: always
     on_start: false # default: false
 
-branches:
-  only:
-    - master
-
 after_success:
+  - PROJECT_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+  - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
   - chmod +x send.sh
   - ./send.sh success $WEBHOOK_URL
+
 after_failure:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
   - chmod +x send.sh
   - ./send.sh failure $WEBHOOK_URL
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    keep_history: true
+    script: bash docker_push.sh dev
+    on:
+      tags: false
+      branch: master
+
+  - provider: script
+    skip_cleanup: true
+    keep_history: true
+    script: bash git_push.sh
+    on:
+      tags: false
+      branch: master
+
+  - provider: script
+    skip_cleanup: true
+    keep_history: true
+    script: bash docker_push.sh prod
+    on:
+      tags: false
+      branch: prod
