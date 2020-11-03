@@ -1,6 +1,6 @@
 #!/bin/bash
 #build image
-./mvnw package -Pprod verify jib:dockerBuild
+./mvnw package -Pprod verify -DskipTests jib:dockerBuild
 
 #build docker tag
 PARAM="$@"
