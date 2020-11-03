@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.e2e.json"
+    }
+  ],
+  "lib": ["es2015", "es2016", "dom", "es2018.promise"]
+}

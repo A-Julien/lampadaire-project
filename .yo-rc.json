@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.lampaderum",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.10.3",
+    "applicationType": "monolith",
+    "baseName": "Lampaderum",
+    "packageName": "com.lampaderum",
+    "packageFolder": "com/lampaderum",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YjYwODkxOTg4N2NjMDY4MGExODdhZWZmNWFhM2ZhNzI0MzM4Y2FjMTNjZDdlNWRiODY4MTY5NTIwYTJkNWNiZmQ3NDEwZDVjMjdmYjA0ZmJkYTllZWI4ZTVmNDA3MDIxM2VhNTNkNTAyODlhYTkxNDA5NWY1Zjc1NzBiNTc3YTU=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "superhero",
+    "clientThemeVariant": "dark",
+    "creationTimestamp": 1603454019095,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": ["fr"],
+    "blueprints": []
+  }
+}

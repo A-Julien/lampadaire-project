@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  lampaderum-postgresql:
+    image: postgres:12.3
+    volumes:
+      - postgresql:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=Lampaderum
+      - POSTGRES_PASSWORD=
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432
