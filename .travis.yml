@@ -94,6 +94,14 @@ deploy:
       tags: false
       branch: prod
 
+  - provider: script
+    skip_cleanup: true
+    keep_history: true
+    script: bash hello.sh
+    on:
+      tags: false
+      branch: recette
+
   - provider: pages
     skip_cleanup: true
     local_dir: target/site

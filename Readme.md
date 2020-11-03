@@ -12,8 +12,7 @@ This application was generated using JHipster 6.10.3, you can find documentation
 
 - [Github](https://github.com/A-Julien/lampadaire-project)
 - [CI (Travis)](https://travis-ci.com/A-Julien/lampadaire-project)
-- [MavenDoc](https://a-julien.github.io/lampadaire-project)
-- [JavaDoc]()
+- [JavaDoc](https://a-julien.github.io/lampadaire-project/apidocs/index.html)
 
 ## Development Policy
 
