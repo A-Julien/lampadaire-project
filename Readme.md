@@ -137,7 +137,7 @@ sebastien.chassande@soprasteria.com
 
 gary.prat@etu.univ-grenoble-alpes.fr (Gary Prat)
 
-#### Chef d'équipe (Skippy):
+#### Chef d'équipe - DEVOPS (Skippy):
 
 julien.alaimo@gmail.com (Julien Alaimo)
 

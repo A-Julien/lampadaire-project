@@ -5,16 +5,17 @@ volumes:
 
 services:
   lampaderum-node:
-    image: node:10
-    build:
-      context: .
-      dockerfile: lampaderum-dev-node.dockerfile
-    environment:
-      #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-      - MAVEN_OPTS=-Dhttp.proxyHost=lampaderum-app -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxyhost -Dhttps.proxyPort=8080
-    #      - SERVER_API_URL="http://lampaderum-app/"
-    #      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
-    #     - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+    image: node:14.15.0-stretch
+    #build:
+    #  context: .
+    #  dockerfile: lampaderum-dev-node.dockerfile
+    #environment:
+    #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+    #- MAVEN_OPTS=-Dhttp.proxyHost=lampaderum-app -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxyhost -Dhttps.proxyPort=8080
+    #- SERVER_API_URL="http://lampaderum-app:8080"
+    #- SERVER_API_URL="http://http://172.18.0.5:8080/"
+    #- EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+    #- SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
     ports:
       - 9060:9060
       - 9000:9000
@@ -24,12 +25,12 @@ services:
     #command: bash -c "cd /app && npm install -g @angular/cli @angular-devkit/build-angular && npm install && npm install @types/node --save-dev && npm i @types/node && npm start"
     #command: sh -c "cd /app && npm start"
     #entrypoint: sh -c "cd /app && npm install --save-dev @angular/cli@latest && npm install && npm start --host \"lampaderum-app\""
-    #   entrypoint: sh -c "cd /app && npm ci && npm install --save-dev @angular/cli@latest && npm install && npm run webpack:build"
-    entrypoint: sh -c "cd /app && npm ci"
+    #entrypoint: sh -c "cd /app && node -v && npm install --save-dev webpack-dev-server && npm install --save-dev @angular/cli@latest && npm run webpack:dev && npm start"
+    entrypoint: sh -c "cd /app && npm install && npm start" # --host \"172.18.0.5\" "
     volumes:
       - ../../../:/app/:rw
-    depends_on:
-      - 'lampaderum-app'
+    #depends_on:
+    #  - 'lampaderum-app'
 
   lampaderum-app:
     build:
