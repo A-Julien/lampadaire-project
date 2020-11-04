@@ -9,13 +9,17 @@ services:
     #build:
     #  context: .
     #  dockerfile: lampaderum-dev-node.dockerfile
-    #environment:
-    #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-    #- MAVEN_OPTS=-Dhttp.proxyHost=lampaderum-app -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxyhost -Dhttps.proxyPort=8080
-    #- SERVER_API_URL="http://lampaderum-app:8080"
-    #- SERVER_API_URL="http://http://172.18.0.5:8080/"
-    #- EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
-    #- SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+    environment:
+      #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      #- MAVEN_OPTS=-Dhttp.proxyHost=lampaderum-app -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxyhost -Dhttps.proxyPort=8080
+      #- SERVER_API_URL="http://lampaderum-app:8080"
+      #- SERVER_API_URL="http://http://172.18.0.5:8080/"
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=dev,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+      - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://lampaderum-postgresql:5432/Lampaderum
     ports:
       - 9060:9060
       - 9000:9000
@@ -29,8 +33,8 @@ services:
     entrypoint: sh -c "cd /app && npm install && npm start" # --host \"172.18.0.5\" "
     volumes:
       - ../../../:/app/:rw
-    #depends_on:
-    #  - 'lampaderum-app'
+    depends_on:
+      - 'lampaderum-app'
 
   lampaderum-app:
     build:
