@@ -145,8 +145,10 @@ julien.alaimo@gmail.com (Julien Alaimo)
 
 vincent.arnone@hotmail.fr (Vincent Arnone)
 
-#### Pélerins :
+#### Responsable IHM :
 
 kergan.kergan@gmail.com (Antoine Rotival)
+
+#### Pélerins :
 
 feydel.hugo@gmail.com (Hugo Feydel)
