@@ -1,10 +1,9 @@
 version: '2'
-
 services:
   lampaderum-postgresql:
     image: postgres:12.3
-    #volumes:
-    #  - postgresql:/var/lib/postgresql/data/
+    # volumes:
+    #     - ~/volumes/jhipster/Lampaderum/postgresql/:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=Lampaderum
       - POSTGRES_PASSWORD=
