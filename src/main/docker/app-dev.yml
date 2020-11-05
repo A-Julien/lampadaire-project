@@ -6,14 +6,7 @@ volumes:
 services:
   lampaderum-node:
     image: node:14.15.0-stretch
-    #build:
-    #  context: .
-    #  dockerfile: lampaderum-dev-node.dockerfile
     environment:
-      #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-      #- MAVEN_OPTS=-Dhttp.proxyHost=lampaderum-app -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxyhost -Dhttps.proxyPort=8080
-      #- SERVER_API_URL="http://lampaderum-app:8080"
-      #- SERVER_API_URL="http://http://172.18.0.5:8080/"
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=dev,swagger
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
@@ -26,11 +19,8 @@ services:
       - 3001:3001
       - 4200/tcp
       - 8080/tcp
-    #command: bash -c "cd /app && npm install -g @angular/cli @angular-devkit/build-angular && npm install && npm install @types/node --save-dev && npm i @types/node && npm start"
-    #command: sh -c "cd /app && npm start"
-    #entrypoint: sh -c "cd /app && npm install --save-dev @angular/cli@latest && npm install && npm start --host \"lampaderum-app\""
-    #entrypoint: sh -c "cd /app && node -v && npm install --save-dev webpack-dev-server && npm install --save-dev @angular/cli@latest && npm run webpack:dev && npm start"
-    entrypoint: sh -c "cd /app && npm install && npm start" # --host \"172.18.0.5\" "
+      -
+    entrypoint: sh -c "cd /app && npm install && npm start"
     volumes:
       - ../../../:/app/:rw
     depends_on:
@@ -55,7 +45,6 @@ services:
       - 'jhipster-registry'
     volumes:
       - ../../../:/app/
-    #entrypoint: sh -c "./mvnw -P-webpack"
 
   lampaderum-postgresql:
     extends:
