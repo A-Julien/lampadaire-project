@@ -4,32 +4,27 @@ volumes:
     external: true
 
 services:
-  # lampaderum-node:
-  #   image: node:10
-  #  build:
-  #    context: .
-  #    dockerfile: lampaderum-dev-node.dockerfile
-  #  environment:
-  #     - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-  #      - MAVEN_OPTS=-Dhttp.proxyHost=lampaderum-app -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxyhost -Dhttps.proxyPort=8080
-  #      - SERVER_API_URL="http://lampaderum-app/"
-  #      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
-  #     - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
-  #   ports:
-  #     - 9060:9060
-  #     - 9000:9000
-  #     - 3001:3001
-  #     - 4200/tcp
-  #     - 8080/tcp
-  #command: bash -c "cd /app && npm install -g @angular/cli @angular-devkit/build-angular && npm install && npm install @types/node --save-dev && npm i @types/node && npm start"
-  #command: sh -c "cd /app && npm start"
-  #entrypoint: sh -c "cd /app && npm install --save-dev @angular/cli@latest && npm install && npm start --host \"lampaderum-app\""
-  #   entrypoint: sh -c "cd /app && npm ci && npm install --save-dev @angular/cli@latest && npm install && npm run webpack:build"
-  #entrypoint: sh -c "cd /app && npm ci"
-  #    volumes:
-  #     - ../../../:/app/:rw
-  #   depends_on:
-  #      - "lampaderum-app"
+  lampaderum-node:
+    image: node:14.15.0-stretch
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=dev,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+      - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://lampaderum-postgresql:5432/Lampaderum
+    ports:
+      - 9060:9060
+      - 9000:9000
+      - 3001:3001
+      - 4200/tcp
+      - 8080/tcp
+      -
+    entrypoint: sh -c "cd /app && npm install && npm start"
+    volumes:
+      - ../../../:/app/:rw
+    depends_on:
+      - 'lampaderum-app'
 
   lampaderum-app:
     build:
@@ -42,7 +37,7 @@ services:
       - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
       - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
       - SPRING_DATASOURCE_URL=jdbc:postgresql://lampaderum-postgresql:5432/Lampaderum
-      #- JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
     ports:
       - 8080:8080
     depends_on:
@@ -50,7 +45,6 @@ services:
       - 'jhipster-registry'
     volumes:
       - ../../../:/app/
-    #entrypoint: sh -c "./mvnw -P-webpack"
 
   lampaderum-postgresql:
     extends:
