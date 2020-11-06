@@ -75,7 +75,7 @@ deploy:
   - provider: script
     skip_cleanup: true
     keep_history: true
-    script: bash docker_push.sh dev
+    script: bash docker_push.sh recette
     on:
       tags: false
       branch: master
