@@ -57,7 +57,7 @@ Docker for Angular are not ready yet, so, just do `npm start`.
 
 ### Use ng command
 
-`docker-compose exec lampaderum-node ng generate component xyz`
+`lampaderum-node ng generate component xyz`
 
 ### Using Angular CLI
 

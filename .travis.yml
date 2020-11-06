@@ -49,8 +49,10 @@ before_install:
   - npm install -g npm
   - node -v
   - npm -v
+
 install:
   - npm install
+
 script:
   - chmod +x mvnw
   - ./mvnw -ntp checkstyle:check
