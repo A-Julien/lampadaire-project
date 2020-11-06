@@ -1,14 +1,12 @@
 #!/bin/bash
-#build image
-./mvnw package -Pprod verify -DskipTests jib:dockerBuild
 
 #build docker tag
 PARAM="$@"
 TAG=${PROJECT_VERSION}_${PARAM}
 
+#export docker tag env var for xml
+export TAG
+
 #push image
 cd ${HOME} || return
-echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
-docker images
-docker tag lampaderum $DOCKER_USERNAME/lampaderum:${TAG}
-docker push $DOCKER_USERNAME/lampaderum:${TAG}
+./mvnw package -X -Pprod verify -DskipTests jib:build
