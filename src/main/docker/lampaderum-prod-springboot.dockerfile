@@ -1,4 +1,4 @@
-FROM maven:3.6.3-openjdk-11-slim
+FROM lampaderum
 LABEL maintainer = "julien.alaimo@gmail.com"
 ENV \
     INITSYSTEM on \
