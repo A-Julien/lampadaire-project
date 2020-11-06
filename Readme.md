@@ -26,17 +26,18 @@ This application was generated using JHipster 6.10.3, you can find documentation
 
 The development is done under docker.
 
+Please read `docker-compose` documentation.
+
 All docker config file are in `src/main/docker`.
 
 Dev docker config file :
 
 - `app-dev.yml`
-- `lampaderum-dev-node.dockerfile`
 - `lampaderum-dev-springboot.dockerfile`
 - `postgresql.yml, jhipster-registry.yml` same as prod.
 
-`lampaderum-dev-node.dockerfile` and `lampaderum-dev-springboot.dockerfile` are two docker images build
-for dev. This two images use your local project files to compile and execute programs. This means that you can develop
+`lampaderum-dev-springboot.dockerfile` are docker images build
+for dev. This image use your local project files to compile and execute programs. This means that you can develop
 on your favorite IDE.
 
 ### Running dev build
@@ -47,13 +48,14 @@ In order to start, you need to create a volume to store DB data : `docker volume
 
 - Using CLI : `docker compose app-dev.yml up`
 
-Docker for Angular are not ready yet, so, just do `npm start`.
-
 ### Recompile back (springboot app)
 
 - With intelliJ
+
   - go to the 'Services' tab, clic right on the `lampaderum-app` container, stop and start it.
   - simply go to the `app-dev.yml` and clic on the loop arrow in front of `lampaderum-app`.
+
+- With ``docker-compose``` commande
 
 ### Use ng command
 
