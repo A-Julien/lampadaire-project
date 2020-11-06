@@ -49,8 +49,10 @@ before_install:
   - npm install -g npm
   - node -v
   - npm -v
+
 install:
   - npm install
+
 script:
   - chmod +x mvnw
   - ./mvnw -ntp checkstyle:check
@@ -73,7 +75,7 @@ deploy:
   - provider: script
     skip_cleanup: true
     keep_history: true
-    script: bash docker_push.sh dev
+    script: bash docker_push.sh recette
     on:
       tags: false
       branch: master
