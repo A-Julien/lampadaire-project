@@ -8,5 +8,4 @@ TAG=${PROJECT_VERSION}_${PARAM}
 export TAG
 
 #push image
-cd ${HOME} || return
 ./mvnw package -X -Pprod verify -DskipTests jib:build
