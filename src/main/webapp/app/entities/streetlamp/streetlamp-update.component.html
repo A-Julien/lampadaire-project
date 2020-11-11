@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-streetlamp-heading" jhiTranslate="lampaderumApp.streetlamp.home.createOrEditLabel">Create or edit a Streetlamp</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.libstreetlamp" for="field_libstreetlamp">Libstreetlamp</label>
+                    <input type="text" class="form-control" name="libstreetlamp" id="field_libstreetlamp"
+                           formControlName="libstreetlamp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.modelestreetlamp" for="field_modelestreetlamp">Modelestreetlamp</label>
+                    <input type="text" class="form-control" name="modelestreetlamp" id="field_modelestreetlamp"
+                           formControlName="modelestreetlamp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.dureeviestreetlamp" for="field_dureeviestreetlamp">Dureeviestreetlamp</label>
+                    <input type="number" class="form-control" name="dureeviestreetlamp" id="field_dureeviestreetlamp"
+                           formControlName="dureeviestreetlamp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.uniteviestreetlamp" for="field_uniteviestreetlamp">Uniteviestreetlamp</label>
+                    <input type="text" class="form-control" name="uniteviestreetlamp" id="field_uniteviestreetlamp"
+                           formControlName="uniteviestreetlamp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.materiaustreetlamp" for="field_materiaustreetlamp">Materiaustreetlamp</label>
+                    <input type="text" class="form-control" name="materiaustreetlamp" id="field_materiaustreetlamp"
+                           formControlName="materiaustreetlamp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.liblampe" for="field_liblampe">Liblampe</label>
+                    <input type="text" class="form-control" name="liblampe" id="field_liblampe"
+                           formControlName="liblampe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.pwlampe" for="field_pwlampe">Pwlampe</label>
+                    <input type="number" class="form-control" name="pwlampe" id="field_pwlampe"
+                           formControlName="pwlampe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.formelampe" for="field_formelampe">Formelampe</label>
+                    <input type="text" class="form-control" name="formelampe" id="field_formelampe"
+                           formControlName="formelampe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.modelelampe" for="field_modelelampe">Modelelampe</label>
+                    <input type="text" class="form-control" name="modelelampe" id="field_modelelampe"
+                           formControlName="modelelampe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.dureevielampe" for="field_dureevielampe">Dureevielampe</label>
+                    <input type="number" class="form-control" name="dureevielampe" id="field_dureevielampe"
+                           formControlName="dureevielampe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.unitevielampe" for="field_unitevielampe">Unitevielampe</label>
+                    <input type="text" class="form-control" name="unitevielampe" id="field_unitevielampe"
+                           formControlName="unitevielampe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.voltlampe" for="field_voltlampe">Voltlampe</label>
+                    <input type="number" class="form-control" name="voltlampe" id="field_voltlampe"
+                           formControlName="voltlampe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.streetlamp.templampe" for="field_templampe">Templampe</label>
+                    <input type="number" class="form-control" name="templampe" id="field_templampe"
+                           formControlName="templampe"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity Streetlamp.
+    -->
+    <changeSet id="20201111173034-1" author="jhipster">
+        <createTable tableName="streetlamp">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="libstreetlamp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="modelestreetlamp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="dureeviestreetlamp" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="uniteviestreetlamp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="materiaustreetlamp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="liblampe" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pwlampe" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="formelampe" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="modelelampe" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="dureevielampe" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="unitevielampe" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="voltlampe" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="templampe" type="double">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20201111173034-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20201111173034-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/streetlamp.csv"
+                  separator=";"
+                  tableName="streetlamp">
+            <column name="id" type="numeric"/>
+            <column name="libstreetlamp" type="string"/>
+            <column name="modelestreetlamp" type="string"/>
+            <column name="dureeviestreetlamp" type="numeric"/>
+            <column name="uniteviestreetlamp" type="string"/>
+            <column name="materiaustreetlamp" type="string"/>
+            <column name="liblampe" type="string"/>
+            <column name="pwlampe" type="numeric"/>
+            <column name="formelampe" type="string"/>
+            <column name="modelelampe" type="string"/>
+            <column name="dureevielampe" type="numeric"/>
+            <column name="unitevielampe" type="string"/>
+            <column name="voltlampe" type="numeric"/>
+            <column name="templampe" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

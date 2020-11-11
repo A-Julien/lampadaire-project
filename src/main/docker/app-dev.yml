@@ -6,6 +6,7 @@ volumes:
 services:
   lampaderum-node:
     image: node:14.15.0-stretch
+    mem_limit: 1G
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=dev,swagger
@@ -19,7 +20,6 @@ services:
       - 3001:3001
       - 4200/tcp
       - 8080/tcp
-      -
     entrypoint: sh -c "cd /app && npm install && npm start"
     volumes:
       - ../../../:/app/:rw

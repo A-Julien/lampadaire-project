@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="streetlamp">
+            <h2><span jhiTranslate="lampaderumApp.streetlamp.detail.title">Streetlamp</span> {{ streetlamp.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.libstreetlamp">Libstreetlamp</span></dt>
+                <dd>
+                    <span>{{ streetlamp.libstreetlamp }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.modelestreetlamp">Modelestreetlamp</span></dt>
+                <dd>
+                    <span>{{ streetlamp.modelestreetlamp }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.dureeviestreetlamp">Dureeviestreetlamp</span></dt>
+                <dd>
+                    <span>{{ streetlamp.dureeviestreetlamp }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.uniteviestreetlamp">Uniteviestreetlamp</span></dt>
+                <dd>
+                    <span>{{ streetlamp.uniteviestreetlamp }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.materiaustreetlamp">Materiaustreetlamp</span></dt>
+                <dd>
+                    <span>{{ streetlamp.materiaustreetlamp }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.liblampe">Liblampe</span></dt>
+                <dd>
+                    <span>{{ streetlamp.liblampe }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.pwlampe">Pwlampe</span></dt>
+                <dd>
+                    <span>{{ streetlamp.pwlampe }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.formelampe">Formelampe</span></dt>
+                <dd>
+                    <span>{{ streetlamp.formelampe }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.modelelampe">Modelelampe</span></dt>
+                <dd>
+                    <span>{{ streetlamp.modelelampe }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.dureevielampe">Dureevielampe</span></dt>
+                <dd>
+                    <span>{{ streetlamp.dureevielampe }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.unitevielampe">Unitevielampe</span></dt>
+                <dd>
+                    <span>{{ streetlamp.unitevielampe }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.voltlampe">Voltlampe</span></dt>
+                <dd>
+                    <span>{{ streetlamp.voltlampe }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.streetlamp.templampe">Templampe</span></dt>
+                <dd>
+                    <span>{{ streetlamp.templampe }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/streetlamp', streetlamp.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
