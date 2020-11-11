@@ -35,6 +35,10 @@ public class StreetlampDTO implements Serializable {
 
     private Double templampe;
 
+    private String imagepathstreetlamp;
+
+    private Integer stockstreetlamp;
+
     
     public Long getId() {
         return id;
@@ -148,6 +152,22 @@ public class StreetlampDTO implements Serializable {
         this.templampe = templampe;
     }
 
+    public String getImagepathstreetlamp() {
+        return imagepathstreetlamp;
+    }
+
+    public void setImagepathstreetlamp(String imagepathstreetlamp) {
+        this.imagepathstreetlamp = imagepathstreetlamp;
+    }
+
+    public Integer getStockstreetlamp() {
+        return stockstreetlamp;
+    }
+
+    public void setStockstreetlamp(Integer stockstreetlamp) {
+        this.stockstreetlamp = stockstreetlamp;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -183,6 +203,8 @@ public class StreetlampDTO implements Serializable {
             ", unitevielampe='" + getUnitevielampe() + "'" +
             ", voltlampe=" + getVoltlampe() +
             ", templampe=" + getTemplampe() +
+            ", imagepathstreetlamp='" + getImagepathstreetlamp() + "'" +
+            ", stockstreetlamp=" + getStockstreetlamp() +
             "}";
     }
 }

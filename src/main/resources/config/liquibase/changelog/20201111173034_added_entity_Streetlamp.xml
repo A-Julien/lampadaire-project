@@ -54,6 +54,12 @@
             <column name="templampe" type="double">
                 <constraints nullable="true" />
             </column>
+            <column name="imagepathstreetlamp" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="stockstreetlamp" type="integer">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
@@ -90,6 +96,8 @@
             <column name="unitevielampe" type="string"/>
             <column name="voltlampe" type="numeric"/>
             <column name="templampe" type="numeric"/>
+            <column name="imagepathstreetlamp" type="string"/>
+            <column name="stockstreetlamp" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

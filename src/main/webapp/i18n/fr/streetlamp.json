@@ -28,7 +28,9 @@
       "dureevielampe": "Dureevielampe",
       "unitevielampe": "Unitevielampe",
       "voltlampe": "Voltlampe",
-      "templampe": "Templampe"
+      "templampe": "Templampe",
+      "imagepathstreetlamp": "Imagepathstreetlamp",
+      "stockstreetlamp": "Stockstreetlamp"
     }
   }
 }

@@ -71,6 +71,12 @@ public class StreetlampResourceIT {
     private static final Double DEFAULT_TEMPLAMPE = 1D;
     private static final Double UPDATED_TEMPLAMPE = 2D;
 
+    private static final String DEFAULT_IMAGEPATHSTREETLAMP = "AAAAAAAAAA";
+    private static final String UPDATED_IMAGEPATHSTREETLAMP = "BBBBBBBBBB";
+
+    private static final Integer DEFAULT_STOCKSTREETLAMP = 1;
+    private static final Integer UPDATED_STOCKSTREETLAMP = 2;
+
     @Autowired
     private StreetlampRepository streetlampRepository;
 
@@ -108,7 +114,9 @@ public class StreetlampResourceIT {
             .dureevielampe(DEFAULT_DUREEVIELAMPE)
             .unitevielampe(DEFAULT_UNITEVIELAMPE)
             .voltlampe(DEFAULT_VOLTLAMPE)
-            .templampe(DEFAULT_TEMPLAMPE);
+            .templampe(DEFAULT_TEMPLAMPE)
+            .imagepathstreetlamp(DEFAULT_IMAGEPATHSTREETLAMP)
+            .stockstreetlamp(DEFAULT_STOCKSTREETLAMP);
         return streetlamp;
     }
     /**
@@ -131,7 +139,9 @@ public class StreetlampResourceIT {
             .dureevielampe(UPDATED_DUREEVIELAMPE)
             .unitevielampe(UPDATED_UNITEVIELAMPE)
             .voltlampe(UPDATED_VOLTLAMPE)
-            .templampe(UPDATED_TEMPLAMPE);
+            .templampe(UPDATED_TEMPLAMPE)
+            .imagepathstreetlamp(UPDATED_IMAGEPATHSTREETLAMP)
+            .stockstreetlamp(UPDATED_STOCKSTREETLAMP);
         return streetlamp;
     }
 
@@ -168,6 +178,8 @@ public class StreetlampResourceIT {
         assertThat(testStreetlamp.getUnitevielampe()).isEqualTo(DEFAULT_UNITEVIELAMPE);
         assertThat(testStreetlamp.getVoltlampe()).isEqualTo(DEFAULT_VOLTLAMPE);
         assertThat(testStreetlamp.getTemplampe()).isEqualTo(DEFAULT_TEMPLAMPE);
+        assertThat(testStreetlamp.getImagepathstreetlamp()).isEqualTo(DEFAULT_IMAGEPATHSTREETLAMP);
+        assertThat(testStreetlamp.getStockstreetlamp()).isEqualTo(DEFAULT_STOCKSTREETLAMP);
     }
 
     @Test
@@ -214,7 +226,9 @@ public class StreetlampResourceIT {
             .andExpect(jsonPath("$.[*].dureevielampe").value(hasItem(DEFAULT_DUREEVIELAMPE.doubleValue())))
             .andExpect(jsonPath("$.[*].unitevielampe").value(hasItem(DEFAULT_UNITEVIELAMPE)))
             .andExpect(jsonPath("$.[*].voltlampe").value(hasItem(DEFAULT_VOLTLAMPE.doubleValue())))
-            .andExpect(jsonPath("$.[*].templampe").value(hasItem(DEFAULT_TEMPLAMPE.doubleValue())));
+            .andExpect(jsonPath("$.[*].templampe").value(hasItem(DEFAULT_TEMPLAMPE.doubleValue())))
+            .andExpect(jsonPath("$.[*].imagepathstreetlamp").value(hasItem(DEFAULT_IMAGEPATHSTREETLAMP)))
+            .andExpect(jsonPath("$.[*].stockstreetlamp").value(hasItem(DEFAULT_STOCKSTREETLAMP)));
     }
     
     @Test
@@ -240,7 +254,9 @@ public class StreetlampResourceIT {
             .andExpect(jsonPath("$.dureevielampe").value(DEFAULT_DUREEVIELAMPE.doubleValue()))
             .andExpect(jsonPath("$.unitevielampe").value(DEFAULT_UNITEVIELAMPE))
             .andExpect(jsonPath("$.voltlampe").value(DEFAULT_VOLTLAMPE.doubleValue()))
-            .andExpect(jsonPath("$.templampe").value(DEFAULT_TEMPLAMPE.doubleValue()));
+            .andExpect(jsonPath("$.templampe").value(DEFAULT_TEMPLAMPE.doubleValue()))
+            .andExpect(jsonPath("$.imagepathstreetlamp").value(DEFAULT_IMAGEPATHSTREETLAMP))
+            .andExpect(jsonPath("$.stockstreetlamp").value(DEFAULT_STOCKSTREETLAMP));
     }
     @Test
     @Transactional
@@ -275,7 +291,9 @@ public class StreetlampResourceIT {
             .dureevielampe(UPDATED_DUREEVIELAMPE)
             .unitevielampe(UPDATED_UNITEVIELAMPE)
             .voltlampe(UPDATED_VOLTLAMPE)
-            .templampe(UPDATED_TEMPLAMPE);
+            .templampe(UPDATED_TEMPLAMPE)
+            .imagepathstreetlamp(UPDATED_IMAGEPATHSTREETLAMP)
+            .stockstreetlamp(UPDATED_STOCKSTREETLAMP);
         StreetlampDTO streetlampDTO = streetlampMapper.toDto(updatedStreetlamp);
 
         restStreetlampMockMvc.perform(put("/api/streetlamps")
@@ -300,6 +318,8 @@ public class StreetlampResourceIT {
         assertThat(testStreetlamp.getUnitevielampe()).isEqualTo(UPDATED_UNITEVIELAMPE);
         assertThat(testStreetlamp.getVoltlampe()).isEqualTo(UPDATED_VOLTLAMPE);
         assertThat(testStreetlamp.getTemplampe()).isEqualTo(UPDATED_TEMPLAMPE);
+        assertThat(testStreetlamp.getImagepathstreetlamp()).isEqualTo(UPDATED_IMAGEPATHSTREETLAMP);
+        assertThat(testStreetlamp.getStockstreetlamp()).isEqualTo(UPDATED_STOCKSTREETLAMP);
     }
 
     @Test

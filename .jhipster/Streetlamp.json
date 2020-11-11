@@ -54,6 +54,15 @@
     {
       "fieldName": "templampe",
       "fieldType": "Double"
+    },
+    {
+      "fieldName": "imagepathstreetlamp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stockstreetlamp",
+      "fieldType": "Integer",
+      "fieldValidateRules": []
     }
   ],
   "changelogDate": "20201111173034",
