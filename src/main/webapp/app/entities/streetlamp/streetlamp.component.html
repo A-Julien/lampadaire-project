@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lampaderumApp.streetlamp.home.title">Streetlamps</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-streetlamp" [routerLink]="['/streetlamp/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="lampaderumApp.streetlamp.home.createLabel">
+            Create a new Streetlamp
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="streetlamps?.length === 0">
+        <span jhiTranslate="lampaderumApp.streetlamp.home.notFound">No streetlamps found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="streetlamps && streetlamps.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libstreetlamp"><span jhiTranslate="lampaderumApp.streetlamp.libstreetlamp">Libstreetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modelestreetlamp"><span jhiTranslate="lampaderumApp.streetlamp.modelestreetlamp">Modelestreetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dureeviestreetlamp"><span jhiTranslate="lampaderumApp.streetlamp.dureeviestreetlamp">Dureeviestreetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="uniteviestreetlamp"><span jhiTranslate="lampaderumApp.streetlamp.uniteviestreetlamp">Uniteviestreetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="materiaustreetlamp"><span jhiTranslate="lampaderumApp.streetlamp.materiaustreetlamp">Materiaustreetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="liblampe"><span jhiTranslate="lampaderumApp.streetlamp.liblampe">Liblampe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pwlampe"><span jhiTranslate="lampaderumApp.streetlamp.pwlampe">Pwlampe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="formelampe"><span jhiTranslate="lampaderumApp.streetlamp.formelampe">Formelampe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modelelampe"><span jhiTranslate="lampaderumApp.streetlamp.modelelampe">Modelelampe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dureevielampe"><span jhiTranslate="lampaderumApp.streetlamp.dureevielampe">Dureevielampe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unitevielampe"><span jhiTranslate="lampaderumApp.streetlamp.unitevielampe">Unitevielampe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="voltlampe"><span jhiTranslate="lampaderumApp.streetlamp.voltlampe">Voltlampe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="templampe"><span jhiTranslate="lampaderumApp.streetlamp.templampe">Templampe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imagepathstreetlamp"><span jhiTranslate="lampaderumApp.streetlamp.imagepathstreetlamp">Imagepathstreetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="stockstreetlamp"><span jhiTranslate="lampaderumApp.streetlamp.stockstreetlamp">Stockstreetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let streetlamp of streetlamps ;trackBy: trackId">
+                    <td><a [routerLink]="['/streetlamp', streetlamp.id, 'view']">{{ streetlamp.id }}</a></td>
+                    <td>{{ streetlamp.libstreetlamp }}</td>
+                    <td>{{ streetlamp.modelestreetlamp }}</td>
+                    <td>{{ streetlamp.dureeviestreetlamp }}</td>
+                    <td>{{ streetlamp.uniteviestreetlamp }}</td>
+                    <td>{{ streetlamp.materiaustreetlamp }}</td>
+                    <td>{{ streetlamp.liblampe }}</td>
+                    <td>{{ streetlamp.pwlampe }}</td>
+                    <td>{{ streetlamp.formelampe }}</td>
+                    <td>{{ streetlamp.modelelampe }}</td>
+                    <td>{{ streetlamp.dureevielampe }}</td>
+                    <td>{{ streetlamp.unitevielampe }}</td>
+                    <td>{{ streetlamp.voltlampe }}</td>
+                    <td>{{ streetlamp.templampe }}</td>
+                    <td>{{ streetlamp.imagepathstreetlamp }}</td>
+                    <td>{{ streetlamp.stockstreetlamp }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/streetlamp', streetlamp.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/streetlamp', streetlamp.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(streetlamp)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
