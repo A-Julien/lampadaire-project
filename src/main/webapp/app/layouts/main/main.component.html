@@ -8,6 +8,17 @@
     <div class="card jh-card">
         <router-outlet></router-outlet>
     </div>
-
+    <div class="row">
+        <div class="col-md-9">
+            <jhi-products-page #productsC [hidden]="orderFinished"></jhi-products-page>
+        </div>
+       <div class="col-md-3">
+            <jhi-shopping-cart (onOrderFinished)=finishOrder($event) #shoppingCartC
+                               [hidden]="orderFinished"></jhi-shopping-cart>
+        </div>
+        <div class="col-md-6 offset-3">
+            <jhi-orders #ordersC [hidden]="!orderFinished"></jhi-orders>
+        </div>
+    </div>
     <jhi-footer></jhi-footer>
 </div>
