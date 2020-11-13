@@ -1,5 +1,5 @@
 <div class="row card-deck">
-    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders;trackBy: trackId">
         <div class="card text-center">
             <div class="card-header">
                 <h4>{{order.product.libstreetlamp}}</h4>
@@ -15,6 +15,14 @@
                     <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
                         <button class="btn btn-primary" (click)="addToCart(order)"
                                 [disabled]="order.quantity <= 0">Add To Cart
+                        </button>
+                    </div>
+                    <div>
+                        <button type="submit"
+                                [routerLink]="['/streetlamp', order.id, 'view']"
+                                class="btn btn-info btn-sm">
+                            <fa-icon icon="eye"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Details</span>
                         </button>
                     </div>
                     <div class="col-12" *ngIf="isProductSelected(order.product)">

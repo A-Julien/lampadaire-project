@@ -96,4 +96,9 @@ export class ProductsPageComponent implements OnInit {
     this.loadOrders();
     this.productSelected = false;
   }
+
+  trackId(index: number, item: IStreetlamp): number {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+    return item.id!;
+  }
 }
