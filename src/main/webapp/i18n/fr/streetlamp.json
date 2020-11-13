@@ -30,7 +30,8 @@
       "voltlampe": "Voltlampe",
       "templampe": "Templampe",
       "imagepathstreetlamp": "Imagepathstreetlamp",
-      "stockstreetlamp": "Stockstreetlamp"
+      "stockstreetlamp": "Stockstreetlamp",
+      "pricestreetlamp": "Pricestreetlamp"
     }
   }
 }

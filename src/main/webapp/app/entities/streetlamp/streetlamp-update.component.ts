@@ -32,6 +32,7 @@ export class StreetlampUpdateComponent implements OnInit {
     templampe: [],
     imagepathstreetlamp: [],
     stockstreetlamp: [],
+    pricestreetlamp: [],
   });
 
   constructor(protected streetlampService: StreetlampService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -60,6 +61,7 @@ export class StreetlampUpdateComponent implements OnInit {
       templampe: streetlamp.templampe,
       imagepathstreetlamp: streetlamp.imagepathstreetlamp,
       stockstreetlamp: streetlamp.stockstreetlamp,
+      pricestreetlamp: streetlamp.pricestreetlamp,
     });
   }
 
@@ -96,6 +98,7 @@ export class StreetlampUpdateComponent implements OnInit {
       templampe: this.editForm.get(['templampe'])!.value,
       imagepathstreetlamp: this.editForm.get(['imagepathstreetlamp'])!.value,
       stockstreetlamp: this.editForm.get(['stockstreetlamp'])!.value,
+      pricestreetlamp: this.editForm.get(['pricestreetlamp'])!.value,
     };
   }
 

@@ -63,6 +63,10 @@
       "fieldName": "stockstreetlamp",
       "fieldType": "Integer",
       "fieldValidateRules": []
+    },
+    {
+      "fieldName": "pricestreetlamp",
+      "fieldType": "Double"
     }
   ],
   "changelogDate": "20201111173034",

@@ -59,7 +59,7 @@ export class ProductsPageComponent implements OnInit {
     }
   }
 
-  getProductIndex(product: Streetlamp): number {
+  getProductIndex(product: IStreetlamp): number {
     return this.lampService.ProductOrders.productOrders.findIndex((value: { product: Streetlamp }) => value.product === product);
   }
 
