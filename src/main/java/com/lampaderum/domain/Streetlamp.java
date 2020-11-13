@@ -67,6 +67,9 @@ public class Streetlamp implements Serializable {
     @Column(name = "stockstreetlamp")
     private Integer stockstreetlamp;
 
+    @Column(name = "pricestreetlamp")
+    private Double pricestreetlamp;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -270,6 +273,19 @@ public class Streetlamp implements Serializable {
     public void setStockstreetlamp(Integer stockstreetlamp) {
         this.stockstreetlamp = stockstreetlamp;
     }
+
+    public Double getPricestreetlamp() {
+        return pricestreetlamp;
+    }
+
+    public Streetlamp pricestreetlamp(Double pricestreetlamp) {
+        this.pricestreetlamp = pricestreetlamp;
+        return this;
+    }
+
+    public void setPricestreetlamp(Double pricestreetlamp) {
+        this.pricestreetlamp = pricestreetlamp;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -308,6 +324,7 @@ public class Streetlamp implements Serializable {
             ", templampe=" + getTemplampe() +
             ", imagepathstreetlamp='" + getImagepathstreetlamp() + "'" +
             ", stockstreetlamp=" + getStockstreetlamp() +
+            ", pricestreetlamp=" + getPricestreetlamp() +
             "}";
     }
 }
