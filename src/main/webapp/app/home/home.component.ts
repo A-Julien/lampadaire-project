@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   authSubscription?: Subscription;
   orderFinished = false;
   private collapsed = true;
-  //coucou
 
   @ViewChild('ordersC')
   ordersC!: OrdersComponent;

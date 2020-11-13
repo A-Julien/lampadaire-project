@@ -36,6 +36,7 @@ describe('Service Tests', () => {
         0,
         0,
         'AAAAAAA',
+        0,
         0
       );
     });
@@ -86,6 +87,7 @@ describe('Service Tests', () => {
             templampe: 1,
             imagepathstreetlamp: 'BBBBBB',
             stockstreetlamp: 1,
+            pricestreetlamp: 1,
           },
           elemDefault
         );
@@ -117,6 +119,7 @@ describe('Service Tests', () => {
             templampe: 1,
             imagepathstreetlamp: 'BBBBBB',
             stockstreetlamp: 1,
+            pricestreetlamp: 1,
           },
           elemDefault
         );

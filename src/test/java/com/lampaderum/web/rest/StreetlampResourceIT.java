@@ -77,6 +77,9 @@ public class StreetlampResourceIT {
     private static final Integer DEFAULT_STOCKSTREETLAMP = 1;
     private static final Integer UPDATED_STOCKSTREETLAMP = 2;
 
+    private static final Double DEFAULT_PRICESTREETLAMP = 1D;
+    private static final Double UPDATED_PRICESTREETLAMP = 2D;
+
     @Autowired
     private StreetlampRepository streetlampRepository;
 
@@ -116,7 +119,8 @@ public class StreetlampResourceIT {
             .voltlampe(DEFAULT_VOLTLAMPE)
             .templampe(DEFAULT_TEMPLAMPE)
             .imagepathstreetlamp(DEFAULT_IMAGEPATHSTREETLAMP)
-            .stockstreetlamp(DEFAULT_STOCKSTREETLAMP);
+            .stockstreetlamp(DEFAULT_STOCKSTREETLAMP)
+            .pricestreetlamp(DEFAULT_PRICESTREETLAMP);
         return streetlamp;
     }
     /**
@@ -141,7 +145,8 @@ public class StreetlampResourceIT {
             .voltlampe(UPDATED_VOLTLAMPE)
             .templampe(UPDATED_TEMPLAMPE)
             .imagepathstreetlamp(UPDATED_IMAGEPATHSTREETLAMP)
-            .stockstreetlamp(UPDATED_STOCKSTREETLAMP);
+            .stockstreetlamp(UPDATED_STOCKSTREETLAMP)
+            .pricestreetlamp(UPDATED_PRICESTREETLAMP);
         return streetlamp;
     }
 
@@ -180,6 +185,7 @@ public class StreetlampResourceIT {
         assertThat(testStreetlamp.getTemplampe()).isEqualTo(DEFAULT_TEMPLAMPE);
         assertThat(testStreetlamp.getImagepathstreetlamp()).isEqualTo(DEFAULT_IMAGEPATHSTREETLAMP);
         assertThat(testStreetlamp.getStockstreetlamp()).isEqualTo(DEFAULT_STOCKSTREETLAMP);
+        assertThat(testStreetlamp.getPricestreetlamp()).isEqualTo(DEFAULT_PRICESTREETLAMP);
     }
 
     @Test
@@ -228,7 +234,8 @@ public class StreetlampResourceIT {
             .andExpect(jsonPath("$.[*].voltlampe").value(hasItem(DEFAULT_VOLTLAMPE.doubleValue())))
             .andExpect(jsonPath("$.[*].templampe").value(hasItem(DEFAULT_TEMPLAMPE.doubleValue())))
             .andExpect(jsonPath("$.[*].imagepathstreetlamp").value(hasItem(DEFAULT_IMAGEPATHSTREETLAMP)))
-            .andExpect(jsonPath("$.[*].stockstreetlamp").value(hasItem(DEFAULT_STOCKSTREETLAMP)));
+            .andExpect(jsonPath("$.[*].stockstreetlamp").value(hasItem(DEFAULT_STOCKSTREETLAMP)))
+            .andExpect(jsonPath("$.[*].pricestreetlamp").value(hasItem(DEFAULT_PRICESTREETLAMP.doubleValue())));
     }
     
     @Test
@@ -256,7 +263,8 @@ public class StreetlampResourceIT {
             .andExpect(jsonPath("$.voltlampe").value(DEFAULT_VOLTLAMPE.doubleValue()))
             .andExpect(jsonPath("$.templampe").value(DEFAULT_TEMPLAMPE.doubleValue()))
             .andExpect(jsonPath("$.imagepathstreetlamp").value(DEFAULT_IMAGEPATHSTREETLAMP))
-            .andExpect(jsonPath("$.stockstreetlamp").value(DEFAULT_STOCKSTREETLAMP));
+            .andExpect(jsonPath("$.stockstreetlamp").value(DEFAULT_STOCKSTREETLAMP))
+            .andExpect(jsonPath("$.pricestreetlamp").value(DEFAULT_PRICESTREETLAMP.doubleValue()));
     }
     @Test
     @Transactional
@@ -293,7 +301,8 @@ public class StreetlampResourceIT {
             .voltlampe(UPDATED_VOLTLAMPE)
             .templampe(UPDATED_TEMPLAMPE)
             .imagepathstreetlamp(UPDATED_IMAGEPATHSTREETLAMP)
-            .stockstreetlamp(UPDATED_STOCKSTREETLAMP);
+            .stockstreetlamp(UPDATED_STOCKSTREETLAMP)
+            .pricestreetlamp(UPDATED_PRICESTREETLAMP);
         StreetlampDTO streetlampDTO = streetlampMapper.toDto(updatedStreetlamp);
 
         restStreetlampMockMvc.perform(put("/api/streetlamps")
@@ -320,6 +329,7 @@ public class StreetlampResourceIT {
         assertThat(testStreetlamp.getTemplampe()).isEqualTo(UPDATED_TEMPLAMPE);
         assertThat(testStreetlamp.getImagepathstreetlamp()).isEqualTo(UPDATED_IMAGEPATHSTREETLAMP);
         assertThat(testStreetlamp.getStockstreetlamp()).isEqualTo(UPDATED_STOCKSTREETLAMP);
+        assertThat(testStreetlamp.getPricestreetlamp()).isEqualTo(UPDATED_PRICESTREETLAMP);
     }
 
     @Test

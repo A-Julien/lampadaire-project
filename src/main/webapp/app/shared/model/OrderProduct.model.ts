@@ -1,10 +1,10 @@
-import { Streetlamp } from './streetlamp.model';
+import { IStreetlamp } from './streetlamp.model';
 
 export class ProductOrder {
-  product: Streetlamp;
+  product: IStreetlamp;
   quantity: number;
 
-  constructor(product: Streetlamp, quantity: number) {
+  constructor(product: IStreetlamp, quantity: number) {
     this.product = product;
     this.quantity = quantity;
   }

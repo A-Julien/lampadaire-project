@@ -36,11 +36,13 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   private calculateTotal(products: ProductOrder[]): number {
-    /*let sum = 0;
+    let sum = 0;
     products.forEach(value => {
-      sum += (value.product.price * value.quantity);
-    });*/
-    return 0;
+      if (value.product.pricestreetlamp !== undefined) {
+        sum += value.product.pricestreetlamp * value.quantity;
+      }
+    });
+    return sum;
   }
 
   loadCart(): void {

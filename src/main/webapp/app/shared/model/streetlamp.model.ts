@@ -15,6 +15,7 @@ export interface IStreetlamp {
   templampe?: number;
   imagepathstreetlamp?: string;
   stockstreetlamp?: number;
+  pricestreetlamp?: number;
 }
 
 export class Streetlamp implements IStreetlamp {
@@ -34,6 +35,7 @@ export class Streetlamp implements IStreetlamp {
     public voltlampe?: number,
     public templampe?: number,
     public imagepathstreetlamp?: string,
-    public stockstreetlamp?: number
+    public stockstreetlamp?: number,
+    public pricestreetlamp?: number
   ) {}
 }
