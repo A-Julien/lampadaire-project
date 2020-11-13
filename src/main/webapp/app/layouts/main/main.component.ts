@@ -1,12 +1,9 @@
-import { Component, OnInit, RendererFactory2, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, RendererFactory2, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRouteSnapshot, NavigationEnd, NavigationError } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 import { AccountService } from 'app/core/auth/account.service';
-import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
-import { OrdersComponent } from 'app/core/orders/orders.component';
-import { ProductsPageComponent } from 'app/core/products-page/products-page.component';
 
 @Component({
   selector: 'jhi-main',
@@ -14,17 +11,6 @@ import { ProductsPageComponent } from 'app/core/products-page/products-page.comp
 })
 export class MainComponent implements OnInit {
   private renderer: Renderer2;
-  private collapsed = true;
-  orderFinished = false;
-
-  @ViewChild('ordersC')
-  ordersC!: OrdersComponent;
-
-  @ViewChild('productsC')
-  productsC!: ProductsPageComponent;
-
-  @ViewChild('shoppingCartC')
-  shoppingCartC!: ShoppingCartComponent;
 
   constructor(
     private accountService: AccountService,
@@ -70,20 +56,5 @@ export class MainComponent implements OnInit {
       pageTitle = 'global.title';
     }
     this.translateService.get(pageTitle).subscribe(title => this.titleService.setTitle(title));
-  }
-
-  toggleCollapsed(): void {
-    this.collapsed = !this.collapsed;
-  }
-
-  finishOrder(orderFinished: boolean): void {
-    this.orderFinished = orderFinished;
-  }
-
-  reset(): void {
-    this.orderFinished = false;
-    this.productsC.reset();
-    this.shoppingCartC.reset();
-    // this.ordersC.paid = false;
   }
 }

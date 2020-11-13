@@ -28,17 +28,7 @@ import { OrdersComponent } from 'app/core/orders/orders.component';
     LampaderumEntityModule,
     LampaderumAppRoutingModule,
   ],
-  declarations: [
-    MainComponent,
-    NavbarComponent,
-    ErrorComponent,
-    PageRibbonComponent,
-    ActiveMenuDirective,
-    FooterComponent,
-    ProductsPageComponent,
-    ShoppingCartComponent,
-    OrdersComponent,
-  ],
+  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent],
 })
 export class LampaderumAppModule {}
