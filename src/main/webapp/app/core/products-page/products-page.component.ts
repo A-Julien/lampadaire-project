@@ -55,22 +55,9 @@ export class ProductsPageComponent implements OnInit {
     if (data) {
       for (let i = 0; i < data.length; i++) {
         this.productOrders.push(new ProductOrder(data[i], 0));
-        //this.products.push(data[i]);
       }
     }
   }
-  /*loadProducts() {
-    this.streetLampService.query()
-      .subscribe(
-        (products: any[]) => {
-          this.products = products;
-          this.products.forEach(product => {
-            this.productOrders.push(new ProductOrder(product, 0));
-          })
-        },
-        (error) => console.log(error)
-      );
-  }*/
 
   getProductIndex(product: Streetlamp): number {
     return this.lampService.ProductOrders.productOrders.findIndex((value: { product: Streetlamp }) => value.product === product);
