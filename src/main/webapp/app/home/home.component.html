@@ -26,7 +26,8 @@
                                [hidden]="orderFinished"></jhi-shopping-cart>
         </div>
         <div class="col-md-6 offset-3">
-            <jhi-orders #ordersC [hidden]="!orderFinished"></jhi-orders>
+            <jhi-orders (onOrderFinished)=finishOrder($event) #ordersC
+                        [hidden]="!orderFinished"></jhi-orders>
         </div>
-        </div>
+    </div>
 </div>
