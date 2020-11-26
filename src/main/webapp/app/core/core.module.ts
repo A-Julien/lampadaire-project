@@ -19,9 +19,15 @@ import { ErrorHandlerInterceptor } from 'app/blocks/interceptor/errorhandler.int
 import { NotificationInterceptor } from 'app/blocks/interceptor/notification.interceptor';
 
 import { fontAwesomeIcons } from './icons/font-awesome-icons';
-import { DetailPageComponent } from './products-page/detail-page.component';
+import { DetailPageComponent } from './detail-page/detail-page.component';
 import { LampaderumSharedModule } from 'app/shared/shared.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductsPageComponent } from 'app/core/products-page/products-page.component';
+import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
+
+const appRoutes: Routes = [
+  {path: 'details', component: DetailPageComponent}
+]
 
 @NgModule({
   imports: [
@@ -47,7 +53,7 @@ import { RouterModule } from '@angular/router';
       }
     }),
     LampaderumSharedModule,
-    RouterModule
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     Title,
