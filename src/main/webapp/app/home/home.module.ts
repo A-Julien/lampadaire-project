@@ -9,7 +9,7 @@ import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.comp
 import { OrdersComponent } from 'app/core/orders/orders.component';
 
 @NgModule({
-  imports: [LampaderumSharedModule, RouterModule.forChild([HOME_ROUTE])],
+  imports: [LampaderumSharedModule, RouterModule.forChild(HOME_ROUTE)],
   declarations: [HomeComponent, ProductsPageComponent, ShoppingCartComponent, OrdersComponent],
 })
 export class LampaderumHomeModule {}
