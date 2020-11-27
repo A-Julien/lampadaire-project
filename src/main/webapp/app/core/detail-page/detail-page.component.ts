@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Streetlamp } from '../../shared/model/streetlamp.model';
+import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
 
 @Component({
   selector: 'jhi-detail-page',
@@ -9,6 +10,9 @@ import { Streetlamp } from '../../shared/model/streetlamp.model';
 })
 export class DetailPageComponent implements OnInit {
   streetlamp: Streetlamp | null = null;
+
+  @ViewChild('shoppingCartC')
+  shoppingCartC!: ShoppingCartComponent;
 
   constructor(protected activatedRoute: ActivatedRoute) {}
 

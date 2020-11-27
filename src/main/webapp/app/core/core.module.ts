@@ -24,6 +24,7 @@ import { LampaderumSharedModule } from 'app/shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsPageComponent } from 'app/core/products-page/products-page.component';
 import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
+import { LampaderumHomeModule } from 'app/home/home.module';
 
 const appRoutes: Routes = [
   {path: 'details', component: DetailPageComponent}
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
       }
     }),
     LampaderumSharedModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    LampaderumHomeModule
   ],
   providers: [
     Title,

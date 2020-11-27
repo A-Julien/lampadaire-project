@@ -11,5 +11,8 @@ import { OrdersComponent } from 'app/core/orders/orders.component';
 @NgModule({
   imports: [LampaderumSharedModule, RouterModule.forChild(HOME_ROUTE)],
   declarations: [HomeComponent, ProductsPageComponent, ShoppingCartComponent, OrdersComponent],
+  exports: [
+    ShoppingCartComponent
+  ]
 })
 export class LampaderumHomeModule {}

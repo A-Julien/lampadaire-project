@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-md-9" style="max-width: 100%">
         <div *ngIf="streetlamp">
             <h2><span jhiTranslate="lampaderumApp.streetlamp.detail.title">Streetlamp</span> {{ streetlamp.id }}</h2>
 
@@ -76,5 +76,8 @@
                 <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
             </button>
         </div>
+    </div>
+    <div class="col-md-3">
+    <jhi-shopping-cart #shoppingCartC></jhi-shopping-cart>
     </div>
 </div>
