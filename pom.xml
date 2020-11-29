@@ -651,6 +651,11 @@
                     </configuration>
                     <dependencies>
                         <dependency>
+                            <groupId>com.amazonaws</groupId>
+                            <artifactId>aws-java-sdk</artifactId>
+                            <version>1.11.163</version>
+                        </dependency>
+                        <dependency>
                             <groupId>org.liquibase</groupId>
                             <artifactId>liquibase-core</artifactId>
                             <version>${liquibase.version}</version>
