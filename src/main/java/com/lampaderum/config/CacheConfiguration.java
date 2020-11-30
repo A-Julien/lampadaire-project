@@ -52,6 +52,7 @@ public class CacheConfiguration {
             createCache(cm, com.lampaderum.domain.Authority.class.getName());
             createCache(cm, com.lampaderum.domain.User.class.getName() + ".authorities");
             createCache(cm, com.lampaderum.domain.Streetlamp.class.getName());
+            createCache(cm, com.lampaderum.domain.Roworder.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

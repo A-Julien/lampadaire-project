@@ -8,6 +8,10 @@ import { RouterModule } from '@angular/router';
         path: 'streetlamp',
         loadChildren: () => import('./streetlamp/streetlamp.module').then(m => m.LampaderumStreetlampModule),
       },
+      {
+        path: 'roworder',
+        loadChildren: () => import('./roworder/roworder.module').then(m => m.LampaderumRoworderModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],
