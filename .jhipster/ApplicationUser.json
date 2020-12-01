@@ -16,6 +16,12 @@
       "otherEntityName": "sOrder",
       "relationshipType": "one-to-many",
       "otherEntityRelationshipName": "applicationUser"
+    },
+    {
+      "relationshipName": "creditcard",
+      "otherEntityName": "creditcard",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "applicationUser"
     }
   ],
   "fields": [

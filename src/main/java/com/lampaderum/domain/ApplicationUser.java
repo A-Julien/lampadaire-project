@@ -35,6 +35,10 @@ public class ApplicationUser implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<SOrder> sorders = new HashSet<>();
 
+    @OneToMany(mappedBy = "applicationUser")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<Creditcard> creditcards = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -93,6 +97,31 @@ public class ApplicationUser implements Serializable {
 
     public void setSorders(Set<SOrder> sOrders) {
         this.sorders = sOrders;
+    }
+
+    public Set<Creditcard> getCreditcards() {
+        return creditcards;
+    }
+
+    public ApplicationUser creditcards(Set<Creditcard> creditcards) {
+        this.creditcards = creditcards;
+        return this;
+    }
+
+    public ApplicationUser addCreditcard(Creditcard creditcard) {
+        this.creditcards.add(creditcard);
+        creditcard.setApplicationUser(this);
+        return this;
+    }
+
+    public ApplicationUser removeCreditcard(Creditcard creditcard) {
+        this.creditcards.remove(creditcard);
+        creditcard.setApplicationUser(null);
+        return this;
+    }
+
+    public void setCreditcards(Set<Creditcard> creditcards) {
+        this.creditcards = creditcards;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

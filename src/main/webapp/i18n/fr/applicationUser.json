@@ -18,7 +18,8 @@
       },
       "siret": "Siret",
       "user": "User",
-      "sorder": "Sorder"
+      "sorder": "Sorder",
+      "creditcard": "Creditcard"
     }
   }
 }

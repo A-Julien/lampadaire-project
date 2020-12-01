@@ -20,6 +20,10 @@ import { RouterModule } from '@angular/router';
         path: 'application-user',
         loadChildren: () => import('./application-user/application-user.module').then(m => m.LampaderumApplicationUserModule),
       },
+      {
+        path: 'creditcard',
+        loadChildren: () => import('./creditcard/creditcard.module').then(m => m.LampaderumCreditcardModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

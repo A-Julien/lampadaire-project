@@ -19,6 +19,8 @@ public interface ApplicationUserMapper extends EntityMapper<ApplicationUserDTO, 
     @Mapping(source = "userId", target = "user")
     @Mapping(target = "sorders", ignore = true)
     @Mapping(target = "removeSorder", ignore = true)
+    @Mapping(target = "creditcards", ignore = true)
+    @Mapping(target = "removeCreditcard", ignore = true)
     ApplicationUser toEntity(ApplicationUserDTO applicationUserDTO);
 
     default ApplicationUser fromId(Long id) {
