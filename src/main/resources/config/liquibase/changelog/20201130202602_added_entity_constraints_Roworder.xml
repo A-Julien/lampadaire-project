@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="streetlamp"/>
 
+        <addForeignKeyConstraint baseColumnNames="sorder_id"
+                                 baseTableName="roworder"
+                                 constraintName="fk_roworder_sorder_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sorder"/>
+
     </changeSet>
 </databaseChangeLog>

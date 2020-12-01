@@ -1,0 +1,27 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "roworder",
+      "otherEntityName": "roworder",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "sorder"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "datecommande",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20201201175801",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceClass",
+  "entityTableName": "sorder",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "infinite-scroll"
+}

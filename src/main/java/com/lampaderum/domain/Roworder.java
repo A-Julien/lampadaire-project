@@ -35,6 +35,10 @@ public class Roworder implements Serializable {
     @JsonIgnoreProperties(value = "roworders", allowSetters = true)
     private Streetlamp streetlamp;
 
+    @ManyToOne
+    @JsonIgnoreProperties(value = "roworders", allowSetters = true)
+    private SOrder sorder;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -81,6 +85,19 @@ public class Roworder implements Serializable {
 
     public void setStreetlamp(Streetlamp streetlamp) {
         this.streetlamp = streetlamp;
+    }
+
+    public SOrder getSorder() {
+        return sorder;
+    }
+
+    public Roworder sorder(SOrder sOrder) {
+        this.sorder = sOrder;
+        return this;
+    }
+
+    public void setSorder(SOrder sOrder) {
+        this.sorder = sOrder;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

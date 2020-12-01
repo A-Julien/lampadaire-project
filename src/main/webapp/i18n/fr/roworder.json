@@ -18,7 +18,8 @@
       },
       "price": "Price",
       "quantite": "Quantite",
-      "streetlamp": "Streetlamp"
+      "streetlamp": "Streetlamp",
+      "sorder": "Sorder"
     }
   }
 }

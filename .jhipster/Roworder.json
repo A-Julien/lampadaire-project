@@ -8,6 +8,13 @@
       "relationshipType": "many-to-one",
       "otherEntityField": "id",
       "otherEntityRelationshipName": "roworder"
+    },
+    {
+      "relationshipName": "sorder",
+      "otherEntityName": "sOrder",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "roworder"
     }
   ],
   "fields": [

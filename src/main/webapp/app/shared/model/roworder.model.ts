@@ -3,8 +3,15 @@ export interface IRoworder {
   price?: number;
   quantite?: number;
   streetlampId?: number;
+  sorderId?: number;
 }
 
 export class Roworder implements IRoworder {
-  constructor(public id?: number, public price?: number, public quantite?: number, public streetlampId?: number) {}
+  constructor(
+    public id?: number,
+    public price?: number,
+    public quantite?: number,
+    public streetlampId?: number,
+    public sorderId?: number
+  ) {}
 }

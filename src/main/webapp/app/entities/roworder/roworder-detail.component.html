@@ -22,6 +22,12 @@
                         <a [routerLink]="['/streetlamp', roworder.streetlampId, 'view']">{{ roworder.streetlampId }}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="lampaderumApp.roworder.sorder">Sorder</span></dt>
+                <dd>
+                    <div *ngIf="roworder.sorderId">
+                        <a [routerLink]="['/s-order', roworder.sorderId, 'view']">{{ roworder.sorderId }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

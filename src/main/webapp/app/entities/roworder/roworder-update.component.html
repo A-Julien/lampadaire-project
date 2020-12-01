@@ -40,6 +40,14 @@
                         <option [ngValue]="streetlampOption.id" *ngFor="let streetlampOption of streetlamps; trackBy: trackById">{{ streetlampOption.id }}</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lampaderumApp.roworder.sorder" for="field_sorder">Sorder</label>
+                    <select class="form-control" id="field_sorder" name="sorder" formControlName="sorderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sOrderOption.id" *ngFor="let sOrderOption of sorders; trackBy: trackById">{{ sOrderOption.id }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

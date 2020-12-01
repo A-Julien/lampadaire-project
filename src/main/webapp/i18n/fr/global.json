@@ -9,6 +9,7 @@
         "main": "Entités",
         "streetlamp": "Streetlamp",
         "roworder": "Roworder",
+        "sOrder": "S Order",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

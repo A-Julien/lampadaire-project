@@ -17,6 +17,8 @@ public class RoworderDTO implements Serializable {
 
 
     private Long streetlampId;
+
+    private Long sorderId;
     
     public Long getId() {
         return id;
@@ -50,6 +52,14 @@ public class RoworderDTO implements Serializable {
         this.streetlampId = streetlampId;
     }
 
+    public Long getSorderId() {
+        return sorderId;
+    }
+
+    public void setSorderId(Long sOrderId) {
+        this.sorderId = sOrderId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -75,6 +85,7 @@ public class RoworderDTO implements Serializable {
             ", price=" + getPrice() +
             ", quantite=" + getQuantite() +
             ", streetlampId=" + getStreetlampId() +
+            ", sorderId=" + getSorderId() +
             "}";
     }
 }

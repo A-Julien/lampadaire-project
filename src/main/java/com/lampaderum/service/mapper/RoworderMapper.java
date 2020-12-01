@@ -9,13 +9,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Roworder} and its DTO {@link RoworderDTO}.
  */
-@Mapper(componentModel = "spring", uses = {StreetlampMapper.class})
+@Mapper(componentModel = "spring", uses = {StreetlampMapper.class, SOrderMapper.class})
 public interface RoworderMapper extends EntityMapper<RoworderDTO, Roworder> {
 
     @Mapping(source = "streetlamp.id", target = "streetlampId")
+    @Mapping(source = "sorder.id", target = "sorderId")
     RoworderDTO toDto(Roworder roworder);
 
     @Mapping(source = "streetlampId", target = "streetlamp")
+    @Mapping(source = "sorderId", target = "sorder")
     Roworder toEntity(RoworderDTO roworderDTO);
 
     default Roworder fromId(Long id) {

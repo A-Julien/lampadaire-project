@@ -1,0 +1,23 @@
+{
+  "lampaderumApp": {
+    "sOrder": {
+      "home": {
+        "title": "SOrders",
+        "createLabel": "Créer un nouveau S Order",
+        "createOrEditLabel": "Créer ou éditer un S Order",
+        "notFound": "Aucun S Order trouvé"
+      },
+      "created": "Un nouveau S Order a été créé avec l'identifiant {{ param }}",
+      "updated": "Le S Order avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le S Order avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le S Order {{ id }} ?"
+      },
+      "detail": {
+        "title": "S Order"
+      },
+      "datecommande": "Datecommande",
+      "roworder": "Roworder"
+    }
+  }
+}

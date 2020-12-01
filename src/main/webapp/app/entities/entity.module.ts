@@ -12,6 +12,10 @@ import { RouterModule } from '@angular/router';
         path: 'roworder',
         loadChildren: () => import('./roworder/roworder.module').then(m => m.LampaderumRoworderModule),
       },
+      {
+        path: 's-order',
+        loadChildren: () => import('./s-order/s-order.module').then(m => m.LampaderumSOrderModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],
