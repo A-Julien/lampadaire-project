@@ -10,6 +10,7 @@
         "streetlamp": "Streetlamp",
         "roworder": "Roworder",
         "sOrder": "S Order",
+        "applicationUser": "Application User",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

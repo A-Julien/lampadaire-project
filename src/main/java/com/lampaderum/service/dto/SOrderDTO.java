@@ -12,6 +12,8 @@ public class SOrderDTO implements Serializable {
 
     private LocalDate datecommande;
 
+
+    private Long applicationUserId;
     
     public Long getId() {
         return id;
@@ -27,6 +29,14 @@ public class SOrderDTO implements Serializable {
 
     public void setDatecommande(LocalDate datecommande) {
         this.datecommande = datecommande;
+    }
+
+    public Long getApplicationUserId() {
+        return applicationUserId;
+    }
+
+    public void setApplicationUserId(Long applicationUserId) {
+        this.applicationUserId = applicationUserId;
     }
 
     @Override
@@ -52,6 +62,7 @@ public class SOrderDTO implements Serializable {
         return "SOrderDTO{" +
             "id=" + getId() +
             ", datecommande='" + getDatecommande() + "'" +
+            ", applicationUserId=" + getApplicationUserId() +
             "}";
     }
 }

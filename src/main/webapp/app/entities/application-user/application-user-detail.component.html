@@ -1,22 +1,20 @@
 <div class="row justify-content-center">
     <div class="col-8">
-        <div *ngIf="sOrder">
-            <h2><span jhiTranslate="lampaderumApp.sOrder.detail.title">S Order</span> {{ sOrder.id }}</h2>
+        <div *ngIf="applicationUser">
+            <h2><span jhiTranslate="lampaderumApp.applicationUser.detail.title">Application User</span> {{ applicationUser.id }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="lampaderumApp.sOrder.datecommande">Datecommande</span></dt>
+                <dt><span jhiTranslate="lampaderumApp.applicationUser.siret">Siret</span></dt>
                 <dd>
-                    <span>{{ sOrder.datecommande }}</span>
+                    <span>{{ applicationUser.siret }}</span>
                 </dd>
-                <dt><span jhiTranslate="lampaderumApp.sOrder.applicationUser">Application User</span></dt>
+                <dt><span jhiTranslate="lampaderumApp.applicationUser.user">User</span></dt>
                 <dd>
-                    <div *ngIf="sOrder.applicationUserId">
-                        <a [routerLink]="['/application-user', sOrder.applicationUserId, 'view']">{{ sOrder.applicationUserId }}</a>
-                    </div>
+                    {{ applicationUser.userLogin }}
                 </dd>
             </dl>
 
@@ -27,7 +25,7 @@
             </button>
 
             <button type="button"
-                    [routerLink]="['/s-order', sOrder.id, 'edit']"
+                    [routerLink]="['/application-user', applicationUser.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
             </button>

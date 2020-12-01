@@ -1,5 +1,6 @@
 package com.lampaderum.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -31,6 +32,10 @@ public class SOrder implements Serializable {
     @OneToMany(mappedBy = "sorder")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Roworder> roworders = new HashSet<>();
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "sorders", allowSetters = true)
+    private ApplicationUser applicationUser;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -77,6 +82,19 @@ public class SOrder implements Serializable {
 
     public void setRoworders(Set<Roworder> roworders) {
         this.roworders = roworders;
+    }
+
+    public ApplicationUser getApplicationUser() {
+        return applicationUser;
+    }
+
+    public SOrder applicationUser(ApplicationUser applicationUser) {
+        this.applicationUser = applicationUser;
+        return this;
+    }
+
+    public void setApplicationUser(ApplicationUser applicationUser) {
+        this.applicationUser = applicationUser;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

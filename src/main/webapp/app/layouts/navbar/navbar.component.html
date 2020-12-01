@@ -45,6 +45,12 @@
                             <span jhiTranslate="global.menu.entities.sOrder">S Order</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="application-user" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.applicationUser">Application User</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

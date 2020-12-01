@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { ISOrder, SOrder } from 'app/shared/model/s-order.model';
 import { SOrderService } from './s-order.service';
+import { IApplicationUser } from 'app/shared/model/application-user.model';
+import { ApplicationUserService } from 'app/entities/application-user/application-user.service';
 
 @Component({
   selector: 'jhi-s-order-update',
@@ -14,18 +16,27 @@ import { SOrderService } from './s-order.service';
 })
 export class SOrderUpdateComponent implements OnInit {
   isSaving = false;
+  applicationusers: IApplicationUser[] = [];
   datecommandeDp: any;
 
   editForm = this.fb.group({
     id: [],
     datecommande: [],
+    applicationUserId: [],
   });
 
-  constructor(protected sOrderService: SOrderService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected sOrderService: SOrderService,
+    protected applicationUserService: ApplicationUserService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ sOrder }) => {
       this.updateForm(sOrder);
+
+      this.applicationUserService.query().subscribe((res: HttpResponse<IApplicationUser[]>) => (this.applicationusers = res.body || []));
     });
   }
 
@@ -33,6 +44,7 @@ export class SOrderUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: sOrder.id,
       datecommande: sOrder.datecommande,
+      applicationUserId: sOrder.applicationUserId,
     });
   }
 
@@ -55,6 +67,7 @@ export class SOrderUpdateComponent implements OnInit {
       ...new SOrder(),
       id: this.editForm.get(['id'])!.value,
       datecommande: this.editForm.get(['datecommande'])!.value,
+      applicationUserId: this.editForm.get(['applicationUserId'])!.value,
     };
   }
 
@@ -72,5 +85,9 @@ export class SOrderUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IApplicationUser): any {
+    return item.id;
   }
 }

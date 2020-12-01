@@ -55,6 +55,8 @@ public class CacheConfiguration {
             createCache(cm, com.lampaderum.domain.Roworder.class.getName());
             createCache(cm, com.lampaderum.domain.SOrder.class.getName());
             createCache(cm, com.lampaderum.domain.SOrder.class.getName() + ".roworders");
+            createCache(cm, com.lampaderum.domain.ApplicationUser.class.getName());
+            createCache(cm, com.lampaderum.domain.ApplicationUser.class.getName() + ".sorders");
             // jhipster-needle-ehcache-add-entry
         };
     }

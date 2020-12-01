@@ -17,7 +17,8 @@
         "title": "S Order"
       },
       "datecommande": "Datecommande",
-      "roworder": "Roworder"
+      "roworder": "Roworder",
+      "applicationUser": "Application User"
     }
   }
 }

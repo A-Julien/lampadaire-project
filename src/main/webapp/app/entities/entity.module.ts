@@ -16,6 +16,10 @@ import { RouterModule } from '@angular/router';
         path: 's-order',
         loadChildren: () => import('./s-order/s-order.module').then(m => m.LampaderumSOrderModule),
       },
+      {
+        path: 'application-user',
+        loadChildren: () => import('./application-user/application-user.module').then(m => m.LampaderumApplicationUserModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

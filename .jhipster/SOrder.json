@@ -7,6 +7,13 @@
       "otherEntityName": "roworder",
       "relationshipType": "one-to-many",
       "otherEntityRelationshipName": "sorder"
+    },
+    {
+      "relationshipName": "applicationUser",
+      "otherEntityName": "applicationUser",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "sOrder"
     }
   ],
   "fields": [
