@@ -24,6 +24,10 @@ import { RouterModule } from '@angular/router';
         path: 'creditcard',
         loadChildren: () => import('./creditcard/creditcard.module').then(m => m.LampaderumCreditcardModule),
       },
+      {
+        path: 'rowcart',
+        loadChildren: () => import('./rowcart/rowcart.module').then(m => m.LampaderumRowcartModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

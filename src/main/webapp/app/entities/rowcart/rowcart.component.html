@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lampaderumApp.rowcart.home.title">Rowcarts</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rowcart" [routerLink]="['/rowcart/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="lampaderumApp.rowcart.home.createLabel">
+            Create a new Rowcart
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="rowcarts?.length === 0">
+        <span jhiTranslate="lampaderumApp.rowcart.home.notFound">No rowcarts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="rowcarts && rowcarts.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span jhiTranslate="lampaderumApp.rowcart.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="streetlampId"><span jhiTranslate="lampaderumApp.rowcart.streetlamp">Streetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let rowcart of rowcarts ;trackBy: trackId">
+                    <td><a [routerLink]="['/rowcart', rowcart.id, 'view']">{{ rowcart.id }}</a></td>
+                    <td>{{ rowcart.quantity }}</td>
+                    <td>
+                        <div *ngIf="rowcart.streetlampId">
+                            <a [routerLink]="['/streetlamp', rowcart.streetlampId , 'view']" >{{ rowcart.streetlampId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/rowcart', rowcart.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/rowcart', rowcart.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(rowcart)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
