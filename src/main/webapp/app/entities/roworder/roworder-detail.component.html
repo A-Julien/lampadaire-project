@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="roworder">
+            <h2><span jhiTranslate="lampaderumApp.roworder.detail.title">Roworder</span> {{ roworder.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lampaderumApp.roworder.price">Price</span></dt>
+                <dd>
+                    <span>{{ roworder.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.roworder.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{ roworder.quantite }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.roworder.streetlamp">Streetlamp</span></dt>
+                <dd>
+                    <div *ngIf="roworder.streetlampId">
+                        <a [routerLink]="['/streetlamp', roworder.streetlampId, 'view']">{{ roworder.streetlampId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.roworder.sorder">Sorder</span></dt>
+                <dd>
+                    <div *ngIf="roworder.sorderId">
+                        <a [routerLink]="['/s-order', roworder.sorderId, 'view']">{{ roworder.sorderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/roworder', roworder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

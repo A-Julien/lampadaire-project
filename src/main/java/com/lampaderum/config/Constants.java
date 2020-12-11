@@ -12,6 +12,9 @@ public final class Constants {
     public static final String DEFAULT_LANGUAGE = "fr";
     public static final String ANONYMOUS_USER = "anonymoususer";
 
+    public static final String SERV_IMG_URL = "https://lampaderum-img.s3.eu-west-3.amazonaws.com/";
+
+
     private Constants() {
     }
 }

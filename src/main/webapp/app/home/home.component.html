@@ -21,7 +21,9 @@
         <div class="col-md-9" style="max-width: 100%">
             <jhi-products-page #productsC [hidden]="orderFinished"></jhi-products-page>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3"
+             #stickyCart
+             [class.sticky] = "sticky">
             <jhi-shopping-cart (onOrderFinished)=finishOrder($event) #shoppingCartC
                                [hidden]="orderFinished"></jhi-shopping-cart>
         </div>

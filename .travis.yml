@@ -30,6 +30,9 @@ env:
     - NG_CLI_ANALYTICS="false"
     - MAVEN_USER_HOME=$HOME/.m2/repository/
     - PROJECT_VERSION="default"
+    - AWSACCESKEY=FAKE
+    - AWSSECRETKEY=FAKE
+    - AWSBUCKETNAME=FAKE
 before_install:
   - |
     if [[ $JHI_JDK = '8' ]]; then
@@ -49,6 +52,9 @@ before_install:
   - npm install -g npm
   - node -v
   - npm -v
+  - echo $AWSACCESKEY
+  - echo $AWSSECRETKEY
+  - echo $AWSBUCKETNAME
 
 install:
   - npm install

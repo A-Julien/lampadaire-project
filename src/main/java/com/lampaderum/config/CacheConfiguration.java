@@ -52,6 +52,16 @@ public class CacheConfiguration {
             createCache(cm, com.lampaderum.domain.Authority.class.getName());
             createCache(cm, com.lampaderum.domain.User.class.getName() + ".authorities");
             createCache(cm, com.lampaderum.domain.Streetlamp.class.getName());
+            createCache(cm, com.lampaderum.domain.Roworder.class.getName());
+            createCache(cm, com.lampaderum.domain.SOrder.class.getName());
+            createCache(cm, com.lampaderum.domain.SOrder.class.getName() + ".roworders");
+            createCache(cm, com.lampaderum.domain.ApplicationUser.class.getName());
+            createCache(cm, com.lampaderum.domain.ApplicationUser.class.getName() + ".sorders");
+            createCache(cm, com.lampaderum.domain.ApplicationUser.class.getName() + ".creditcards");
+            createCache(cm, com.lampaderum.domain.Creditcard.class.getName());
+            createCache(cm, com.lampaderum.domain.Rowcart.class.getName());
+            createCache(cm, com.lampaderum.domain.Cartpersi.class.getName());
+            createCache(cm, com.lampaderum.domain.Cartpersi.class.getName() + ".rowcarts");
             // jhipster-needle-ehcache-add-entry
         };
     }
