@@ -16,6 +16,12 @@
                 <dd>
                     {{ applicationUser.userLogin }}
                 </dd>
+                <dt><span jhiTranslate="lampaderumApp.applicationUser.cartpersi">Cartpersi</span></dt>
+                <dd>
+                    <div *ngIf="applicationUser.cartpersiId">
+                        <a [routerLink]="['/cartpersi', applicationUser.cartpersiId, 'view']">{{ applicationUser.cartpersiId }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

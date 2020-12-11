@@ -15,6 +15,8 @@ public class ApplicationUserDTO implements Serializable {
     private Long userId;
 
     private String userLogin;
+
+    private Long cartpersiId;
     
     public Long getId() {
         return id;
@@ -48,6 +50,14 @@ public class ApplicationUserDTO implements Serializable {
         this.userLogin = userLogin;
     }
 
+    public Long getCartpersiId() {
+        return cartpersiId;
+    }
+
+    public void setCartpersiId(Long cartpersiId) {
+        this.cartpersiId = cartpersiId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -73,6 +83,7 @@ public class ApplicationUserDTO implements Serializable {
             ", siret='" + getSiret() + "'" +
             ", userId=" + getUserId() +
             ", userLogin='" + getUserLogin() + "'" +
+            ", cartpersiId=" + getCartpersiId() +
             "}";
     }
 }

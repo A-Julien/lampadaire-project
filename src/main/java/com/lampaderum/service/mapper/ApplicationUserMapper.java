@@ -9,11 +9,12 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link ApplicationUser} and its DTO {@link ApplicationUserDTO}.
  */
-@Mapper(componentModel = "spring", uses = {UserMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class, CartpersiMapper.class})
 public interface ApplicationUserMapper extends EntityMapper<ApplicationUserDTO, ApplicationUser> {
 
     @Mapping(source = "user.id", target = "userId")
     @Mapping(source = "user.login", target = "userLogin")
+    @Mapping(source = "cartpersi.id", target = "cartpersiId")
     ApplicationUserDTO toDto(ApplicationUser applicationUser);
 
     @Mapping(source = "userId", target = "user")
@@ -21,6 +22,7 @@ public interface ApplicationUserMapper extends EntityMapper<ApplicationUserDTO, 
     @Mapping(target = "removeSorder", ignore = true)
     @Mapping(target = "creditcards", ignore = true)
     @Mapping(target = "removeCreditcard", ignore = true)
+    @Mapping(source = "cartpersiId", target = "cartpersi")
     ApplicationUser toEntity(ApplicationUserDTO applicationUserDTO);
 
     default ApplicationUser fromId(Long id) {

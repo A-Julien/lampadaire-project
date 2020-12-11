@@ -8,6 +8,7 @@ export interface IApplicationUser {
   userId?: number;
   sorders?: ISOrder[];
   creditcards?: ICreditcard[];
+  cartpersiId?: number;
 }
 
 export class ApplicationUser implements IApplicationUser {
@@ -17,6 +18,7 @@ export class ApplicationUser implements IApplicationUser {
     public userLogin?: string,
     public userId?: number,
     public sorders?: ISOrder[],
-    public creditcards?: ICreditcard[]
+    public creditcards?: ICreditcard[],
+    public cartpersiId?: number
   ) {}
 }

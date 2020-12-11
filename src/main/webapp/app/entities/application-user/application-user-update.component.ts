@@ -4,11 +4,16 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { IApplicationUser, ApplicationUser } from 'app/shared/model/application-user.model';
 import { ApplicationUserService } from './application-user.service';
 import { IUser } from 'app/core/user/user.model';
 import { UserService } from 'app/core/user/user.service';
+import { ICartpersi } from 'app/shared/model/cartpersi.model';
+import { CartpersiService } from 'app/entities/cartpersi/cartpersi.service';
+
+type SelectableEntity = IUser | ICartpersi;
 
 @Component({
   selector: 'jhi-application-user-update',
@@ -17,16 +22,19 @@ import { UserService } from 'app/core/user/user.service';
 export class ApplicationUserUpdateComponent implements OnInit {
   isSaving = false;
   users: IUser[] = [];
+  cartpersis: ICartpersi[] = [];
 
   editForm = this.fb.group({
     id: [],
     siret: [],
     userId: [],
+    cartpersiId: [],
   });
 
   constructor(
     protected applicationUserService: ApplicationUserService,
     protected userService: UserService,
+    protected cartpersiService: CartpersiService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -36,6 +44,28 @@ export class ApplicationUserUpdateComponent implements OnInit {
       this.updateForm(applicationUser);
 
       this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
+
+      this.cartpersiService
+        .query({ filter: 'applicationuser-is-null' })
+        .pipe(
+          map((res: HttpResponse<ICartpersi[]>) => {
+            return res.body || [];
+          })
+        )
+        .subscribe((resBody: ICartpersi[]) => {
+          if (!applicationUser.cartpersiId) {
+            this.cartpersis = resBody;
+          } else {
+            this.cartpersiService
+              .find(applicationUser.cartpersiId)
+              .pipe(
+                map((subRes: HttpResponse<ICartpersi>) => {
+                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
+                })
+              )
+              .subscribe((concatRes: ICartpersi[]) => (this.cartpersis = concatRes));
+          }
+        });
     });
   }
 
@@ -44,6 +74,7 @@ export class ApplicationUserUpdateComponent implements OnInit {
       id: applicationUser.id,
       siret: applicationUser.siret,
       userId: applicationUser.userId,
+      cartpersiId: applicationUser.cartpersiId,
     });
   }
 
@@ -67,6 +98,7 @@ export class ApplicationUserUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       siret: this.editForm.get(['siret'])!.value,
       userId: this.editForm.get(['userId'])!.value,
+      cartpersiId: this.editForm.get(['cartpersiId'])!.value,
     };
   }
 
@@ -86,7 +118,7 @@ export class ApplicationUserUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IUser): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

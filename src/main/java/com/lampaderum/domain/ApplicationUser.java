@@ -39,6 +39,10 @@ public class ApplicationUser implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Creditcard> creditcards = new HashSet<>();
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Cartpersi cartpersi;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -122,6 +126,19 @@ public class ApplicationUser implements Serializable {
 
     public void setCreditcards(Set<Creditcard> creditcards) {
         this.creditcards = creditcards;
+    }
+
+    public Cartpersi getCartpersi() {
+        return cartpersi;
+    }
+
+    public ApplicationUser cartpersi(Cartpersi cartpersi) {
+        this.cartpersi = cartpersi;
+        return this;
+    }
+
+    public void setCartpersi(Cartpersi cartpersi) {
+        this.cartpersi = cartpersi;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

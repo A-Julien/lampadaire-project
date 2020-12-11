@@ -19,7 +19,8 @@
       "siret": "Siret",
       "user": "User",
       "sorder": "Sorder",
-      "creditcard": "Creditcard"
+      "creditcard": "Creditcard",
+      "cartpersi": "Cartpersi"
     }
   }
 }

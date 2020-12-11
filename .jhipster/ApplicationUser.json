@@ -22,6 +22,15 @@
       "otherEntityName": "creditcard",
       "relationshipType": "one-to-many",
       "otherEntityRelationshipName": "applicationUser"
+    },
+    {
+      "relationshipName": "cartpersi",
+      "otherEntityName": "cartpersi",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": false,
+      "otherEntityRelationshipName": "applicationUser"
     }
   ],
   "fields": [

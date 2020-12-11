@@ -25,6 +25,7 @@
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="siret"><span jhiTranslate="lampaderumApp.applicationUser.siret">Siret</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="userLogin"><span jhiTranslate="lampaderumApp.applicationUser.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cartpersiId"><span jhiTranslate="lampaderumApp.applicationUser.cartpersi">Cartpersi</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -34,6 +35,11 @@
                     <td>{{ applicationUser.siret }}</td>
                     <td>
                         {{ applicationUser.userLogin }}
+                    </td>
+                    <td>
+                        <div *ngIf="applicationUser.cartpersiId">
+                            <a [routerLink]="['/cartpersi', applicationUser.cartpersiId , 'view']" >{{ applicationUser.cartpersiId }}</a>
+                        </div>
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
