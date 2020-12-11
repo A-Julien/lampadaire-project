@@ -1,0 +1,22 @@
+{
+  "lampaderumApp": {
+    "cartpersi": {
+      "home": {
+        "title": "Cartpersis",
+        "createLabel": "Créer un nouveau Cartpersi",
+        "createOrEditLabel": "Créer ou éditer un Cartpersi",
+        "notFound": "Aucun Cartpersi trouvé"
+      },
+      "created": "Un nouveau Cartpersi a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Cartpersi avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Cartpersi avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Cartpersi {{ id }} ?"
+      },
+      "detail": {
+        "title": "Cartpersi"
+      },
+      "rowcart": "Rowcart"
+    }
+  }
+}

@@ -17,7 +17,8 @@
         "title": "Rowcart"
       },
       "quantity": "Quantity",
-      "streetlamp": "Streetlamp"
+      "streetlamp": "Streetlamp",
+      "cartpersi": "Cartpersi"
     }
   }
 }

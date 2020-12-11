@@ -30,6 +30,10 @@ public class Rowcart implements Serializable {
     @JsonIgnoreProperties(value = "rowcarts", allowSetters = true)
     private Streetlamp streetlamp;
 
+    @ManyToOne
+    @JsonIgnoreProperties(value = "rowcarts", allowSetters = true)
+    private Cartpersi cartpersi;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -63,6 +67,19 @@ public class Rowcart implements Serializable {
 
     public void setStreetlamp(Streetlamp streetlamp) {
         this.streetlamp = streetlamp;
+    }
+
+    public Cartpersi getCartpersi() {
+        return cartpersi;
+    }
+
+    public Rowcart cartpersi(Cartpersi cartpersi) {
+        this.cartpersi = cartpersi;
+        return this;
+    }
+
+    public void setCartpersi(Cartpersi cartpersi) {
+        this.cartpersi = cartpersi;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

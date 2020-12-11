@@ -8,6 +8,13 @@
       "relationshipType": "many-to-one",
       "otherEntityField": "id",
       "otherEntityRelationshipName": "rowcart"
+    },
+    {
+      "relationshipName": "cartpersi",
+      "otherEntityName": "cartpersi",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "rowcart"
     }
   ],
   "fields": [

@@ -25,6 +25,7 @@
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="quantity"><span jhiTranslate="lampaderumApp.rowcart.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="streetlampId"><span jhiTranslate="lampaderumApp.rowcart.streetlamp">Streetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cartpersiId"><span jhiTranslate="lampaderumApp.rowcart.cartpersi">Cartpersi</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -35,6 +36,11 @@
                     <td>
                         <div *ngIf="rowcart.streetlampId">
                             <a [routerLink]="['/streetlamp', rowcart.streetlampId , 'view']" >{{ rowcart.streetlampId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="rowcart.cartpersiId">
+                            <a [routerLink]="['/cartpersi', rowcart.cartpersiId , 'view']" >{{ rowcart.cartpersiId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

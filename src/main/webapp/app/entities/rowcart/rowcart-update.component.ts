@@ -9,6 +9,10 @@ import { IRowcart, Rowcart } from 'app/shared/model/rowcart.model';
 import { RowcartService } from './rowcart.service';
 import { IStreetlamp } from 'app/shared/model/streetlamp.model';
 import { StreetlampService } from 'app/entities/streetlamp/streetlamp.service';
+import { ICartpersi } from 'app/shared/model/cartpersi.model';
+import { CartpersiService } from 'app/entities/cartpersi/cartpersi.service';
+
+type SelectableEntity = IStreetlamp | ICartpersi;
 
 @Component({
   selector: 'jhi-rowcart-update',
@@ -17,16 +21,19 @@ import { StreetlampService } from 'app/entities/streetlamp/streetlamp.service';
 export class RowcartUpdateComponent implements OnInit {
   isSaving = false;
   streetlamps: IStreetlamp[] = [];
+  cartpersis: ICartpersi[] = [];
 
   editForm = this.fb.group({
     id: [],
     quantity: [],
     streetlampId: [],
+    cartpersiId: [],
   });
 
   constructor(
     protected rowcartService: RowcartService,
     protected streetlampService: StreetlampService,
+    protected cartpersiService: CartpersiService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -36,6 +43,8 @@ export class RowcartUpdateComponent implements OnInit {
       this.updateForm(rowcart);
 
       this.streetlampService.query().subscribe((res: HttpResponse<IStreetlamp[]>) => (this.streetlamps = res.body || []));
+
+      this.cartpersiService.query().subscribe((res: HttpResponse<ICartpersi[]>) => (this.cartpersis = res.body || []));
     });
   }
 
@@ -44,6 +53,7 @@ export class RowcartUpdateComponent implements OnInit {
       id: rowcart.id,
       quantity: rowcart.quantity,
       streetlampId: rowcart.streetlampId,
+      cartpersiId: rowcart.cartpersiId,
     });
   }
 
@@ -67,6 +77,7 @@ export class RowcartUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       quantity: this.editForm.get(['quantity'])!.value,
       streetlampId: this.editForm.get(['streetlampId'])!.value,
+      cartpersiId: this.editForm.get(['cartpersiId'])!.value,
     };
   }
 
@@ -86,7 +97,7 @@ export class RowcartUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IStreetlamp): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

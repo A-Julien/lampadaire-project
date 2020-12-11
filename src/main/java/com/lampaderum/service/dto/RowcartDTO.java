@@ -13,6 +13,8 @@ public class RowcartDTO implements Serializable {
 
 
     private Long streetlampId;
+
+    private Long cartpersiId;
     
     public Long getId() {
         return id;
@@ -36,6 +38,14 @@ public class RowcartDTO implements Serializable {
 
     public void setStreetlampId(Long streetlampId) {
         this.streetlampId = streetlampId;
+    }
+
+    public Long getCartpersiId() {
+        return cartpersiId;
+    }
+
+    public void setCartpersiId(Long cartpersiId) {
+        this.cartpersiId = cartpersiId;
     }
 
     @Override
@@ -62,6 +72,7 @@ public class RowcartDTO implements Serializable {
             "id=" + getId() +
             ", quantity=" + getQuantity() +
             ", streetlampId=" + getStreetlampId() +
+            ", cartpersiId=" + getCartpersiId() +
             "}";
     }
 }

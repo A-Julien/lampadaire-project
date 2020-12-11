@@ -9,13 +9,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Rowcart} and its DTO {@link RowcartDTO}.
  */
-@Mapper(componentModel = "spring", uses = {StreetlampMapper.class})
+@Mapper(componentModel = "spring", uses = {StreetlampMapper.class, CartpersiMapper.class})
 public interface RowcartMapper extends EntityMapper<RowcartDTO, Rowcart> {
 
     @Mapping(source = "streetlamp.id", target = "streetlampId")
+    @Mapping(source = "cartpersi.id", target = "cartpersiId")
     RowcartDTO toDto(Rowcart rowcart);
 
     @Mapping(source = "streetlampId", target = "streetlamp")
+    @Mapping(source = "cartpersiId", target = "cartpersi")
     Rowcart toEntity(RowcartDTO rowcartDTO);
 
     default Rowcart fromId(Long id) {

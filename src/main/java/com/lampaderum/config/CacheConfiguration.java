@@ -60,6 +60,8 @@ public class CacheConfiguration {
             createCache(cm, com.lampaderum.domain.ApplicationUser.class.getName() + ".creditcards");
             createCache(cm, com.lampaderum.domain.Creditcard.class.getName());
             createCache(cm, com.lampaderum.domain.Rowcart.class.getName());
+            createCache(cm, com.lampaderum.domain.Cartpersi.class.getName());
+            createCache(cm, com.lampaderum.domain.Cartpersi.class.getName() + ".rowcarts");
             // jhipster-needle-ehcache-add-entry
         };
     }

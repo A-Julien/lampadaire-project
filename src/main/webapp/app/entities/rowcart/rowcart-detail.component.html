@@ -18,6 +18,12 @@
                         <a [routerLink]="['/streetlamp', rowcart.streetlampId, 'view']">{{ rowcart.streetlampId }}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="lampaderumApp.rowcart.cartpersi">Cartpersi</span></dt>
+                <dd>
+                    <div *ngIf="rowcart.cartpersiId">
+                        <a [routerLink]="['/cartpersi', rowcart.cartpersiId, 'view']">{{ rowcart.cartpersiId }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

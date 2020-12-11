@@ -8,27 +8,18 @@
 
     
     <!--
-        Added the entity Rowcart.
+        Added the entity Cartpersi.
     -->
-    <changeSet id="20201211151032-1" author="jhipster">
-        <createTable tableName="rowcart">
+    <changeSet id="20201211173558-1" author="jhipster">
+        <createTable tableName="cartpersi">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="quantity" type="integer">
-                <constraints nullable="true" />
-            </column>
-            <column name="streetlamp_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="cartpersi_id" type="bigint">
-                <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
 
-    <changeSet id="20201211151032-1-relations" author="jhipster">
+    <changeSet id="20201211173558-1-relations" author="jhipster">
 
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
@@ -41,13 +32,12 @@
           This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
           Spring Boot configuration key.
     -->
-    <changeSet id="20201211151032-1-data" author="jhipster" context="faker">
+    <changeSet id="20201211173558-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/rowcart.csv"
+                  file="config/liquibase/fake-data/cartpersi.csv"
                   separator=";"
-                  tableName="rowcart">
+                  tableName="cartpersi">
             <column name="id" type="numeric"/>
-            <column name="quantity" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

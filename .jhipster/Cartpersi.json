@@ -1,0 +1,22 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "rowcart",
+      "otherEntityName": "rowcart",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "cartpersi"
+    }
+  ],
+  "fields": [],
+  "changelogDate": "20201211173558",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceClass",
+  "entityTableName": "cartpersi",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "infinite-scroll"
+}

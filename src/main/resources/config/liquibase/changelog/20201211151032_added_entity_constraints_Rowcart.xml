@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="streetlamp"/>
 
+        <addForeignKeyConstraint baseColumnNames="cartpersi_id"
+                                 baseTableName="rowcart"
+                                 constraintName="fk_rowcart_cartpersi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cartpersi"/>
+
     </changeSet>
 </databaseChangeLog>
