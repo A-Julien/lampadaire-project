@@ -21,3 +21,12 @@ Main page styles
     background-size: contain;
   }
 }
+
+.sticky {
+  position: -webkit-sticky; /* Safari & IE */
+  position: sticky;
+  top: 1em;
+  left: 0px;
+  height: 1em;
+  -webkit-backface-visibility: hidden;
+}
