@@ -16,9 +16,9 @@
 
 amazonProperties:
   endpointUrl: https://s3.eu-west-3.amazonaws.com
-  accessKey: ${AWSACCESKEY} #AKIAQ4CGQREVXM5JDUVM
-  secretKey: ${AWSSECRETKEY} #w9b2GQhUMoLcHZH5CX8eE9TInDZt/vPM1gpjFKAk
-  bucketName: ${AWSBUCKETNAME} #lampaderug-private-dev
+  accessKey: ${AWSACCESKEY}
+  secretKey: ${AWSSECRETKEY}
+  bucketName: ${AWSBUCKETNAME}
 
 eureka:
   client:
