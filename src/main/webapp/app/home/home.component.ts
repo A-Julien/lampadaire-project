@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, HostListener, ElementRef, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { LoginModalService } from 'app/core/login/login-modal.service';
@@ -13,11 +13,17 @@ import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.comp
   templateUrl: './home.component.html',
   styleUrls: ['home.scss'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   account: Account | null = null;
   authSubscription?: Subscription;
   orderFinished = false;
   private collapsed = true;
+
+  sticky: boolean;
+  elementPosition: any;
+
+  @ViewChild('stickyCart')
+  cartElement!: ElementRef;
 
   @ViewChild('ordersC')
   ordersC!: OrdersComponent;
@@ -28,7 +34,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('shoppingCartC')
   shoppingCartC!: ShoppingCartComponent;
 
-  constructor(private accountService: AccountService, private loginModalService: LoginModalService) {}
+  constructor(private accountService: AccountService, private loginModalService: LoginModalService) {
+    this.sticky = false;
+  }
+
+  ngAfterViewInit(): void {
+    this.elementPosition = this.cartElement.nativeElement.offsetTop;
+  }
 
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
@@ -53,6 +65,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   finishOrder(orderFinished: boolean): void {
     this.orderFinished = orderFinished;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  handleScroll(): void {
+    const windowScroll = window.pageYOffset;
+    if (windowScroll >= this.elementPosition) {
+      this.sticky = true;
+    } else {
+      this.sticky = false;
+    }
   }
 
   reset(): void {
