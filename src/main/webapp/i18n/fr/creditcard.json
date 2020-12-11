@@ -1,0 +1,25 @@
+{
+  "lampaderumApp": {
+    "creditcard": {
+      "home": {
+        "title": "Creditcards",
+        "createLabel": "Créer un nouveau Creditcard",
+        "createOrEditLabel": "Créer ou éditer un Creditcard",
+        "notFound": "Aucun Creditcard trouvé"
+      },
+      "created": "Un nouveau Creditcard a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Creditcard avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Creditcard avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Creditcard {{ id }} ?"
+      },
+      "detail": {
+        "title": "Creditcard"
+      },
+      "numcarte": "Numcarte",
+      "dateexpiration": "Dateexpiration",
+      "code": "Code",
+      "applicationUser": "Application User"
+    }
+  }
+}
