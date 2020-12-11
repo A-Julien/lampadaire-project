@@ -52,6 +52,9 @@ before_install:
   - npm install -g npm
   - node -v
   - npm -v
+  - echo $AWSACCESKEY
+  - echo $AWSSECRETKEY
+  - echo $AWSBUCKETNAME
 
 install:
   - npm install
