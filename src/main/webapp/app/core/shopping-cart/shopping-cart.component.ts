@@ -44,15 +44,17 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   loadCart(): void {
+    this.orders = this.lampService.ProductOrders;
     this.sub = this.lampService.ProductOrderChanged.subscribe(() => {
       const productOrder = this.lampService.SelectedProductOrder;
       if (productOrder) {
         this.orders.productOrders.push(new ProductOrder(productOrder.product, productOrder.quantity));
       }
       this.lampService.ProductOrders = this.orders;
-      this.orders = this.lampService.ProductOrders;
+      // this.orders = this.lampService.ProductOrders;
       this.total = this.calculateTotal(this.orders.productOrders);
     });
+    console.log(this.orders);
   }
 
   finishOrder(): void {
@@ -71,5 +73,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    delete this.orders;
   }
 }

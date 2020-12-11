@@ -26,10 +26,6 @@ import { ProductsPageComponent } from 'app/core/products-page/products-page.comp
 import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
 import { LampaderumHomeModule } from 'app/home/home.module';
 
-const appRoutes: Routes = [
-  {path: 'details', component: DetailPageComponent}
-]
-
 @NgModule({
   imports: [
     HttpClientModule,
@@ -54,7 +50,6 @@ const appRoutes: Routes = [
       }
     }),
     LampaderumSharedModule,
-    RouterModule.forRoot(appRoutes),
     LampaderumHomeModule
   ],
   providers: [
@@ -87,7 +82,7 @@ const appRoutes: Routes = [
       multi: true,
     },
   ],
-  declarations: [DetailPageComponent],
+  declarations : [DetailPageComponent],
 })
 export class LampaderumCoreModule {
   constructor(iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig, languageService: JhiLanguageService) {
