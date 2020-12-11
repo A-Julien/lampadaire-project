@@ -1,0 +1,26 @@
+{
+  "lampaderumApp": {
+    "applicationUser": {
+      "home": {
+        "title": "ApplicationUsers",
+        "createLabel": "Créer un nouveau Application User",
+        "createOrEditLabel": "Créer ou éditer un Application User",
+        "notFound": "Aucun Application User trouvé"
+      },
+      "created": "Un nouveau Application User a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Application User avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Application User avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Application User {{ id }} ?"
+      },
+      "detail": {
+        "title": "Application User"
+      },
+      "siret": "Siret",
+      "user": "User",
+      "sorder": "Sorder",
+      "creditcard": "Creditcard",
+      "cartpersi": "Cartpersi"
+    }
+  }
+}

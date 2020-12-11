@@ -1,0 +1,25 @@
+{
+  "lampaderumApp": {
+    "roworder": {
+      "home": {
+        "title": "Roworders",
+        "createLabel": "Créer un nouveau Roworder",
+        "createOrEditLabel": "Créer ou éditer un Roworder",
+        "notFound": "Aucun Roworder trouvé"
+      },
+      "created": "Un nouveau Roworder a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Roworder avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Roworder avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Roworder {{ id }} ?"
+      },
+      "detail": {
+        "title": "Roworder"
+      },
+      "price": "Price",
+      "quantite": "Quantite",
+      "streetlamp": "Streetlamp",
+      "sorder": "Sorder"
+    }
+  }
+}

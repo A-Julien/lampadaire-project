@@ -36,13 +36,13 @@ public class AwsClientService {
 
     private AmazonS3 s3client;
 
-    @Value("${amazonProperties.endpointUrl}")
+    @Value("${amazonProperties.endpointUrl:defaultValue}")
     private String endpointUrl;
-    @Value("${amazonProperties.bucketName}")
+    @Value("${amazonProperties.bucketName:defaultValue}")
     private String bucketName;
-    @Value("${amazonProperties.accessKey}")
+    @Value("${amazonProperties.accessKey:defaultValue}")
     private String accessKey;
-    @Value("${amazonProperties.secretKey}")
+    @Value("${amazonProperties.secretKey:defaultValue}")
     private String secretKey;
 
     @PostConstruct

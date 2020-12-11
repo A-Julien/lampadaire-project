@@ -8,6 +8,12 @@
       "entities": {
         "main": "Entités",
         "streetlamp": "Streetlamp",
+        "roworder": "Roworder",
+        "sOrder": "S Order",
+        "applicationUser": "Application User",
+        "creditcard": "Creditcard",
+        "rowcart": "Rowcart",
+        "cartpersi": "Cartpersi",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

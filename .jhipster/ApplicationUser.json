@@ -1,0 +1,51 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "user",
+      "otherEntityName": "user",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": false,
+      "otherEntityRelationshipName": "applicationUser"
+    },
+    {
+      "relationshipName": "sorder",
+      "otherEntityName": "sOrder",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "applicationUser"
+    },
+    {
+      "relationshipName": "creditcard",
+      "otherEntityName": "creditcard",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "applicationUser"
+    },
+    {
+      "relationshipName": "cartpersi",
+      "otherEntityName": "cartpersi",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": false,
+      "otherEntityRelationshipName": "applicationUser"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "siret",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20201201182531",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceClass",
+  "entityTableName": "application_user",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "infinite-scroll"
+}

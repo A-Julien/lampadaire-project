@@ -1,0 +1,24 @@
+{
+  "lampaderumApp": {
+    "rowcart": {
+      "home": {
+        "title": "Rowcarts",
+        "createLabel": "Créer un nouveau Rowcart",
+        "createOrEditLabel": "Créer ou éditer un Rowcart",
+        "notFound": "Aucun Rowcart trouvé"
+      },
+      "created": "Un nouveau Rowcart a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Rowcart avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Rowcart avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Rowcart {{ id }} ?"
+      },
+      "detail": {
+        "title": "Rowcart"
+      },
+      "quantity": "Quantity",
+      "streetlamp": "Streetlamp",
+      "cartpersi": "Cartpersi"
+    }
+  }
+}

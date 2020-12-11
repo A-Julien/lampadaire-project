@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="creditcard">
+            <h2><span jhiTranslate="lampaderumApp.creditcard.detail.title">Creditcard</span> {{ creditcard.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lampaderumApp.creditcard.numcarte">Numcarte</span></dt>
+                <dd>
+                    <span>{{ creditcard.numcarte }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.creditcard.dateexpiration">Dateexpiration</span></dt>
+                <dd>
+                    <span>{{ creditcard.dateexpiration }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.creditcard.code">Code</span></dt>
+                <dd>
+                    <span>{{ creditcard.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="lampaderumApp.creditcard.applicationUser">Application User</span></dt>
+                <dd>
+                    <div *ngIf="creditcard.applicationUserId">
+                        <a [routerLink]="['/application-user', creditcard.applicationUserId, 'view']">{{ creditcard.applicationUserId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/creditcard', creditcard.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
