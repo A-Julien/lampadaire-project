@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Cart } from 'app/shared/model/Cart.model';
 import { Subscription } from 'rxjs';
 import { LampService } from 'app/core/services/lamp-service.service';
@@ -13,11 +13,15 @@ export class OrdersComponent implements OnInit {
   total: number;
   paid: boolean;
   sub!: Subscription;
+  private orderFinished: boolean;
+  @Output() onOrderFinished: EventEmitter<boolean>;
 
   constructor(private lampService: LampService) {
     this.orders = this.lampService.ProductOrders;
     this.total = 0;
     this.paid = false;
+    this.orderFinished = true;
+    this.onOrderFinished = new EventEmitter<boolean>();
   }
 
   ngOnInit(): void {
@@ -37,5 +41,10 @@ export class OrdersComponent implements OnInit {
   pay(): void {
     this.paid = true;
     this.lampService.saveOrder(this.orders).subscribe();
+  }
+
+  backHome(): void {
+    this.orderFinished = false;
+    this.onOrderFinished.emit(this.orderFinished);
   }
 }
