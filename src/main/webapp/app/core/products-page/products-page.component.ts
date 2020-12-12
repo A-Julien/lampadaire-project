@@ -7,6 +7,7 @@ import { LampService } from 'app/core/services/lamp-service.service';
 import { StreetlampService } from 'app/entities/streetlamp/streetlamp.service';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { link } from 'fs';
 import { JhiParseLinks } from 'ng-jhipster';
 
 @Component({
@@ -96,6 +97,11 @@ export class ProductsPageComponent implements OnInit {
     this.lampService.ProductOrders.productOrders = [];
     this.loadOrders();
     this.productSelected = false;
+  }
+
+  trackId(index: number, item: ProductOrder): number {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+    return item.product.id!;
   }
 
   setListLayout(b: boolean): void {
