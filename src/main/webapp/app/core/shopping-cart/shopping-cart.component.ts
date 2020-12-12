@@ -54,7 +54,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       // this.orders = this.lampService.ProductOrders;
       this.total = this.calculateTotal(this.orders.productOrders);
     });
-    console.log(this.orders);
   }
 
   finishOrder(): void {
