@@ -6,6 +6,8 @@ volumes:
 services:
   lampaderum-app:
     image: jalaimo/lampaderum:0.0.1-SNAPSHOT_recette
+    env_file:
+      - aws.env
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,swagger
