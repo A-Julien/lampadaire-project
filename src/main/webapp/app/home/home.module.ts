@@ -12,10 +12,8 @@ import { LampService } from 'app/core/services/lamp-service.service';
 
 @NgModule({
   imports: [LampaderumSharedModule, RouterModule.forChild(HOME_ROUTE)],
-  providers:[LampService],
+  providers: [LampService],
   declarations: [HomeComponent, ProductsPageComponent, ShoppingCartComponent, OrdersComponent],
-  exports: [
-    ShoppingCartComponent
-  ]
+  exports: [ShoppingCartComponent],
 })
 export class LampaderumHomeModule {}

@@ -63,6 +63,4 @@ export class LampService {
     this.total = value;
     this.totalSubject.next();
   }
-
-
 }

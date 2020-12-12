@@ -7,23 +7,23 @@ import { UserRouteAccessService } from 'app/core/auth/user-route-access-service'
 
 export const HOME_ROUTE: Routes = [
   {
-  path: '',
-  component: HomeComponent,
-  data: {
-    authorities: [],
-    pageTitle: 'home.title',
-    }
+    path: '',
+    component: HomeComponent,
+    data: {
+      authorities: [],
+      pageTitle: 'home.title',
+    },
   },
   {
     path: ':id/view',
     component: DetailPageComponent,
     resolve: {
-      streetlamp: StreetlampResolve
+      streetlamp: StreetlampResolve,
     },
     data: {
       authorities: [],
-      pageTitle: 'home.title'
+      pageTitle: 'home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
-]
+    canActivate: [UserRouteAccessService],
+  },
+];

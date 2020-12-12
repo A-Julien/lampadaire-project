@@ -25,6 +25,7 @@ export class ProductsPageComponent implements OnInit {
   private page: number;
   private itemsPerPage: number;
   links: any;
+  isListLayout: boolean;
 
   constructor(private lampService: LampService, private streetLampService: StreetlampService, protected parseLinks: JhiParseLinks) {
     this.itemsPerPage = ITEMS_PER_PAGE;
@@ -33,6 +34,7 @@ export class ProductsPageComponent implements OnInit {
       last: 0,
     };
     this.productSelected = false;
+    this.isListLayout = false;
   }
 
   ngOnInit(): void {
@@ -100,5 +102,9 @@ export class ProductsPageComponent implements OnInit {
   trackId(index: number, item: ProductOrder): number {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.product.id!;
+  }
+
+  setListLayout(b: boolean): void {
+    this.isListLayout = b;
   }
 }

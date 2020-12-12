@@ -4,7 +4,7 @@ import { Streetlamp } from '../../shared/model/streetlamp.model';
 @Component({
   selector: 'jhi-detail-page',
   templateUrl: './detail-page.component.html',
-  styleUrls: ['./detail-page.component.scss']
+  styleUrls: ['./detail-page.component.scss'],
 })
 export class DetailPageComponent implements OnInit {
   streetlamp: Streetlamp | null = null;
@@ -18,5 +18,4 @@ export class DetailPageComponent implements OnInit {
   previousState(): void {
     window.history.back();
   }
-
 }

@@ -35,22 +35,22 @@ import { LampaderumHomeModule } from 'app/home/home.module';
       alertAsToast: false,
       alertTimeout: 5000,
       i18nEnabled: true,
-      defaultI18nLang: 'fr'
+      defaultI18nLang: 'fr',
     }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: translatePartialLoader,
-        deps: [HttpClient]
+        deps: [HttpClient],
       },
       missingTranslationHandler: {
         provide: MissingTranslationHandler,
         useFactory: missingTranslationHandler,
-        deps: [JhiConfigService]
-      }
+        deps: [JhiConfigService],
+      },
     }),
     LampaderumSharedModule,
-    LampaderumHomeModule
+    LampaderumHomeModule,
   ],
   providers: [
     Title,
@@ -82,7 +82,7 @@ import { LampaderumHomeModule } from 'app/home/home.module';
       multi: true,
     },
   ],
-  declarations : [DetailPageComponent],
+  declarations: [DetailPageComponent],
 })
 export class LampaderumCoreModule {
   constructor(iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig, languageService: JhiLanguageService) {

@@ -1,5 +1,17 @@
-<div class="row card-deck">
-    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders;trackBy: trackId">
+<p class="lead">
+    <button type="button" class="btn btn-outline-primary btn-sm btn-block"
+            (click)="setListLayout(true)"
+            [hidden]="isListLayout"
+    >Afficher sous forme de liste</button>
+
+    <button type="button" class="btn btn-outline-primary btn-sm btn-block"
+            (click)="setListLayout(false)"
+            [hidden]="!isListLayout"
+    >Afficher sous forme de grille</button>
+</p>
+
+<div class="row card-deck" [hidden]="isListLayout">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders">
         <div class="card text-center">
             <div class="card-header">
                 <h4>{{order.product.libstreetlamp}}</h4>
@@ -25,7 +37,7 @@
                     </div>
                     <div class="col-12" *ngIf="isProductSelected(order.product)">
                         <button class="btn btn-primary btn-block"
-                                (click)="removeFromCart(order)">Remove From Cart
+                                (click)="removeFromCart(order)">Retirer
                         </button>
                     </div>
                 </div>
@@ -33,3 +45,39 @@
         </div>
     </div>
 </div>
+
+<table class="table table-hover" [hidden]="!isListLayout">
+    <thead>
+    <tr>
+        <th scope="col">Modele</th>
+        <th scope="col">Ampoule</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Quantités</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-active" *ngFor="let order of productOrders">
+        <th scope="row">{{order.product.modelestreetlamp}}</th>
+        <td>{{order.product.modelelampe}}</td>
+        <td>{{order.product.pricestreetlamp}}</td>
+        <td>
+            <div class="row">
+                <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+                    <input type="number" min="0" class="form-control"
+                           [(ngModel)]=order.quantity>
+                </div>
+                <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+                    <button class="btn btn-primary btn-block" (click)="addToCart(order)"
+                            [disabled]="order.quantity <= 0">Ajouter
+                    </button>
+                </div>
+                <div class="col-12" *ngIf="isProductSelected(order.product)">
+                    <button class="btn btn-primary btn-block"
+                            (click)="removeFromCart(order)">Retirer
+                    </button>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
