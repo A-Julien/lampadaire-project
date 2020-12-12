@@ -1,9 +1,9 @@
 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-    <div class="card-header text-center">Shopping Cart</div>
+    <div class="card-header text-center">Votre Panier</div>
     <div class="card-body">
         <h5 class="card-title">Total: {{total}} €</h5>
         <hr>
-        <h6 class="card-title">Items bought:</h6>
+        <h6 class="card-title">Achats : </h6>
 
         <ul>
             <li *ngFor="let order of orders.productOrders">
@@ -12,7 +12,7 @@
         </ul>
 
         <button class="btn btn-primary btn-block" (click)="finishOrder()"
-                [disabled]="orders.productOrders.length == 0">Checkout
+                [disabled]="orders.productOrders.length == 0">Consulter
         </button>
     </div>
 </div>

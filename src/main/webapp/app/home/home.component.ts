@@ -61,4 +61,5 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.shoppingCartC.reset();
     // this.ordersC.paid = false;
   }
+
 }
