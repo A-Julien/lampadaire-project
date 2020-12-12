@@ -1,6 +1,9 @@
 
 
 <div>
+    <div>
+        <jhi-pay-form></jhi-pay-form>
+    </div>
     <div [ngSwitch]="isAuthenticated()">
         <div class="alert alert-success" *ngSwitchCase="true">
             <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"

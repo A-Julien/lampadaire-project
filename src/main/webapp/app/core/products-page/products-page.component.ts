@@ -49,6 +49,7 @@ export class ProductsPageComponent implements OnInit {
       })
       .subscribe((res: HttpResponse<IStreetlamp[]>) => this.paginateStreetlamps(res.body, res.headers));
   }
+
   protected paginateStreetlamps(data: IStreetlamp[] | null, headers: HttpHeaders): void {
     const headersLink = headers.get('link');
     this.links = this.parseLinks.parse(headersLink ? headersLink : '');
