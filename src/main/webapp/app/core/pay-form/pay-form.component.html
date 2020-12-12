@@ -1,0 +1,75 @@
+<div class="container">
+    <form [formGroup]="payFrom" (ngSubmit)="onSubmit()">
+
+        <div class="form-row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="Nom">Nom: <span class="lblError">*</span></label>
+                    <div class="controls">
+                        <input type="text" id="Nom" placeholder="Nom" class="form-control" formControlName="cmdName">
+                        <p class="lblError" *ngIf="payFrom.get('cmdName').hasError('required') && !payFrom.get('cmdName').pristine">
+                            C'est mieux de renseigner se champs pour le livreur !
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="Prenom">Prénom <span class="lblError">*</span></label>
+                    <div class="controls">
+                        <input type="text" id="Prenom" placeholder="Prenom" class="form-control" formControlName="cmdLName">
+                        <p class="lblError" *ngIf="payFrom.get('cmdLName').hasError('required') && !payFrom.get('cmdLName').pristine">
+                            C'est mieux de renseigner se champs pour le livreur !
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <label for="country">Pays:</label>
+                <div class="controls">
+                    <select id="country" formControlName="cmdCountry" class="form-control">
+                        <option value="France">France</option>
+                        <option value="Germanie">Germanie</option>
+                        <option value="Italia">Italia</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="City">Ville <span class="lblError">*</span></label>
+                    <div class="controls">
+                        <input type="text" id="City" placeholder="Grenoble" class="form-control" formControlName="cmdCity">
+                        <p class="lblError" *ngIf="payFrom.get('cmdCity').hasError('required') && !payFrom.get('cmdCity').pristine">
+                            C'est mieux de renseigner se champs pour le livreur !
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label for="Addr">Adresse <span class="lblError">*</span></label>
+                    <div class="controls">
+                        <input type="text" id="Addr" placeholder="9 rue du Saint Lampadaire" class="form-control" formControlName="cmdAddr">
+                        <p class="lblError" *ngIf="payFrom.get('cmdAddr').hasError('required') && !payFrom.get('cmdAddr').pristine">
+                            L'adresse est obligatoire, nous pensons que vous comprendrez..
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary"  type="submit" [disabled]="payFrom.invalid" style="width: 15%">
+                Next
+            </button>
+        </div>
+
+    </form>
+</div>
