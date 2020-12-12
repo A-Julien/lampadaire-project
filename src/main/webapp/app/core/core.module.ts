@@ -19,6 +19,12 @@ import { ErrorHandlerInterceptor } from 'app/blocks/interceptor/errorhandler.int
 import { NotificationInterceptor } from 'app/blocks/interceptor/notification.interceptor';
 
 import { fontAwesomeIcons } from './icons/font-awesome-icons';
+import { DetailPageComponent } from './detail-page/detail-page.component';
+import { LampaderumSharedModule } from 'app/shared/shared.module';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductsPageComponent } from 'app/core/products-page/products-page.component';
+import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
+import { LampaderumHomeModule } from 'app/home/home.module';
 
 @NgModule({
   imports: [
@@ -29,20 +35,22 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
       alertAsToast: false,
       alertTimeout: 5000,
       i18nEnabled: true,
-      defaultI18nLang: 'fr',
+      defaultI18nLang: 'fr'
     }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: translatePartialLoader,
-        deps: [HttpClient],
+        deps: [HttpClient]
       },
       missingTranslationHandler: {
         provide: MissingTranslationHandler,
         useFactory: missingTranslationHandler,
-        deps: [JhiConfigService],
-      },
+        deps: [JhiConfigService]
+      }
     }),
+    LampaderumSharedModule,
+    LampaderumHomeModule
   ],
   providers: [
     Title,
@@ -74,6 +82,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
       multi: true,
     },
   ],
+  declarations : [DetailPageComponent],
 })
 export class LampaderumCoreModule {
   constructor(iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig, languageService: JhiLanguageService) {
