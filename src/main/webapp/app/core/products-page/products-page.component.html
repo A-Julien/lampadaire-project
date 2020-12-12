@@ -1,3 +1,12 @@
+<form name="form" role="form" (ngSubmit)="getSearch()" [formGroup]="settingsForm">
+    <div class="form-group">
+        <label class="form-control-label" for="search" >Recherche</label>
+        <input type="text" class="form-control" id="search" name="search"
+               formControlName="search">
+        <button type="submit" [disabled]="settingsForm.invalid" class="btn btn-primary" >GO</button>
+    </div>
+</form>
+
 <p class="lead">
     <button type="button" class="btn btn-outline-primary btn-sm btn-block"
             (click)="setListLayout(true)"
@@ -9,6 +18,7 @@
             [hidden]="!isListLayout"
     >Afficher sous forme de grille</button>
 </p>
+
 
 <div class="row card-deck" [hidden]="isListLayout">
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders">

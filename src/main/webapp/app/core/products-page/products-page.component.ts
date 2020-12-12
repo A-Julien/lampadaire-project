@@ -9,6 +9,7 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { link } from 'fs';
 import { JhiParseLinks } from 'ng-jhipster';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'jhi-products-page',
@@ -27,7 +28,12 @@ export class ProductsPageComponent implements OnInit {
   links: any;
   isListLayout: boolean;
 
-  constructor(private lampService: LampService, private streetLampService: StreetlampService, protected parseLinks: JhiParseLinks) {
+  search: string;
+  settingsForm = this.fb.group({
+    search: [undefined, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
+  });
+
+  constructor(private lampService: LampService, private streetLampService: StreetlampService, protected parseLinks: JhiParseLinks, private fb: FormBuilder) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.page = 0;
     this.links = {
@@ -35,6 +41,7 @@ export class ProductsPageComponent implements OnInit {
     };
     this.productSelected = false;
     this.isListLayout = false;
+    this.search = "";
   }
 
   ngOnInit(): void {
@@ -106,5 +113,20 @@ export class ProductsPageComponent implements OnInit {
 
   setListLayout(b: boolean): void {
     this.isListLayout = b;
+  }
+
+  getSearch(): void{
+
+    // contient le string de la recherche
+    this.search = this.settingsForm.get('search')!.value;
+
+    this.streetLampService
+      .query({
+        'libstreetlamp.contains': this.search,
+        page: this.page,
+        size: this.itemsPerPage,
+      })
+      .subscribe((res: HttpResponse<IStreetlamp[]>) => this.paginateStreetlamps(res.body, res.headers));
+
   }
 }
