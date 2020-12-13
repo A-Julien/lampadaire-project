@@ -10,6 +10,7 @@ import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { link } from 'fs';
 import { JhiParseLinks } from 'ng-jhipster';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ALL } from 'dns';
 
 @Component({
   selector: 'jhi-products-page',
@@ -115,10 +116,26 @@ export class ProductsPageComponent implements OnInit {
     this.isListLayout = b;
   }
 
-  getSearch(): void{
+  protected removeAllCards(data: IStreetlamp[] | null, headers: HttpHeaders): void {
+    const headersLink = headers.get('link');
+    this.links = this.parseLinks.parse(headersLink ? headersLink : '');
+    if (data) {
+      for (let i = 0; i < data.length; i++) {
+        this.productOrders.pop();
+      }
+    }
+  }
 
-    // contient le string de la recherche
+  // recupere la recherche de l'utilisateur et affiche les lampadaires selon la recherche
+  getSearch(): void{
     this.search = this.settingsForm.get('search')!.value;
+
+    this.streetLampService
+      .query({
+        page: this.page,
+        size: this.itemsPerPage,
+      })
+      .subscribe((res: HttpResponse<IStreetlamp[]>) => this.removeAllCards(res.body, res.headers));
 
     this.streetLampService
       .query({
@@ -127,6 +144,5 @@ export class ProductsPageComponent implements OnInit {
         size: this.itemsPerPage,
       })
       .subscribe((res: HttpResponse<IStreetlamp[]>) => this.paginateStreetlamps(res.body, res.headers));
-
   }
 }
