@@ -12,6 +12,7 @@ import { PasswordResetFinishComponent } from './password-reset/finish/password-r
 import { SettingsComponent } from './settings/settings.component';
 import { accountState } from './account.route';
 import { ProfilComponent } from './profil/profil.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   imports: [LampaderumSharedModule, RouterModule.forChild(accountState)],
@@ -24,6 +25,7 @@ import { ProfilComponent } from './profil/profil.component';
     PasswordResetFinishComponent,
     SettingsComponent,
     ProfilComponent,
+    OrderComponent,
   ],
 })
 export class AccountModule {}
