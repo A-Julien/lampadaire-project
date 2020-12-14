@@ -32,7 +32,7 @@
                 <h4>{{order.product.libstreetlamp}}</h4>
             </div>
             <div class="card-body">
-                <a href="#"><img class="card-img-top" src={{order.product.imagepathstreetlamp}} alt="Image not found :'("></a>
+                <a href="" [routerLink]="[order.product.id, 'view']"><img class="card-img-top" src={{order.product.imagepathstreetlamp}} alt="Image not found :'("></a>
                 <!--<h5 class="card-title">${{order.product.price}}</h5>-->
                 <div class="row">
                     <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
@@ -47,7 +47,7 @@
                     <div>
                         <button type="submit"
                                 [routerLink]="[order.product.id, 'view']"
-                                class="btn btn-info btn-sm">Details
+                                class="btn btn-info btn-sm">Consulter
                         </button>
                     </div>
                     <div class="col-12" *ngIf="isProductSelected(order.product)">
