@@ -58,10 +58,11 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         this.ap.findbyuserid(this.User.id).subscribe((body: any)=> {
           this.applicationUser = new ApplicationUser(body.body.id, body.body.siret, body.body.userLogin, body.body.userId, new SOrder()[0], new Creditcard()[0], body.body.cartpersiId);
           this.rc.findByCartpersiId(body.body.cartpersiId).subscribe((plop:any) => {
+            //this.lampService.Idcartpresi(body.body.cartpersiId);
             for (let i=0;i<plop.body.length;i++)
             {
-              this.ss.find(plop.body[i]!.streetlampId!).subscribe((plip:any)=>{
 
+              this.ss.find(plop.body[i]!.streetlampId!).subscribe((plip:any)=>{
                 this.orders.productOrders.push(new ProductOrder(new Streetlamp(plip.body!.id,plip.body!.libstreetlamp,plip.body!.modelestreetlamp,plip.body!.dureeviestreetlamp,plip.body!.uniteviestreetlamp,
                   plip.body!.materiaustreetlamp,plip.body!.liblampe,plip.body!.pwlampe,plip.body!.formelampe,plip.body!.modelelampe,plip.body!.dureevielampe,plip.body!.unitevielampe,
                   plip.body!.voltlampe,plip.body!.templampe,plip.body!.imagepathstreetlamp,plip.body!.stockstreetlamp,plip.body!.pricestreetlamp),plop.body[i].quantity));
@@ -70,6 +71,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
             this.lampService.ProductOrders=this.orders;
 
           });
+          this.lampService.Idcartpresi=body.body.cartpersiId;
         });
 
       });
