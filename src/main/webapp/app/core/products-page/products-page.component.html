@@ -3,7 +3,12 @@
         <label class="form-control-label" for="search" >Recherche</label>
         <input type="text" class="form-control" id="search" name="search"
                formControlName="search">
-        <button type="submit" [disabled]="settingsForm.invalid" class="btn btn-primary" >GO</button>
+
+        <label class="form-control-label" for="plusde40000">Plus de 40 000€</label>
+        <input type="checkbox" name= "plusde40000" id="plusde40000" value="true" formControlName="plusde40000" checked="">
+
+        <button type="submit" class="btn btn-primary" >GO</button>
+
     </div>
 </form>
 

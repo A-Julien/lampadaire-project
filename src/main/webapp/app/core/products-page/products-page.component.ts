@@ -9,8 +9,9 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { link } from 'fs';
 import { JhiParseLinks } from 'ng-jhipster';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ALL } from 'dns';
+import { AbstractControl, FormBuilder, NgModelGroup, Validators } from '@angular/forms';
+import { NgbCheckBox } from '@ng-bootstrap/ng-bootstrap';
+;
 
 @Component({
   selector: 'jhi-products-page',
@@ -29,10 +30,16 @@ export class ProductsPageComponent implements OnInit {
   links: any;
   isListLayout: boolean;
 
+  plusde40000: any | null;
   search: string;
   settingsForm = this.fb.group({
     search: [undefined, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
+    plusde40000: [undefined, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
   });
+
+
+
+
 
   constructor(private lampService: LampService, private streetLampService: StreetlampService, protected parseLinks: JhiParseLinks, private fb: FormBuilder) {
     this.itemsPerPage = ITEMS_PER_PAGE;
@@ -125,11 +132,13 @@ export class ProductsPageComponent implements OnInit {
       }
     }
   }
-
   // recupere la recherche de l'utilisateur et affiche les lampadaires selon la recherche
   getSearch(): void{
-    this.search = this.settingsForm.get('search')!.value;
 
+    this.search = this.settingsForm.get('search')!.value;
+    this.plusde40000 = this.settingsForm.get('plusde40000')!.value;
+
+    // requete enlevant toutes les cartes
     this.streetLampService
       .query({
         page: this.page,
@@ -137,6 +146,7 @@ export class ProductsPageComponent implements OnInit {
       })
       .subscribe((res: HttpResponse<IStreetlamp[]>) => this.removeAllCards(res.body, res.headers));
 
+    if (!this.plusde40000)
     this.streetLampService
       .query({
         'libstreetlamp.contains': this.search,
@@ -144,5 +154,15 @@ export class ProductsPageComponent implements OnInit {
         size: this.itemsPerPage,
       })
       .subscribe((res: HttpResponse<IStreetlamp[]>) => this.paginateStreetlamps(res.body, res.headers));
+
+    else if(this.plusde40000)
+      this.streetLampService
+        .query({
+          'libstreetlamp.contains': this.search,
+          'pricestreetlamp.greaterOrEqualThan': 40000,
+          page: this.page,
+          size: this.itemsPerPage,
+        })
+        .subscribe((res: HttpResponse<IStreetlamp[]>) => this.paginateStreetlamps(res.body, res.headers));
   }
 }
