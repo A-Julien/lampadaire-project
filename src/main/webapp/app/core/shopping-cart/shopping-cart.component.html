@@ -12,7 +12,8 @@
         </ul>
 
         <button class="btn btn-primary btn-block" (click)="finishOrder()"
-                [disabled]="orders.productOrders.length == 0">Consulter
+                [disabled]="orders.productOrders.length == 0"
+                [routerLink]="['recap']">Consulter
         </button>
     </div>
 </div>

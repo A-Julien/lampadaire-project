@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ProductOrder } from 'app/shared/model/OrderProduct.model';
+import { LampService } from 'app/core/services/lamp-service.service';
 
 @Component({
   selector: 'jhi-pay-form',
@@ -7,11 +9,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./pay-form.component.scss'],
 })
 export class PayFormComponent implements OnInit {
+  submitted: boolean | undefined;
   payFrom: any;
-
-  constructor() {}
+  productOrders: ProductOrder[] = [];
+  constructor(private lampService: LampService, private _fb: FormBuilder) {}
 
   ngOnInit(): void {
+    this.submitted = false;
+    this.productOrders = [];
+    this.loadProducts();
+
     this.payFrom = new FormGroup({
       cmdName: new FormControl(null, [Validators.required]),
       cmdCountry: new FormControl('France', [Validators.required]),
@@ -25,5 +32,9 @@ export class PayFormComponent implements OnInit {
     //console.log(this.signupForm);
     /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
     alert(this.payFrom.get('cmdName').value);
+  }
+
+  loadProducts(): void {
+    this.productOrders = this.lampService.ProductOrders.productOrders;
   }
 }

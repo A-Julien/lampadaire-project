@@ -1,5 +1,25 @@
-<div class="container">
-    <form [formGroup]="payFrom" (ngSubmit)="onSubmit()">
+<div class="container row">
+    <table class="table table-hover col-7" >
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Description</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Quantités</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-active" *ngFor="let order of productOrders">
+            <th><img class="square" src={{order.product.imagepathstreetlamp}} alt="Image not found :'("></th>
+            <td>{{order.product.modelestreetlamp}}</td>
+            <td id="inner">{{order.product.pricestreetlamp}}</td>
+            <td>{{order.quantity}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form class="col-5" [formGroup]="payFrom" (ngSubmit)="onSubmit()">
 
         <div class="form-row">
             <div class="col">
@@ -64,12 +84,13 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <button class="btn btn-primary col-3"  style="margin-right: 2em"
+                    [routerLink]="['']">Revenir au detail
+            </button>
+            <button class="btn btn-primary col-2"  type="submit" [disabled]="payFrom.invalid" style="width: 15%">
 
-        <div class="form-group">
-            <button class="btn btn-primary"  type="submit" [disabled]="payFrom.invalid" style="width: 15%">
-                Next
             </button>
         </div>
-
     </form>
 </div>

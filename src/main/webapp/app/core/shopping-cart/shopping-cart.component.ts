@@ -59,7 +59,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   finishOrder(): void {
-    this.orderFinished = true;
+    //this.orderFinished = true;
     this.lampService.Total = this.total;
     this.onOrderFinished.emit(this.orderFinished);
   }

@@ -13,7 +13,7 @@ services:
       - 3001:3001
       - 4200/tcp
       - 8080/tcp
-    entrypoint: sh -c "cd /app && npm install && npm i @types/node && npm install --save bootstrap && npm install -g @angular/cli && npm start"
+    entrypoint: sh -c "cd /app && npm install && npm i @types/node && npm install --save bootstrap && npm install @rxweb/reactive-form-validators && npm install -g @angular/cli && npm start"
     volumes:
       - ../../../:/app/:rw
     depends_on:

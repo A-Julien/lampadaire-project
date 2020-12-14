@@ -9,14 +9,7 @@ import { PayFormComponent } from 'app/core/pay-form/pay-form.component';
 
 @NgModule({
   imports: [LampaderumSharedLibsModule],
-  declarations: [
-    FindLanguageFromKeyPipe,
-    AlertComponent,
-    AlertErrorComponent,
-    LoginModalComponent,
-    HasAnyAuthorityDirective,
-    PayFormComponent,
-  ],
+  declarations: [FindLanguageFromKeyPipe, AlertComponent, AlertErrorComponent, LoginModalComponent, HasAnyAuthorityDirective],
   entryComponents: [LoginModalComponent],
   exports: [
     LampaderumSharedLibsModule,
@@ -25,7 +18,6 @@ import { PayFormComponent } from 'app/core/pay-form/pay-form.component';
     AlertErrorComponent,
     LoginModalComponent,
     HasAnyAuthorityDirective,
-    PayFormComponent,
   ],
 })
 export class LampaderumSharedModule {}
