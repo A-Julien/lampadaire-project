@@ -13,6 +13,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { accountState } from './account.route';
 import { ProfilComponent } from './profil/profil.component';
 import { OrderComponent } from './order/order.component';
+import { CreditcardComponent } from './creditcard/creditcard.component';
 
 @NgModule({
   imports: [LampaderumSharedModule, RouterModule.forChild(accountState)],
@@ -26,6 +27,7 @@ import { OrderComponent } from './order/order.component';
     SettingsComponent,
     ProfilComponent,
     OrderComponent,
+    CreditcardComponent,
   ],
 })
 export class AccountModule {}

@@ -5,7 +5,7 @@
             <p>Articles :</p>
             <ul *ngFor="let rorder of order.roworders">
                 <li>
-                    {{lamps.get(rorder!.id!).libstreetlamp}} au prix de : {{rorder!.price!}} avec une quantité de : {{rorder!.quantite!}}.
+                    {{lamps!.get(rorder!.id!)!.libstreetlamp!}} au prix de : {{rorder!.price!}} avec une quantité de : {{rorder!.quantite!}}.
                 </li>
             </ul>
         </li>

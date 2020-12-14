@@ -8,8 +8,9 @@ import { registerRoute } from './register/register.route';
 import { settingsRoute } from './settings/settings.route';
 import {profilRoute} from "./profil/profil.route";
 import {orderRoute} from "./order/order.route";
+import {CreditcardRoute} from "./creditcard/creditcard.route";
 
-const ACCOUNT_ROUTES = [activateRoute, passwordRoute, passwordResetFinishRoute, passwordResetInitRoute, registerRoute, settingsRoute,profilRoute,orderRoute];
+const ACCOUNT_ROUTES = [activateRoute, passwordRoute, passwordResetFinishRoute, passwordResetInitRoute, registerRoute, settingsRoute,profilRoute,orderRoute,CreditcardRoute];
 
 export const accountState: Routes = [
   {
