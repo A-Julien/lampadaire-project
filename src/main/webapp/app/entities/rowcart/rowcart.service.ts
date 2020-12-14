@@ -27,6 +27,10 @@ export class RowcartService {
     return this.http.get<IRowcart>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  findByCartpersiId(id: number): Observable<HttpResponse<IRowcart[]>> {
+    return this.http.get<IRowcart[]>(`${this.resourceUrl}/cartpersi/${id}`, { observe: 'response' });
+  }
+
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http.get<IRowcart[]>(this.resourceUrl, { params: options, observe: 'response' });

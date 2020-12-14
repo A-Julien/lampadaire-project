@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -72,6 +74,28 @@ public class CreditcardService {
             .map(creditcardMapper::toDto);
     }
 
+    /**
+     * Get one creditcard by ApplicationUser id.
+     *
+     * @param id the id of ApplicationUser of the entity.
+     * @return the entity.
+     */
+    @Transactional(readOnly = true)
+    public List<CreditcardDTO> findOneByApplicationUserId(Long id) {
+        log.debug("Request to get Creditcard : {}", id);
+        Object[] plop=creditcardRepository.findAll().stream()
+            .map(creditcardMapper::toDto).toArray();
+        ArrayList<CreditcardDTO> creditcarts= new ArrayList<CreditcardDTO>();
+
+        for (int i=0;i< plop.length;i++){
+            log.debug("plop : {}",(CreditcardDTO) plop[i]);
+            if(id==((CreditcardDTO)plop[i]).getApplicationUserId()){
+
+                creditcarts.add((CreditcardDTO) plop[i]);
+            }
+        }
+        return creditcarts;
+    }
     /**
      * Delete the creditcard by id.
      *

@@ -1,0 +1,13 @@
+<div>
+    <ul *ngFor="let order of sorders">
+        <li >
+            <p>Commande du : {{ order!.datecommande!.format("DD/MM/YYYY HH:mm:ss") }}</p>
+            <p>Articles :</p>
+            <ul *ngFor="let rorder of order.roworders">
+                <li>
+                    {{lamps!.get(rorder!.id!)!.libstreetlamp!}} au prix de : {{rorder!.price!}} avec une quantité de : {{rorder!.quantite!}}.
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

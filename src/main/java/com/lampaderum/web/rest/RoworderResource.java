@@ -1,6 +1,7 @@
 package com.lampaderum.web.rest;
 
 import com.lampaderum.service.RoworderService;
+import com.lampaderum.service.dto.SOrderDTO;
 import com.lampaderum.web.rest.errors.BadRequestAlertException;
 import com.lampaderum.service.dto.RoworderDTO;
 
@@ -109,6 +110,19 @@ public class RoworderResource {
         log.debug("REST request to get Roworder : {}", id);
         Optional<RoworderDTO> roworderDTO = roworderService.findOne(id);
         return ResponseUtil.wrapOrNotFound(roworderDTO);
+    }
+
+    /**
+     * {@code GET  /s-orders/:id} : get the "id" of the SOrderid of roworder.
+     *
+     * @param id the id of the sOrderDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the sOrderDTO, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/roworders/SOrderid/{id}")
+    public ResponseEntity<List<RoworderDTO>> getRoworderBySOrderId(@PathVariable Long id) {
+        log.debug("REST request to get Creditcard : {}", id);
+        List<RoworderDTO> roworder = (List<RoworderDTO>) roworderService.findBySOrderId(id);
+        return ResponseEntity.ok().body(roworder);
     }
 
     /**

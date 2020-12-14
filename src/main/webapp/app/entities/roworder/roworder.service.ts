@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IRoworder } from 'app/shared/model/roworder.model';
+import { ISOrder } from '../../shared/model/s-order.model';
+import { map } from 'rxjs/operators';
 
 type EntityResponseType = HttpResponse<IRoworder>;
 type EntityArrayResponseType = HttpResponse<IRoworder[]>;
@@ -25,6 +27,10 @@ export class RoworderService {
 
   find(id: number): Observable<EntityResponseType> {
     return this.http.get<IRoworder>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+  }
+
+  findBySOrderId(id: number): Observable<HttpResponse<ISOrder[]>> {
+    return this.http.get<ISOrder[]>(`${this.resourceUrl}/SOrderid/${id}`, { observe: 'response' });
   }
 
   query(req?: any): Observable<EntityArrayResponseType> {
