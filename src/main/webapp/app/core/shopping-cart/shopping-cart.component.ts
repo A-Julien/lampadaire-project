@@ -76,6 +76,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
       });
     }
+
     this.loadCart();
     this.loadTotal();
 

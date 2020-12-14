@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RowcartService } from 'app/entities/rowcart/rowcart.service';
 import {Rowcart} from 'app/shared/model/rowcart.model';
+import {Streetlamp} from "app/shared/model/streetlamp.model";
 
 @Injectable({
   providedIn: 'root',
@@ -49,7 +50,7 @@ export class LampService {
     this.productOrder = value;
     this.productOrderSubject.next();
     if (this.idcartpresi!==-1) {
-      this.rc.create(new Rowcart(undefined, value.quantity, value.product.id, this.idcartpresi)).subscribe((body: any) => {});
+      this.rc.create(new Rowcart(undefined, value.quantity, value.product.id, this.idcartpresi)).subscribe();
     }
   }
 
@@ -74,4 +75,23 @@ export class LampService {
     this.total = value;
     this.totalSubject.next();
   }
+
+  removeproduct(value: ProductOrder):void{
+    if (this.idcartpresi!==-1) {
+      this.rc.findByCartpersiId(this.idcartpresi).subscribe((plop:any)=>{
+          //this.lampService.Idcartpresi(body.body.cartpersiId);
+          for (let i=0;i<plop.body.length;i++)
+          {
+            if (value.product.id===plop.body[i]!.streetlampId!)
+            {
+              this.rc.delete(Number(plop.body[i]!.id!)).subscribe((body:any)=>{});
+            }
+          }
+
+
+      });
+    }
+
+  }
+
 }

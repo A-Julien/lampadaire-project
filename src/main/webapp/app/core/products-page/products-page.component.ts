@@ -81,6 +81,8 @@ export class ProductsPageComponent implements OnInit {
     const index = this.getProductIndex(productOrder.product);
     if (index > -1) {
       this.shoppingCartOrders.productOrders.splice(this.getProductIndex(productOrder.product), 1);
+      //TODO important
+      this.lampService.removeproduct(productOrder);
     }
     this.lampService.ProductOrders = this.shoppingCartOrders;
     this.shoppingCartOrders = this.lampService.ProductOrders;
