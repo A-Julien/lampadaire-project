@@ -8,6 +8,7 @@ import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { ISOrder } from 'app/shared/model/s-order.model';
+import {ICreditcard} from "../../shared/model/creditcard.model";
 
 type EntityResponseType = HttpResponse<ISOrder>;
 type EntityArrayResponseType = HttpResponse<ISOrder[]>;
@@ -36,6 +37,12 @@ export class SOrderService {
     return this.http
       .get<ISOrder>(`${this.resourceUrl}/${id}`, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+  }
+
+  findByApplicationUserId(id: number): Observable<HttpResponse<ISOrder[]>> {
+    return this.http
+      .get<ISOrder[]>(`${this.resourceUrl}/ApplicationUserId/${id}`, { observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
 
   query(req?: any): Observable<EntityArrayResponseType> {

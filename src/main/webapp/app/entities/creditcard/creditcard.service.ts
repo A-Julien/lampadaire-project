@@ -38,6 +38,12 @@ export class CreditcardService {
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
+  findByApplicationUserId(id: number): Observable<HttpResponse<ICreditcard[]>> {
+    return this.http
+      .get<ICreditcard[]>(`${this.resourceUrl}/ApplicationUserId/${id}`, { observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http

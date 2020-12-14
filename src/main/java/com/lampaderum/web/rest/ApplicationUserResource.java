@@ -111,6 +111,19 @@ public class ApplicationUserResource {
     }
 
     /**
+     * {@code GET  /application-users/userid/:id} : get the "id" of the User of applicationUser.
+     *
+     * @param id the id of the User of the applicationUserDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the applicationUserDTO, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/application-users/userid/{id}")
+    public ResponseEntity<ApplicationUserDTO> getApplicationUserByUserId(@PathVariable Long id) {
+        log.debug("REST request to get ApplicationUser : {}", id);
+        Optional<ApplicationUserDTO> applicationUserDTO = applicationUserService.findOneByUserId(id);
+        return ResponseUtil.wrapOrNotFound(applicationUserDTO);
+    }
+
+    /**
      * {@code DELETE  /application-users/:id} : delete the "id" applicationUser.
      *
      * @param id the id of the applicationUserDTO to delete.

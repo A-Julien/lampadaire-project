@@ -1,0 +1,10 @@
+
+<div>
+    <ul *ngFor="let creditcard of creditcards">
+        <li >
+            <p>Carte numéro : {{creditcard!.numcarte}}</p>
+            <p>Date d'expiration : {{creditcard!.dateexpiration!.format("DD/MM/YYYY")}}</p>
+            <p>Code : {{creditcard!.code}}</p>
+        </li>
+    </ul>
+</div>

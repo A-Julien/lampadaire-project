@@ -3,6 +3,7 @@ package com.lampaderum.service;
 import com.lampaderum.domain.Roworder;
 import com.lampaderum.repository.RoworderRepository;
 import com.lampaderum.service.dto.RoworderDTO;
+import com.lampaderum.service.dto.SOrderDTO;
 import com.lampaderum.service.mapper.RoworderMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -70,6 +73,28 @@ public class RoworderService {
         log.debug("Request to get Roworder : {}", id);
         return roworderRepository.findById(id)
             .map(roworderMapper::toDto);
+    }
+
+    /**
+     * Get roworder by SOrder id.
+     *
+     * @param id the id of ApplicationUser of the entity.
+     * @return the entity.
+     */
+    @Transactional(readOnly = true)
+    public List<RoworderDTO> findBySOrderId(Long id) {
+
+        Object[] plop=roworderRepository.findAll().stream()
+            .map(roworderMapper::toDto).toArray();
+        ArrayList<RoworderDTO> sorders= new ArrayList<RoworderDTO>();
+
+        for (int i=0;i< plop.length;i++){
+            if(id==((RoworderDTO)plop[i]).getSorderId()){
+                log.debug("plop : {}",(RoworderDTO) plop[i]);
+                sorders.add((RoworderDTO) plop[i]);
+            }
+        }
+        return sorders;
     }
 
     /**
