@@ -1,4 +1,5 @@
 <div class='container'>
+
     <form [formGroup]="userFormGroup">
         <div class="form-group">
             <label>Card Type</label>
@@ -13,3 +14,10 @@
         </div>
     </form>
 </div>
+
+
+<button class="btn btn-primary col-2"
+        [routerLink]="['payForm']"
+        (click)="sendCardNumber()">
+    Payement
+</button>

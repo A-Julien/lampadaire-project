@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
@@ -12,6 +12,8 @@ export class PayCardComponent implements OnInit {
   userFormGroup: any;
 
   creditCardTypes = ['Visa', 'AmericanExpress', 'Maestro', 'JCB', 'Discover', 'DinersClub', 'MasterCard'];
+  @Output() numberCartEvent = new EventEmitter<number>();
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -19,5 +21,9 @@ export class PayCardComponent implements OnInit {
       cardType: ['Visa'],
       creditCard: ['', RxwebValidators.creditCard({ fieldName: 'cardType' })],
     });
+  }
+
+  sendCardNumber(): void {
+    this.numberCartEvent.emit(this.userFormGroup.get('creditCard').value);
   }
 }

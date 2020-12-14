@@ -32,7 +32,7 @@ export const HOME_ROUTE: Routes = [
   },
   {
     path: 'recap',
-    component: PayCardComponent,
+    component: PayFormComponent,
     data: {
       authorities: [],
       pageTitle: 'home.title',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ProductOrder } from 'app/shared/model/OrderProduct.model';
 import { IStreetlamp, Streetlamp } from 'app/shared/model/streetlamp.model';
 import { Cart } from 'app/shared/model/Cart.model';
@@ -23,7 +23,6 @@ export class PayRecapComponent implements OnInit {
   private itemsPerPage: number;
   links: any;
   isListLayout: boolean;
-
   constructor(private lampService: LampService, protected parseLinks: JhiParseLinks) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.page = 0;
