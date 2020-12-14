@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lampaderumApp.roworder.home.title">Roworders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-roworder" [routerLink]="['/roworder/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="lampaderumApp.roworder.home.createLabel">
+            Create a new Roworder
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="roworders?.length === 0">
+        <span jhiTranslate="lampaderumApp.roworder.home.notFound">No roworders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="roworders && roworders.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="price"><span jhiTranslate="lampaderumApp.roworder.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantite"><span jhiTranslate="lampaderumApp.roworder.quantite">Quantite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="streetlampId"><span jhiTranslate="lampaderumApp.roworder.streetlamp">Streetlamp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sorderId"><span jhiTranslate="lampaderumApp.roworder.sorder">Sorder</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let roworder of roworders ;trackBy: trackId">
+                    <td><a [routerLink]="['/roworder', roworder.id, 'view']">{{ roworder.id }}</a></td>
+                    <td>{{ roworder.price }}</td>
+                    <td>{{ roworder.quantite }}</td>
+                    <td>
+                        <div *ngIf="roworder.streetlampId">
+                            <a [routerLink]="['/streetlamp', roworder.streetlampId , 'view']" >{{ roworder.streetlampId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="roworder.sorderId">
+                            <a [routerLink]="['/s-order', roworder.sorderId , 'view']" >{{ roworder.sorderId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/roworder', roworder.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/roworder', roworder.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(roworder)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

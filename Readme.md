@@ -1,9 +1,10 @@
 # Lampaderum
 
-[![Build Status](https://travis-ci.com/A-Julien/devops.svg?branch=master)](https://travis-ci.com/A-Julien/ECOM)
-[![codecov](https://codecov.io/gh/A-Julien/devops/branch/master/graph/badge.svg)](https://codecov.io/gh/A-Julien/ECOM)
-[![codeinsp](https://www.code-inspector.com/project/13966/score/svg)](https://frontend.code-inspector.com/public/project/13966/ECOM/dashboard)
-[![CodeFactor](https://www.codefactor.io/repository/github/a-julien/ECOM/badge)](https://www.codefactor.io/repository/github/a-julien/ECOM)
+[![Build Status](https://travis-ci.com/A-Julien/lampadaire-project.svg?branch=master)](https://travis-ci.com/A-Julien/lampadaire-project)
+[![codecov](https://codecov.io/gh/A-Julien/lampadaire-project/branch/master/graph/badge.svg?token=XBa0XJZpdA)](https://codecov.io/gh/A-Julien/lampadaire-project)
+[![codeinsp](https://www.code-inspector.com/project/13966/score/svg)](https://frontend.code-inspector.com/public/project/13966/lampadaire-project/dashboard)
+[![codeinsp](https://www.code-inspector.com/project/13966/status/svg)](https://frontend.code-inspector.com/public/project/13966/lampadaire-project/dashboard)
+[![CodeFactor](https://www.codefactor.io/repository/github/a-julien/lampadaire-project/badge)](https://www.codefactor.io/repository/github/a-julien/lampadaire-project)
 
 This application was generated using JHipster 6.10.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.3](https://www.jhipster.tech/documentation-archive/v6.10.3).
 
@@ -11,8 +12,7 @@ This application was generated using JHipster 6.10.3, you can find documentation
 
 - [Github](https://github.com/A-Julien/lampadaire-project)
 - [CI (Travis)](https://travis-ci.com/A-Julien/lampadaire-project)
-- [MavenDoc](https://a-julien.github.io/lampadaire-project)
-- [JavaDoc]()
+- [JavaDoc](https://a-julien.github.io/lampadaire-project/apidocs/index.html)
 
 ## Development Policy
 
@@ -26,17 +26,18 @@ This application was generated using JHipster 6.10.3, you can find documentation
 
 The development is done under docker.
 
+Please read `docker-compose` documentation.
+
 All docker config file are in `src/main/docker`.
 
 Dev docker config file :
 
 - `app-dev.yml`
-- `lampaderum-dev-node.dockerfile`
 - `lampaderum-dev-springboot.dockerfile`
 - `postgresql.yml, jhipster-registry.yml` same as prod.
 
-`lampaderum-dev-node.dockerfile` and `lampaderum-dev-springboot.dockerfile` are two docker images build
-for dev. This two images use your local project files to compile and execute programs. This means that you can develop
+`lampaderum-dev-springboot.dockerfile` are docker images build
+for dev. This image use your local project files to compile and execute programs. This means that you can develop
 on your favorite IDE.
 
 ### Running dev build
@@ -47,17 +48,18 @@ In order to start, you need to create a volume to store DB data : `docker volume
 
 - Using CLI : `docker compose app-dev.yml up`
 
-Docker for Angular are not ready yet, so, just do `npm start`.
-
 ### Recompile back (springboot app)
 
 - With intelliJ
+
   - go to the 'Services' tab, clic right on the `lampaderum-app` container, stop and start it.
   - simply go to the `app-dev.yml` and clic on the loop arrow in front of `lampaderum-app`.
 
+- With ``docker-compose``` commande
+
 ### Use ng command
 
-`docker-compose exec lampaderum-node ng generate component xyz`
+`lampaderum-node ng generate component xyz`
 
 ### Using Angular CLI
 
@@ -137,7 +139,7 @@ sebastien.chassande@soprasteria.com
 
 gary.prat@etu.univ-grenoble-alpes.fr (Gary Prat)
 
-#### Chef d'équipe (Skippy):
+#### Chef d'équipe - DEVOPS (Skippy):
 
 julien.alaimo@gmail.com (Julien Alaimo)
 
@@ -145,8 +147,10 @@ julien.alaimo@gmail.com (Julien Alaimo)
 
 vincent.arnone@hotmail.fr (Vincent Arnone)
 
-#### Pélerins :
+#### Responsable IHM :
 
 kergan.kergan@gmail.com (Antoine Rotival)
+
+#### Pélerins :
 
 feydel.hugo@gmail.com (Hugo Feydel)

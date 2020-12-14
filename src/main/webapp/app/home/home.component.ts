@@ -1,20 +1,46 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, HostListener, ElementRef, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
+import { OrdersComponent } from 'app/core/orders/orders.component';
+import { ProductsPageComponent } from 'app/core/products-page/products-page.component';
+import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
 
 @Component({
   selector: 'jhi-home',
   templateUrl: './home.component.html',
   styleUrls: ['home.scss'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   account: Account | null = null;
   authSubscription?: Subscription;
+  orderFinished = false;
+  private collapsed = true;
 
-  constructor(private accountService: AccountService, private loginModalService: LoginModalService) {}
+  sticky: boolean;
+  elementPosition: any;
+
+  @ViewChild('stickyCart')
+  cartElement!: ElementRef;
+
+  @ViewChild('ordersC')
+  ordersC!: OrdersComponent;
+
+  @ViewChild('productsC')
+  productsC!: ProductsPageComponent;
+
+  @ViewChild('shoppingCartC')
+  shoppingCartC!: ShoppingCartComponent;
+
+  constructor(private accountService: AccountService, private loginModalService: LoginModalService) {
+    this.sticky = false;
+  }
+
+  ngAfterViewInit(): void {
+    this.elementPosition = this.cartElement.nativeElement.offsetTop;
+  }
 
   ngOnInit(): void {
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
@@ -32,5 +58,29 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
     }
+  }
+  toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
+  }
+
+  finishOrder(orderFinished: boolean): void {
+    this.orderFinished = orderFinished;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  handleScroll(): void {
+    const windowScroll = window.pageYOffset;
+    if (windowScroll >= this.elementPosition) {
+      this.sticky = true;
+    } else {
+      this.sticky = false;
+    }
+  }
+
+  reset(): void {
+    this.orderFinished = false;
+    this.productsC.reset();
+    this.shoppingCartC.reset();
+    // this.ordersC.paid = false;
   }
 }

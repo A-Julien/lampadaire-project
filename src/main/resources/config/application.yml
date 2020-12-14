@@ -14,6 +14,12 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
+amazonProperties:
+  endpointUrl: https://s3.eu-west-3.amazonaws.com
+  accessKey: ${AWSACCESKEY}
+  secretKey: ${AWSSECRETKEY}
+  bucketName: ${AWSBUCKETNAME}
+
 eureka:
   client:
     enabled: true

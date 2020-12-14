@@ -1,0 +1,81 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "libstreetlamp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modelestreetlamp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dureeviestreetlamp",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "uniteviestreetlamp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "materiaustreetlamp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "liblampe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pwlampe",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "formelampe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modelelampe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dureevielampe",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "unitevielampe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "voltlampe",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "templampe",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "imagepathstreetlamp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stockstreetlamp",
+      "fieldType": "Integer",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "pricestreetlamp",
+      "fieldType": "Double"
+    }
+  ],
+  "changelogDate": "20201111173034",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceClass",
+  "entityTableName": "streetlamp",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "infinite-scroll"
+}

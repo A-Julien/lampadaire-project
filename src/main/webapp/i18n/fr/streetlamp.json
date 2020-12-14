@@ -1,0 +1,37 @@
+{
+  "lampaderumApp": {
+    "streetlamp": {
+      "home": {
+        "title": "Streetlamps",
+        "createLabel": "Créer un nouveau Streetlamp",
+        "createOrEditLabel": "Créer ou éditer un Streetlamp",
+        "notFound": "Aucun Streetlamp trouvé"
+      },
+      "created": "Un nouveau Streetlamp a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Streetlamp avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Streetlamp avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Streetlamp {{ id }} ?"
+      },
+      "detail": {
+        "title": "Streetlamp"
+      },
+      "libstreetlamp": "Libstreetlamp",
+      "modelestreetlamp": "Modelestreetlamp",
+      "dureeviestreetlamp": "Dureeviestreetlamp",
+      "uniteviestreetlamp": "Uniteviestreetlamp",
+      "materiaustreetlamp": "Materiaustreetlamp",
+      "liblampe": "Liblampe",
+      "pwlampe": "Pwlampe",
+      "formelampe": "Formelampe",
+      "modelelampe": "Modelelampe",
+      "dureevielampe": "Dureevielampe",
+      "unitevielampe": "Unitevielampe",
+      "voltlampe": "Voltlampe",
+      "templampe": "Templampe",
+      "imagepathstreetlamp": "Imagepathstreetlamp",
+      "stockstreetlamp": "Stockstreetlamp",
+      "pricestreetlamp": "Pricestreetlamp"
+    }
+  }
+}
