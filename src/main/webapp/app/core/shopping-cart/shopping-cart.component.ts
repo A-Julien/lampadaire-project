@@ -58,7 +58,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         this.ap.findbyuserid(this.User.id).subscribe((body: any)=> {
           this.applicationUser = new ApplicationUser(body.body.id, body.body.siret, body.body.userLogin, body.body.userId, new SOrder()[0], new Creditcard()[0], body.body.cartpersiId);
           this.rc.findByCartpersiId(body.body.cartpersiId).subscribe((plop:any) => {
-            //this.lampService.Idcartpresi(body.body.cartpersiId);
             for (let i=0;i<plop.body.length;i++)
             {
 
@@ -126,7 +125,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    //this.sub.unsubscribe();
     delete this.orders;
   }
 }
