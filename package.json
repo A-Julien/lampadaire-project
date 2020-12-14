@@ -8,6 +8,7 @@
     "node_modules"
   ],
   "dependencies": {
+    "@angular/cli": "^11.0.4",
     "@angular/common": "10.0.0",
     "@angular/compiler": "10.0.0",
     "@angular/core": "10.0.0",
@@ -22,6 +23,7 @@
     "@ng-bootstrap/ng-bootstrap": "6.1.0",
     "@ngx-translate/core": "12.1.2",
     "@ngx-translate/http-loader": "5.0.0",
+    "@schematics/angular": "^11.0.4",
     "bootstrap": "^4.5.3",
     "bootswatch": "4.5.0",
     "moment": "2.27.0",
@@ -32,10 +34,10 @@
     "rxjs": "6.5.5",
     "swagger-ui-dist": "3.25.1",
     "tslib": "2.0.0",
+    "updated": "^2.0.2",
     "zone.js": "0.10.3"
   },
   "devDependencies": {
-    "@angular/cli": "10.0.0",
     "@angular/compiler-cli": "10.0.0",
     "@ngtools/webpack": "10.0.0",
     "@openapitools/openapi-generator-cli": "1.0.13-4.3.1",

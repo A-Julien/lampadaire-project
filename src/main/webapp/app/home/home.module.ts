@@ -14,6 +14,6 @@ import { LampService } from 'app/core/services/lamp-service.service';
   imports: [LampaderumSharedModule, RouterModule.forChild(HOME_ROUTE)],
   providers: [LampService],
   declarations: [HomeComponent, ProductsPageComponent, ShoppingCartComponent, OrdersComponent],
-  exports: [ShoppingCartComponent],
+  exports: [ShoppingCartComponent, ProductsPageComponent, OrdersComponent],
 })
 export class LampaderumHomeModule {}

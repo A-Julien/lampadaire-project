@@ -17,6 +17,7 @@ import { ErrorComponent } from './layouts/error/error.component';
 import { ProductsPageComponent } from './core/products-page/products-page.component';
 import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
 import { OrdersComponent } from 'app/core/orders/orders.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,15 @@ import { OrdersComponent } from 'app/core/orders/orders.component';
     LampaderumEntityModule,
     LampaderumAppRoutingModule,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+  declarations: [
+    MainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    FooterComponent,
+    CatalogueComponent,
+  ],
   bootstrap: [MainComponent],
 })
 export class LampaderumAppModule {}
