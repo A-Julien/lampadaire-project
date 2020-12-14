@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -70,6 +72,27 @@ public class RowcartService {
         log.debug("Request to get Rowcart : {}", id);
         return rowcartRepository.findById(id)
             .map(rowcartMapper::toDto);
+    }
+
+    /**
+     * Get one rowcart by cartpersi id.
+     *
+     * @param id the id of the cartpersi of the entity.
+     * @return the entity.
+     */
+    @Transactional(readOnly = true)
+    public List<RowcartDTO> findOneByCartpersiId(Long id) {
+        Object[] plop=rowcartRepository.findAll().stream()
+            .map(rowcartMapper::toDto).toArray();
+        ArrayList<RowcartDTO> rowcarts= new ArrayList<RowcartDTO>();
+
+        for (int i=0;i< plop.length;i++){
+            if(id==((RowcartDTO)plop[i]).getCartpersiId()){
+                log.debug("plop : {}",(RowcartDTO) plop[i]);
+                rowcarts.add((RowcartDTO) plop[i]);
+            }
+        }
+        return rowcarts;
     }
 
     /**
