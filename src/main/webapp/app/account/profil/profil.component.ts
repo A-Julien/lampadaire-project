@@ -52,28 +52,6 @@ export class ProfilComponent implements OnInit {
 
         this.ap.findbyuserid(this.User.id).subscribe((body: any)=> {
           this.applicationUser = new ApplicationUser(body.body.id, body.body.siret, body.body.userLogin, body.body.userId, new SOrder()[0], new Creditcard()[0], body.body.cartpersiId);
-          this.cc.findByApplicationUserId(body.body.id).subscribe((plop: any)=> {
-            for (let i=0;i<plop.body.length;i++){
-              this.creditcard.push(new Creditcard(plop.body[i].id,plop.body[i].numcarte,plop.body[i].dateexpiration,plop.body[i].applicationUserId));
-            }
-            this.ss.findByApplicationUserId(body.body.id).subscribe((plup: any)=> {
-              for (let i=0;i<plup.body.length;i++){
-
-                this.roworders=[]
-                this.rs.findBySOrderId(plup.body[i].id).subscribe((plip:any) => {
-
-                  for (let j=0;j<plip.body.length;j++){
-                    this.roworders.push(new Roworder(plip.body[j].id,plip.body[j].price,plip.body[j].quantite,plip.body[j].streetlampId,plip.body[j].sorderId));
-                  }
-
-                });
-
-                this.sorders.push(new SOrder(plup.body[i].id,plup.body[i].datecommande,this.roworders,plup.body[i].applicationUserId));
-
-              }
-            });
-          });
-          //alert(this.roworders[1].streetlampId);
 
         });
 
