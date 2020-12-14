@@ -9,9 +9,7 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { link } from 'fs';
 import { JhiParseLinks } from 'ng-jhipster';
-import { AbstractControl, FormBuilder, NgModelGroup, Validators } from '@angular/forms';
-import { NgbCheckBox } from '@ng-bootstrap/ng-bootstrap';
-;
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'jhi-products-page',
@@ -36,10 +34,6 @@ export class ProductsPageComponent implements OnInit {
     search: [undefined, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
     plusde40000: [undefined, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
   });
-
-
-
-
 
   constructor(private lampService: LampService, private streetLampService: StreetlampService, protected parseLinks: JhiParseLinks, private fb: FormBuilder) {
     this.itemsPerPage = ITEMS_PER_PAGE;
