@@ -50,7 +50,7 @@ export class LampService {
     this.productOrder = value;
     this.productOrderSubject.next();
     if (this.idcartpresi !== -1) {
-      this.rc.create(new Rowcart(undefined, value.quantity, value.product.id, this.idcartpresi)).subscribe();
+      //this.rc.create(new Rowcart(undefined, value.quantity, value.product.id, this.idcartpresi)).subscribe();
     }
   }
 
@@ -82,7 +82,7 @@ export class LampService {
         //this.lampService.Idcartpresi(body.body.cartpersiId);
         for (let i = 0; i < plop.body.length; i++) {
           if (value.product.id === plop.body[i]!.streetlampId!) {
-            this.rc.delete(Number(plop.body[i]!.id!)).subscribe((body: any) => {});
+            //this.rc.delete(Number(plop.body[i]!.id!)).subscribe((body: any) => {});
           }
         }
       });

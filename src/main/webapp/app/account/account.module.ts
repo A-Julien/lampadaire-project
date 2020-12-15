@@ -29,5 +29,6 @@ import { CreditcardComponent } from './creditcard/creditcard.component';
     OrderComponent,
     CreditcardComponent,
   ],
+  exports: [CreditcardComponent],
 })
 export class AccountModule {}

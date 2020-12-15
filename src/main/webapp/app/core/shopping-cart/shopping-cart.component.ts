@@ -52,6 +52,9 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.orders = new Cart();
 
+    this.loadCart();
+    this.loadTotal();
+
     if (Account && this.lampService.ProductOrders.productOrders.length === 0) {
       this.accountService.identity().subscribe(account => {
         this.Account = account;
@@ -105,9 +108,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         });
       });
     }
-
-    this.loadCart();
-    this.loadTotal();
   }
 
   loadTotal(): void {

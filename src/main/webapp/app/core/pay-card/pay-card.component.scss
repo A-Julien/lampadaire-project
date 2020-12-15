@@ -3,6 +3,15 @@ $red: #d23735;
 $green: #6fbb70;
 $text-font-size: 12px;
 
+.sticky {
+  position: -webkit-sticky; /* Safari & IE */
+  position: sticky;
+  top: 1em;
+  left: 0px;
+  height: 1em;
+  -webkit-backface-visibility: hidden;
+}
+
 * {
   font-family: Lato;
   color: $grey-color;
@@ -18,7 +27,7 @@ div.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 100px auto auto auto;
+  margin: 1em auto auto auto;
 
   h2 {
     text-align: center;

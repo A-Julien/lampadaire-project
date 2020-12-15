@@ -1,10 +1,11 @@
 
-<div>
-    <ul *ngFor="let creditcard of creditcards">
-        <li >
-            <p>Carte numéro : {{creditcard!.numcarte}}</p>
-            <p>Date d'expiration : {{creditcard!.dateexpiration!.format("DD/MM/YYYY")}}</p>
-            <p>Code : {{creditcard!.code}}</p>
-        </li>
-    </ul>
+<div *ngFor="let creditcard of creditcards" >
+        <div class='container' (click)= "setCardSelected(creditcard)">
+            <div class="data">
+                <div class="specD">{{creditcard!.numcarte}}</div>
+                <div class="specD">CVC : {{creditcard!.code}}</div>
+                <div class="specD"> {{creditcard!.dateexpiration!.format("DD/MM/YYYY")}}</div>
+            </div>
+        </div>
 </div>
+

@@ -103,7 +103,9 @@
 <div class="col-md-6" [hidden]="!payNow">
     <h2>Veuillez saisir vos informations de payement </h2>
     <div>Prix à payer : {{totalCmd}} €</div>
-    <jhi-pay-card (numberCartEvent)="receivePayment($event)"></jhi-pay-card>
+    <jhi-pay-card
+        (numberCartEvent)="receivePayment($event)">
+    </jhi-pay-card>
     <button class="btn btn-primary col-2"  (click)="returnToForm()" style="width: 15%">
         Retour
     </button>

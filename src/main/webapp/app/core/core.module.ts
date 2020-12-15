@@ -34,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreditCardDirectivesModule } from 'angular-cc-library';
 import { PayCardComponent } from './pay-card/pay-card.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { AccountModule } from 'app/account/account.module';
 
 @NgModule({
   imports: [
@@ -64,6 +65,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     ReactiveFormsModule,
     RxReactiveFormsModule,
     RouterModule,
+    AccountModule,
     //RouterModule.forChild(CORE_ROUTE)
   ],
   providers: [

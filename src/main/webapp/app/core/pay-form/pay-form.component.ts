@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ProductOrder } from 'app/shared/model/OrderProduct.model';
 import { LampService } from 'app/core/services/lamp-service.service';
@@ -13,6 +13,8 @@ import { User } from 'app/core/user/user.model';
 import { ApplicationUserService } from 'app/entities/application-user/application-user.service';
 import { ApplicationUser } from 'app/shared/model/application-user.model';
 import { Creditcard } from 'app/shared/model/creditcard.model';
+import { NgbDateMomentAdapter } from 'app/shared/util/datepicker-adapter';
+import * as moment from 'moment';
 
 @Component({
   selector: 'jhi-pay-form',
@@ -101,33 +103,24 @@ export class PayFormComponent implements OnInit, AfterViewInit {
     }
   }
 
-  receivePayment($event): void {
+  receivePayment($event: any): void {
     this.numberCard = $event;
 
-    this.sOrderService
-      .create(
-        new SOrder(
-          undefined,
-          null,
-          new Roworder(), //ou null
-          this.applicationUser!.id
-        )
-      )
-      .subscribe((body: any) => {
-        for (let i = 0; i < this.productOrders.length; i++) {
-          this.roworderService
-            .create(
-              new Roworder(
-                undefined,
-                this.productOrders[i].product.pricestreetlamp,
-                this.productOrders[i].quantity,
-                this.productOrders[i].product.id,
-                body.body.id
-              )
+    this.sOrderService.create(new SOrder(undefined, moment(), new Roworder()[0], this.applicationUser!.id)).subscribe((body: any) => {
+      for (let i = 0; i < this.productOrders.length; i++) {
+        this.roworderService
+          .create(
+            new Roworder(
+              undefined,
+              this.productOrders[i].product.pricestreetlamp,
+              this.productOrders[i].quantity,
+              this.productOrders[i].product.id,
+              body.body.id
             )
-            .subscribe(() => {});
-        }
-      });
+          )
+          .subscribe(() => {});
+      }
+    });
   }
 
   onSubmit(): void {

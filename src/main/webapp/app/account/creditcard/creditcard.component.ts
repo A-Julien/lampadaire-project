@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApplicationUser } from '../../shared/model/application-user.model';
 
 import { CreditcardService } from 'app/entities/creditcard/creditcard.service';
@@ -11,6 +11,7 @@ import { ApplicationUserService } from '../../entities/application-user/applicat
 import { UserService } from '../../core/user/user.service';
 import { SOrder } from '../../shared/model/s-order.model';
 import { Roworder } from '../../shared/model/roworder.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'jhi-creditcard',
@@ -22,6 +23,10 @@ export class CreditcardComponent implements OnInit {
   User: User | null = null;
   applicationUser: ApplicationUser | null = null;
   creditcards: Creditcard[];
+  selectedCreditCard: Creditcard;
+
+  @Output() selectedCardEvent = new EventEmitter<Creditcard>();
+
   constructor(
     private accountService: AccountService,
     private ap: ApplicationUserService,
@@ -29,9 +34,15 @@ export class CreditcardComponent implements OnInit {
     private cs: CreditcardService
   ) {
     this.creditcards = [];
+    this.selectedCreditCard = new Creditcard();
   }
 
   ngOnInit(): void {
+    this.creditcards.push(new Creditcard(0, '123', moment(), '2', 0));
+    this.creditcards.push(new Creditcard(1, '123', moment(), '22', 0));
+    this.creditcards.push(new Creditcard(2, '123', moment(), '22', 0));
+    this.creditcards.push(new Creditcard(3, '123', moment(), '23', 0));
+
     if (Account) {
       this.accountService.identity().subscribe(account => {
         this.Account = account;
@@ -60,5 +71,9 @@ export class CreditcardComponent implements OnInit {
         });
       });
     }
+  }
+
+  setCardSelected(creditcard: Creditcard): void {
+    this.selectedCardEvent.emit(creditcard);
   }
 }
