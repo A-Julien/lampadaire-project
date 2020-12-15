@@ -10,7 +10,6 @@ import { AccountService } from '../../core/auth/account.service';
 import { ApplicationUserService } from '../../entities/application-user/application-user.service';
 import { UserService } from '../../core/user/user.service';
 import { SOrder } from '../../shared/model/s-order.model';
-import { Roworder } from '../../shared/model/roworder.model';
 import * as moment from 'moment';
 
 @Component({
