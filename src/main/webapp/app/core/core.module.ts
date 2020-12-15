@@ -21,9 +21,6 @@ import { NotificationInterceptor } from 'app/blocks/interceptor/notification.int
 import { fontAwesomeIcons } from './icons/font-awesome-icons';
 import { DetailPageComponent } from './detail-page/detail-page.component';
 import { LampaderumSharedModule } from 'app/shared/shared.module';
-import { RouterModule, Routes } from '@angular/router';
-import { ProductsPageComponent } from 'app/core/products-page/products-page.component';
-import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
 import { LampaderumHomeModule } from 'app/home/home.module';
 
 @NgModule({
