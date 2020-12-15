@@ -34,7 +34,6 @@ export class OrderComponent implements OnInit {
     this.sorders=[];
     this.roworders=[];
     this.lamps=new Map<number, Streetlamp>();
-
   }
 
   ngOnInit(): void {
@@ -51,25 +50,20 @@ export class OrderComponent implements OnInit {
           this.applicationUser = new ApplicationUser(body.body.id, body.body.siret, body.body.userLogin, body.body.userId, new SOrder()[0], new Creditcard()[0], body.body.cartpersiId);
             this.ss.findByApplicationUserId(body.body.id).subscribe((plup: any)=> {
               for (let i=0;i<plup.body.length;i++){
-
-                this.roworders=[]
                 this.rs.findBySOrderId(plup.body[i].id).subscribe((plip:any) => {
-
+                  this.roworders=[];
                   for (let j=0;j<plip.body.length;j++){
                     this.roworders.push(new Roworder(plip.body[j].id,plip.body[j].price,plip.body[j].quantite,plip.body[j].streetlampId,plip.body[j].sorderId));
                     this.st.find(plip.body[j].streetlampId).subscribe(plap=>{
-                      this.lamps.set(plap.body!.id!,new Streetlamp(plap.body!.id,plap.body!.libstreetlamp,plap.body!.modelestreetlamp,plap.body!.dureeviestreetlamp,plap.body!.uniteviestreetlamp,
+                      this.lamps.set(plip.body[j].id,new Streetlamp(plap.body!.id,plap.body!.libstreetlamp,plap.body!.modelestreetlamp,plap.body!.dureeviestreetlamp,plap.body!.uniteviestreetlamp,
                         plap.body!.materiaustreetlamp,plap.body!.liblampe,plap.body!.pwlampe,plap.body!.formelampe,plap.body!.modelelampe,plap.body!.dureevielampe,plap.body!.unitevielampe,
                         plap.body!.voltlampe,plap.body!.templampe,plap.body!.imagepathstreetlamp,plap.body!.stockstreetlamp,plap.body!.pricestreetlamp));
                     });
                   }
+                  this.sorders.push(new SOrder(plup.body[i].id,plup.body[i].datecommande,this.roworders,plup.body[i].applicationUserId));
                 });
-
-                this.sorders.push(new SOrder(plup.body[i].id,plup.body[i].datecommande,this.roworders,plup.body[i].applicationUserId));
               }
-
             });
-
         });
       });
 

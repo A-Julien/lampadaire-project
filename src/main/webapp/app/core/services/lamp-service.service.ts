@@ -87,8 +87,6 @@ export class LampService {
               this.rc.delete(Number(plop.body[i]!.id!)).subscribe((body:any)=>{});
             }
           }
-
-
       });
     }
 
