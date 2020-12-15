@@ -46,16 +46,29 @@ export class LampService {
     this.idcartpresi = id;
   }
 
+  get SelectedProductOrder(): ProductOrder {
+    return this.productOrder;
+  }
+
   set SelectedProductOrder(value: ProductOrder) {
     this.productOrder = value;
     this.productOrderSubject.next();
     if (this.idcartpresi !== -1) {
       //this.rc.create(new Rowcart(undefined, value.quantity, value.product.id, this.idcartpresi)).subscribe();
     }
+    localStorage.setItem('cart', JSON.stringify(this.ProductOrders.productOrders));
   }
 
-  get SelectedProductOrder(): ProductOrder {
-    return this.productOrder;
+  getCart(): ProductOrder[] {
+    const cartStorage = localStorage.getItem('cart');
+
+    const cart = new Cart();
+
+    if (cartStorage != null) {
+      cart.copy(JSON.parse(cartStorage) as ProductOrder[]);
+    }
+
+    return cart.productOrders;
   }
 
   set ProductOrders(value: Cart) {

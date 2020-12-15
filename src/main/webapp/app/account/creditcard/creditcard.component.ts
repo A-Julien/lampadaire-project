@@ -37,10 +37,10 @@ export class CreditcardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.creditcards.push(new Creditcard(0, '123', moment(), '2', 0));
+    /*this.creditcards.push(new Creditcard(0, '123', moment(), '2', 0));
     this.creditcards.push(new Creditcard(1, '123', moment(), '22', 0));
     this.creditcards.push(new Creditcard(2, '123', moment(), '22', 0));
-    this.creditcards.push(new Creditcard(3, '123', moment(), '23', 0));
+    this.creditcards.push(new Creditcard(3, '123', moment(), '23', 0));*/
 
     if (Account) {
       this.accountService.identity().subscribe(account => {

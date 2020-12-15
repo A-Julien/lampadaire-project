@@ -29,6 +29,10 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           path: 'core',
           loadChildren: () => import('./core/core.module').then(m => m.LampaderumCoreModule),
         },
+        {
+          path: 'home',
+          loadChildren: () => import('./home/home.module').then(m => m.LampaderumHomeModule),
+        },
         ...LAYOUT_ROUTES,
       ],
       { enableTracing: DEBUG_INFO_ENABLED }

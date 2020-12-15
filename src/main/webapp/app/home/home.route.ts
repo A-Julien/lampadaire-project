@@ -32,27 +32,20 @@ export const HOME_ROUTE: Routes = [
   },
   {
     path: 'recap',
-    component: PayFormComponent,
+    component: PayRecapComponent,
     data: {
       authorities: [],
       pageTitle: 'home.title',
     },
-    children: [
-      {
-        path: 'payForm',
-        component: PayFormComponent,
-        data: { authorities: [User] },
-      },
-    ],
     canActivate: [UserRouteAccessService],
   },
-  /*{
-    path: 'payForm',
+  {
+    path: 'pay-form',
     component: PayFormComponent,
     data: {
       authorities: [User],
       pageTitle: 'home.title',
     },
-    canActivate: [UserRouteAccessService],
-  }*/
+    //canActivate: [UserRouteAccessService],
+  },
 ];

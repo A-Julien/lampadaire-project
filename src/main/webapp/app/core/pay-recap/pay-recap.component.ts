@@ -39,7 +39,8 @@ export class PayRecapComponent implements OnInit {
   }
 
   loadProducts(): void {
-    this.productOrders = this.lampService.ProductOrders.productOrders;
+    //this.productOrders = this.lampService.ProductOrders.productOrders;
+    this.productOrders = this.lampService.getCart();
   }
 
   getProductIndex(product: IStreetlamp): number {
