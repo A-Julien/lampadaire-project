@@ -17,10 +17,12 @@ import { ErrorComponent } from './layouts/error/error.component';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CreditCardDirectivesModule } from 'angular-cc-library';
+import { ProductsPageComponent } from './core/products-page/products-page.component';
+import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
+import { OrdersComponent } from 'app/core/orders/orders.component';
 
 @NgModule({
   imports: [
-    RouterModule,
     BrowserModule,
     LampaderumSharedModule,
     LampaderumCoreModule,
@@ -28,9 +30,10 @@ import { CreditCardDirectivesModule } from 'angular-cc-library';
     // jhipster-needle-angular-add-module JHipster will add new module here
     LampaderumEntityModule,
     LampaderumAppRoutingModule,
+    CreditCardDirectivesModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent],
-  exports: [RouterModule],
+  exports: [],
 })
 export class LampaderumAppModule {}

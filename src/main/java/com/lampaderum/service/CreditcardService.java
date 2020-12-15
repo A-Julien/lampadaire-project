@@ -89,7 +89,7 @@ public class CreditcardService {
 
         for (int i=0;i< plop.length;i++){
             log.debug("plop : {}",(CreditcardDTO) plop[i]);
-            if(id==((CreditcardDTO)plop[i]).getApplicationUserId()){
+            if(id.equals(((CreditcardDTO)plop[i]).getApplicationUserId())){
 
                 creditcarts.add((CreditcardDTO) plop[i]);
             }

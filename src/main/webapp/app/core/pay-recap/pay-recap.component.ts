@@ -58,6 +58,7 @@ export class PayRecapComponent implements OnInit {
     if (index > -1) {
       this.productOrders.splice(this.getProductIndex(productOrder.product), 1);
     }
+    this.lampService.saveCart = this.productOrders;
     this.lampService.ProductOrders.productOrders = this.productOrders; //this.shoppingCartOrders;
     this.productSelected = false;
   }

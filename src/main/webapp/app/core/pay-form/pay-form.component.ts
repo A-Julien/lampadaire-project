@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild }
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ProductOrder } from 'app/shared/model/OrderProduct.model';
 import { LampService } from 'app/core/services/lamp-service.service';
-import { SOrder } from 'app/shared/model/s-order.model';
+import { ISOrder, SOrder } from 'app/shared/model/s-order.model';
 import { Roworder } from 'app/shared/model/roworder.model';
 import { RoworderService } from 'app/entities/roworder/roworder.service';
 import { SOrderService } from 'app/entities/s-order/s-order.service';
@@ -103,16 +103,25 @@ export class PayFormComponent implements OnInit, AfterViewInit {
     }
   }
 
+  private createSorder(): ISOrder {
+    return {
+      ...new SOrder(),
+      id: undefined,
+      datecommande: moment(),
+      applicationUserId: this.applicationUser!.id,
+    };
+  }
+
   receivePayment($event: any): void {
     this.numberCard = $event;
 
-    this.sOrderService.create(new SOrder(undefined, moment(), new Roworder()[0], this.applicationUser!.id)).subscribe((body: any) => {
+    this.sOrderService.create(this.createSorder()).subscribe((body: any) => {
       for (let i = 0; i < this.productOrders.length; i++) {
         this.roworderService
           .create(
             new Roworder(
               undefined,
-              this.productOrders[i].product.pricestreetlamp,
+              12, //this.productOrders[i].product.pricestreetlamp,
               this.productOrders[i].quantity,
               this.productOrders[i].product.id,
               body.body.id
@@ -130,7 +139,7 @@ export class PayFormComponent implements OnInit, AfterViewInit {
   }
 
   loadProducts(): void {
-    this.productOrders = this.lampService.ProductOrders.productOrders;
+    this.productOrders = this.lampService.getCart(); //this.lampService.ProductOrders.productOrders;
   }
 
   returnToForm(): void {

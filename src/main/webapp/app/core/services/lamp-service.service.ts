@@ -33,6 +33,18 @@ export class LampService {
     this.total = 0;
     this.idcartpresi = -1;
   }
+  set SelectedProductOrder(value: ProductOrder) {
+    this.productOrder = value;
+    this.productOrderSubject.next();
+    if (this.idcartpresi !== -1) {
+      //this.rc.create(new Rowcart(undefined, value.quantity, value.product.id, this.idcartpresi)).subscribe();
+    }
+    localStorage.setItem('cart', JSON.stringify(this.ProductOrders.productOrders));
+  }
+
+  get SelectedProductOrder(): ProductOrder {
+    return this.productOrder;
+  }
 
   getAllProducts(): Observable<any> {
     return this.http.get(this.productsUrl);
@@ -46,17 +58,8 @@ export class LampService {
     this.idcartpresi = id;
   }
 
-  get SelectedProductOrder(): ProductOrder {
-    return this.productOrder;
-  }
-
-  set SelectedProductOrder(value: ProductOrder) {
-    this.productOrder = value;
-    this.productOrderSubject.next();
-    if (this.idcartpresi !== -1) {
-      //this.rc.create(new Rowcart(undefined, value.quantity, value.product.id, this.idcartpresi)).subscribe();
-    }
-    localStorage.setItem('cart', JSON.stringify(this.ProductOrders.productOrders));
+  set saveCart(cart: ProductOrder[]) {
+    localStorage.setItem('cart', JSON.stringify(ProductOrder));
   }
 
   getCart(): ProductOrder[] {

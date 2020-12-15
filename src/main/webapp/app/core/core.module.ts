@@ -22,16 +22,10 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
 import { DetailPageComponent } from './detail-page/detail-page.component';
 import { LampaderumSharedModule } from 'app/shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsPageComponent } from 'app/core/products-page/products-page.component';
-import { ShoppingCartComponent } from 'app/core/shopping-cart/shopping-cart.component';
 import { LampaderumHomeModule } from 'app/home/home.module';
 import { PayRecapComponent } from './pay-recap/pay-recap.component';
-import { LampaderumAppRoutingModule } from 'app/app-routing.module';
-import { HOME_ROUTE } from 'app/home/home.route';
-import { CORE_ROUTE } from 'app/core/core.route';
 import { PayFormComponent } from 'app/core/pay-form/pay-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CreditCardDirectivesModule } from 'angular-cc-library';
 import { PayCardComponent } from './pay-card/pay-card.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { AccountModule } from 'app/account/account.module';
@@ -66,7 +60,7 @@ import { AccountModule } from 'app/account/account.module';
     RxReactiveFormsModule,
     RouterModule,
     AccountModule,
-    //RouterModule.forChild(CORE_ROUTE)
+    // RouterModule.forChild(CORE_ROUTE)
   ],
   providers: [
     Title,

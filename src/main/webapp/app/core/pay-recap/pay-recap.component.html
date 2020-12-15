@@ -17,12 +17,11 @@
                    [(ngModel)]=order.quantity>
         </td>
         <td>
-            <div class="row">
-               <div class="col-12" *ngIf="isProductSelected(order.product)">
-                    <button class="btn btn-primary btn-block"
-                            (click)="removeFromCart(order)">Retirer
-                    </button>
-                </div>
+
+           <div class="col-12" *ngIf="isProductSelected(order.product)">
+                <button class="btn btn-primary btn-block"
+                        (click)="removeFromCart(order)">Retirer
+                </button>
             </div>
         </td>
     </tr>

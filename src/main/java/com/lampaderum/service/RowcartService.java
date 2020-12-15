@@ -87,7 +87,7 @@ public class RowcartService {
         ArrayList<RowcartDTO> rowcarts= new ArrayList<RowcartDTO>();
 
         for (int i=0;i< plop.length;i++){
-            if(id==((RowcartDTO)plop[i]).getCartpersiId()){
+            if(id.equals(((RowcartDTO)plop[i]).getCartpersiId())){
                 log.debug("plop : {}",(RowcartDTO) plop[i]);
                 rowcarts.add((RowcartDTO) plop[i]);
             }

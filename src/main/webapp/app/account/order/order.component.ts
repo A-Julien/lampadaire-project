@@ -63,8 +63,8 @@ export class OrderComponent implements OnInit {
           );
           this.ss.findByApplicationUserId(body.body.id).subscribe((plup: any) => {
             for (let i = 0; i < plup.body.length; i++) {
-              this.roworders = [];
               this.rs.findBySOrderId(plup.body[i].id).subscribe((plip: any) => {
+                this.roworders = [];
                 for (let j = 0; j < plip.body.length; j++) {
                   this.roworders.push(
                     new Roworder(
@@ -77,7 +77,7 @@ export class OrderComponent implements OnInit {
                   );
                   this.st.find(plip.body[j].streetlampId).subscribe(plap => {
                     this.lamps.set(
-                      plap.body!.id!,
+                      plip.body[j].id,
                       new Streetlamp(
                         plap.body!.id,
                         plap.body!.libstreetlamp,
@@ -100,9 +100,8 @@ export class OrderComponent implements OnInit {
                     );
                   });
                 }
+                this.sorders.push(new SOrder(plup.body[i].id, plup.body[i].datecommande, this.roworders, plup.body[i].applicationUserId));
               });
-
-              this.sorders.push(new SOrder(plup.body[i].id, plup.body[i].datecommande, this.roworders, plup.body[i].applicationUserId));
             }
           });
         });
