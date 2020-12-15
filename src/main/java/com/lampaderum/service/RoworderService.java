@@ -87,9 +87,14 @@ public class RoworderService {
         Object[] plop=roworderRepository.findAll().stream()
             .map(roworderMapper::toDto).toArray();
         ArrayList<RoworderDTO> sorders= new ArrayList<RoworderDTO>();
-
+        log.debug("findBySOrderId id : {}",id);
+        log.debug("findBySOrderId plop.length : {}",plop.length);
         for (int i=0;i< plop.length;i++){
-            if(id==((RoworderDTO)plop[i]).getSorderId()){
+            log.debug("findBySOrderId plop[i].id : {}",plop.length);
+            log.debug("findBySOrderId plop[i].orderid : {}",((RoworderDTO)plop[i]).getSorderId());
+            log.debug("findBySOrderId plop[i].tostring : {}",((RoworderDTO)plop[i]).toString());
+            log.debug("findBySOrderId if : {}",id.equals(((RoworderDTO)plop[i]).getSorderId()));
+            if(id.equals(((RoworderDTO)plop[i]).getSorderId())){
                 log.debug("plop : {}",(RoworderDTO) plop[i]);
                 sorders.add((RoworderDTO) plop[i]);
             }

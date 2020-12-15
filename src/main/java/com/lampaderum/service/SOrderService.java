@@ -90,7 +90,7 @@ public class SOrderService {
         ArrayList<SOrderDTO> sorders= new ArrayList<SOrderDTO>();
 
         for (int i=0;i< plop.length;i++){
-            if(id==((SOrderDTO)plop[i]).getApplicationUserId()){
+            if(id.equals(((SOrderDTO)plop[i]).getApplicationUserId())){
 
                 sorders.add((SOrderDTO) plop[i]);
             }
