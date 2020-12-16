@@ -16,6 +16,16 @@ import { User } from '../../core/user/user.model';
 import { AccountService } from '../../core/auth/account.service';
 import { ApplicationUserService } from '../../entities/application-user/application-user.service';
 import { UserService } from '../../core/user/user.service';
+import { PdfServiceService } from 'app/core/services/pdf-service.service';
+import { Cart } from 'app/shared/model/Cart.model';
+import { ProductOrder } from 'app/shared/model/OrderProduct.model';
+import { Observable, of } from 'rxjs';
+import { logger } from 'codelyzer/util/logger';
+import { log } from 'util';
+
+/*declare global{
+  let l: any;//new Map<number, any>();
+}*/
 
 @Component({
   selector: 'jhi-order',
@@ -28,18 +38,24 @@ export class OrderComponent implements OnInit {
   applicationUser: ApplicationUser | null = null;
   sorders: SOrder[];
   roworders: Roworder[];
-  lamps: Map<number, Streetlamp>;
+  lamps: Map<number, any>;
+  l: Map<number, any>;
+  prodList: Map<number, SOrder>;
+
   constructor(
     private accountService: AccountService,
     private ap: ApplicationUserService,
     private us: UserService,
     private ss: SOrderService,
     private rs: RoworderService,
-    private st: StreetlampService
+    private st: StreetlampService,
+    private pdfService: PdfServiceService
   ) {
     this.sorders = [];
     this.roworders = [];
     this.lamps = new Map<number, Streetlamp>();
+    this.l = new Map<number, Streetlamp>();
+    this.prodList = new Map<number, SOrder>();
   }
 
   ngOnInit(): void {
@@ -98,8 +114,31 @@ export class OrderComponent implements OnInit {
                         plap.body!.pricestreetlamp
                       )
                     );
+                    /*l.set(plip.body[j].id,
+                      new Streetlamp(
+                        plap.body!.id,
+                        plap.body!.libstreetlamp,
+                        plap.body!.modelestreetlamp,
+                        plap.body!.dureeviestreetlamp,
+                        plap.body!.uniteviestreetlamp,
+                        plap.body!.materiaustreetlamp,
+                        plap.body!.liblampe,
+                        plap.body!.pwlampe,
+                        plap.body!.formelampe,
+                        plap.body!.modelelampe,
+                        plap.body!.dureevielampe,
+                        plap.body!.unitevielampe,
+                        plap.body!.voltlampe,
+                        plap.body!.templampe,
+                        plap.body!.imagepathstreetlamp,
+                        plap.body!.stockstreetlamp,
+                        plap.body!.pricestreetlamp
+                      ));*/
+                    this.setL(this.lamps);
                   });
                 }
+                //this.setForm
+                //this.prodList.set(plup.body[i].id, new SOrder(plup.body[i].id, plup.body[i].datecommande, this.roworders, plup.body[i].applicationUserId));
                 this.sorders.push(new SOrder(plup.body[i].id, plup.body[i].datecommande, this.roworders, plup.body[i].applicationUserId));
               });
             }
@@ -107,5 +146,65 @@ export class OrderComponent implements OnInit {
         });
       });
     }
+  }
+
+  setL(ll: Map<number, Streetlamp>): void {
+    this.l = ll;
+  }
+
+  createBill(order: SOrder): void {
+    //this.lamps.get(order.roworders[0].rostreetlampId);
+    /*const bite = new Observable((observer) => {
+      const cart = new Cart();
+
+      order.roworders?.forEach(o =>{
+        if(o.streetlampId!== undefined ){
+          this.st.find(o.streetlampId).subscribe(plap => {
+            if(o.quantite !== undefined) {
+              cart.productOrders.push(new ProductOrder(new Streetlamp(
+                plap.body!.id,
+                plap.body!.libstreetlamp,
+                plap.body!.modelestreetlamp,
+                plap.body!.dureeviestreetlamp,
+                plap.body!.uniteviestreetlamp,
+                plap.body!.materiaustreetlamp,
+                plap.body!.liblampe,
+                plap.body!.pwlampe,
+                plap.body!.formelampe,
+                plap.body!.modelelampe,
+                plap.body!.dureevielampe,
+                plap.body!.unitevielampe,
+                plap.body!.voltlampe,
+                plap.body!.templampe,
+                plap.body!.imagepathstreetlamp,
+                plap.body!.stockstreetlamp,
+                plap.body!.pricestreetlamp
+              ), o.quantite));
+            }
+          });
+        }
+      });*/
+
+    const cart = new Cart();
+    console.log('---------------');
+    order.roworders?.forEach(o => {
+      console.log(o);
+    });
+    console.log('---------------');
+    this.lamps.forEach(o => {
+      console.log(o);
+    });
+    console.log('---------------');
+    order.roworders?.forEach(o => {
+      if (o.streetlampId !== undefined && o.quantite !== undefined && o.id !== undefined) {
+        console.log(this.lamps.get(o.id));
+        cart.productOrders.push(new ProductOrder(this.lamps.get(o.id), o.quantite));
+      }
+    });
+    this.pdfService.addProduct(cart.productOrders);
+    this.pdfService.generatePDF();
+
+    //bite.subscribe();
+    //order.datecommande;
   }
 }

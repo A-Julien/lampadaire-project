@@ -15,6 +15,8 @@ import { ApplicationUser } from 'app/shared/model/application-user.model';
 import { Creditcard } from 'app/shared/model/creditcard.model';
 import { NgbDateMomentAdapter } from 'app/shared/util/datepicker-adapter';
 import * as moment from 'moment';
+import { pdfMake } from 'pdfmake/build/vfs_fonts';
+import { PdfServiceService } from 'app/core/services/pdf-service.service';
 
 @Component({
   selector: 'jhi-pay-form',
@@ -46,7 +48,8 @@ export class PayFormComponent implements OnInit, AfterViewInit {
     private sOrderService: SOrderService,
     private accountService: AccountService,
     private us: UserService,
-    private ap: ApplicationUserService
+    private ap: ApplicationUserService,
+    private pdfservice: PdfServiceService
   ) {}
 
   ngAfterViewInit(): void {
@@ -113,6 +116,8 @@ export class PayFormComponent implements OnInit, AfterViewInit {
   }
 
   receivePayment($event: any): void {
+    this.createBill();
+
     this.numberCard = $event;
 
     this.sOrderService.create(this.createSorder()).subscribe((body: any) => {
@@ -133,7 +138,6 @@ export class PayFormComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(): void {
-    //console.log(this.signupForm);
     /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
     this.payNow = true;
   }
@@ -144,5 +148,10 @@ export class PayFormComponent implements OnInit, AfterViewInit {
 
   returnToForm(): void {
     this.payNow = false;
+  }
+
+  createBill(): void {
+    this.pdfservice.addProduct(this.lampService.getCart());
+    this.pdfservice.generatePDF();
   }
 }
