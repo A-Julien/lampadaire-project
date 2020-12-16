@@ -39,15 +39,15 @@
                         <input type="number" min="0" class="form-control"
                                [(ngModel)]=order.quantity>
                     </div>
-                    <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+                    <div class="col-4 padding-2" *ngIf="!isProductSelected(order.product)">
                         <button class="btn btn-primary" (click)="addToCart(order)"
-                                [disabled]="order.quantity <= 0">Add To Cart
+                                [disabled]="order.quantity <= 0">Ajouter
                         </button>
                     </div>
                     <div>
                         <button type="submit"
                                 [routerLink]="[order.product.id, 'view']"
-                                class="btn btn-info btn-sm">Consulter
+                                class="btn btn-primary">Details
                         </button>
                     </div>
                     <div class="col-12" *ngIf="isProductSelected(order.product)">
@@ -64,6 +64,7 @@
 <table class="table table-hover" [hidden]="!isListLayout">
     <thead>
     <tr>
+        <th scope="col">Nom</th>
         <th scope="col">Modele</th>
         <th scope="col">Ampoule</th>
         <th scope="col">Prix</th>
@@ -73,6 +74,7 @@
     <tbody>
     <tr class="table-active" *ngFor="let order of productOrders">
         <th scope="row">{{order.product.modelestreetlamp}}</th>
+        <td>{{order.product.libstreetlamp}}</td>
         <td>{{order.product.modelelampe}}</td>
         <td>{{order.product.pricestreetlamp}}</td>
         <td>
@@ -84,6 +86,12 @@
                 <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
                     <button class="btn btn-primary btn-block" (click)="addToCart(order)"
                             [disabled]="order.quantity <= 0">Ajouter
+                    </button>
+                </div>
+                <div class="col-4 padding-0">
+                    <button type="submit"
+                            [routerLink]="[order.product.id, 'view']"
+                            class="btn btn-primary">Details
                     </button>
                 </div>
                 <div class="col-12" *ngIf="isProductSelected(order.product)">

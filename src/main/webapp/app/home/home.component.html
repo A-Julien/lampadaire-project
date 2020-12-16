@@ -6,10 +6,9 @@
                   [translateValues]="{ username: account.login }">You are logged in as user "{{ account.login }}".</span>
     </div>
 
-        <div class="alert alert-dismissible alert-warning" *ngSwitchCase="false">
-            <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
-            <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
-        </div>
+    <div class="alert alert-dismissible alert-warning" *ngSwitchCase="false">
+        <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
+        <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
     </div>
 </div>
 
