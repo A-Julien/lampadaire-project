@@ -8,6 +8,7 @@
     "node_modules"
   ],
   "dependencies": {
+    "@angular/cli": "^11.0.4",
     "@angular/common": "10.0.0",
     "@angular/compiler": "10.0.0",
     "@angular/core": "10.0.0",
@@ -26,6 +27,7 @@
     "@types/pdfmake": "^0.1.16",
     "angular-cc-library": "^2.0.1",
     "angular-countries": "^1.1.5",
+    "@schematics/angular": "^11.0.4",
     "bootstrap": "^4.5.3",
     "bootswatch": "4.5.0",
     "moment": "2.27.0",
@@ -37,6 +39,7 @@
     "rxjs": "6.5.5",
     "swagger-ui-dist": "3.25.1",
     "tslib": "2.0.0",
+    "updated": "^2.0.2",
     "zone.js": "0.10.3"
   },
   "devDependencies": {
