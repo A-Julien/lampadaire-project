@@ -8,9 +8,9 @@ export const navbarRoute: Routes = [
     path: '',
     component: NavbarComponent,
     outlet: 'navbar',
-  },
+  } /*,
   {
     path: 'catalogue',
     component: CatalogueComponent,
-  },
+  },*/,
 ];

@@ -18,7 +18,7 @@
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                <a class="nav-link" routerLink="catalogue" (click)="collapseNavbar()">
+                <a class="nav-link" [routerLink]="['/home/catalogue']" (click)="collapseNavbar()">
                     <span>
                         <fa-icon icon="search"></fa-icon>
                         <span>Catalogue</span>

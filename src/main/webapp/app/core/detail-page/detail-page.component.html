@@ -2,7 +2,9 @@
     <div class="col-md-9" style="max-width: 80%">
         <div class="row">
             <div class="col-md-4">
-                <a href="#"><img class="card-img-top"  alt="Image not found :'(" src=""></a>
+                <div *ngIf="streetlamp">
+                    <a href="#"><img class="card-img-top"  src={{streetlamp.imagepathstreetlamp}} alt="Image not found :'("></a>
+                </div>
             </div>
             <div class="col-md-5">
                 <div *ngIf="streetlamp">
