@@ -61,10 +61,10 @@ install:
 
 script:
   - chmod +x mvnw
-  - ./mvnw -ntp checkstyle:check
-  - ./mvnw -ntp clean verify
-  - ./mvnw -ntp com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test' -Dmaven.repo.local=$MAVEN_USER_HOME
-  - ./mvnw -ntp verify -Pprod -DskipTests
+  - ./mvnw -ntp -q checkstyle:check
+  - ./mvnw -ntp -q clean verify
+  - ./mvnw -ntp -q com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test' -Dmaven.repo.local=$MAVEN_USER_HOME
+  - ./mvnw -ntp -q verify -Pprod -DskipTests
 
 notifications:
   webhooks:
