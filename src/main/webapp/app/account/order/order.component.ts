@@ -121,6 +121,10 @@ export class OrderComponent implements OnInit {
     }
   }
 
+  previousState(): void {
+    window.history.back();
+  }
+
   setL(ll: Map<number, Streetlamp>): void {
     this.l = ll;
   }

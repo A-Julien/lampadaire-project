@@ -1,11 +1,11 @@
-$grey-color: #000000;
+$white-color: #ffffff;
 $red: #d23735;
 $green: #6fbb70;
 $text-font-size: 12px;
 
 * {
   font-family: Lato;
-  color: $grey-color;
+  color: $white-color;
 }
 .data {
   margin-left: 5em;
@@ -41,7 +41,7 @@ div.container {
 
     input,
     input:focus {
-      border: 1px solid $grey-color;
+      border: 1px solid $white-color;
       border-radius: 4px;
       padding: 5px;
       outline: none;

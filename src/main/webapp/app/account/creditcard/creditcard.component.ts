@@ -75,4 +75,8 @@ export class CreditcardComponent implements OnInit {
   setCardSelected(creditcard: Creditcard): void {
     this.selectedCardEvent.emit(creditcard);
   }
+
+  previousState(): void {
+    window.history.back();
+  }
 }

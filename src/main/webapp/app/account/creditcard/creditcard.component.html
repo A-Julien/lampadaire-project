@@ -3,12 +3,9 @@
         <jhi-card (click)= "setCardSelected(creditcard)" [creditCard]="creditcard"></jhi-card>
     </div>
 </div>
-
-
-<!--<div class='container' (click)= "setCardSelected(creditcard)">
-        <div class="data">
-            <div class="specD">{{creditcard!.numcarte}}</div>
-            <div class="specD">CVC : {{creditcard!.code}}</div>
-            <div class="specD"> {{creditcard!.dateexpiration!.format("DD/MM/YYYY")}}</div>
-        </div>
-    </div>-->
+<div>
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-primary btn-lg">Retour
+    </button>
+</div>
