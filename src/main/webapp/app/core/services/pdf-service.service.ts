@@ -21,7 +21,7 @@ export class PdfServiceService {
   generatePDF(): void {
     pdfMake.createPdf(this.getDocumentDefinition()).open();
     this.invoice = new Invoice();
-    new Date();
+    //new Date();
   }
 
   addProduct(product: ProductOrder[]): void {
