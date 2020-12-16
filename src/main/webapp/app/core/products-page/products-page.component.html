@@ -82,9 +82,15 @@
         <td>{{order.product.pricestreetlamp}}</td>
         <td>
             <div class="row">
-                <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+                <div class="col-4 padding-0">
                     <input type="number" min="0" class="form-control"
-                           [(ngModel)]=order.quantity>
+                           [(ngModel)]=order.quantity
+                           [disabled]="isProductSelected(order.product)">
+                </div>
+                <div class="col-4 padding-0" *ngIf="isProductSelected(order.product)">
+                    <button class="btn btn-primary btn-block"
+                            (click)="removeFromCart(order)">Retirer
+                    </button>
                 </div>
                 <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
                     <button class="btn btn-primary btn-block" (click)="addToCart(order)"
@@ -95,11 +101,6 @@
                     <button type="submit"
                             [routerLink]="['/home', order.product.id, 'view']"
                             class="btn btn-primary">Details
-                    </button>
-                </div>
-                <div class="col-12" *ngIf="isProductSelected(order.product)">
-                    <button class="btn btn-primary btn-block"
-                            (click)="removeFromCart(order)">Retirer
                     </button>
                 </div>
             </div>
