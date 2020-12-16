@@ -50,6 +50,12 @@ before_install:
   - sudo /etc/init.d/postgresql stop
   - nvm install $NODE_VERSION
   - npm install -g npm
+  - npm install -g pdfmake
+  - npm install -g @types/pdfmake
+  - npm install -g @types/node
+  - npm install -g bootstrap
+  - npm install -g @rxweb/reactive-form-validators
+  - npm install -g @angular/cli
   - node -v
   - npm -v
   - echo $AWSACCESKEY
