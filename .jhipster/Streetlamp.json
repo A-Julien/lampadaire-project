@@ -76,6 +76,6 @@
   "entityTableName": "streetlamp",
   "databaseType": "sql",
   "readOnly": false,
-  "jpaMetamodelFiltering": false,
+  "jpaMetamodelFiltering": true,
   "pagination": "infinite-scroll"
 }

@@ -1,0 +1,39 @@
+<table class="table table-hover" >
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">Description</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Quantités</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-active" *ngFor="let order of productOrders">
+        <th><img class="square" src={{order.product.imagepathstreetlamp}} alt="Image not found :'("></th>
+        <td>{{order.product.modelestreetlamp}}</td>
+        <td id="inner">{{order.product.pricestreetlamp}}</td>
+        <td><input type="number" min="0" class="form-control col-5"
+                   [(ngModel)]=order.quantity>
+        </td>
+        <td>
+
+           <div class="col-12" *ngIf="isProductSelected(order.product)">
+                <button class="btn btn-primary btn-block"
+                        (click)="removeFromCart(order)">Retirer
+                </button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="row">
+    <button class="btn btn-primary col-2"  style="margin-right: 2em"
+            [routerLink]="['']">Revenir aux catalogue
+    </button>
+    <button class="btn btn-primary col-2"  style="margin-right: 2em"
+            [routerLink]="['/home/pay-form']">Aller au payement
+    </button>
+
+</div>
+

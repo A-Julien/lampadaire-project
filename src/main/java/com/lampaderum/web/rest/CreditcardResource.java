@@ -13,13 +13,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -108,6 +108,19 @@ public class CreditcardResource {
         log.debug("REST request to get Creditcard : {}", id);
         Optional<CreditcardDTO> creditcardDTO = creditcardService.findOne(id);
         return ResponseUtil.wrapOrNotFound(creditcardDTO);
+    }
+
+    /**
+     * {@code GET  /creditcards/:id} : get the "id" of the ApplicationUser of the creditcard.
+     *
+     * @param id the id of the the ApplicationUser of the creditcardDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the creditcardDTO, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/creditcards/ApplicationUserId/{id}")
+    public ResponseEntity<List<CreditcardDTO>> getCreditcardByApplicationUserId(@PathVariable Long id) {
+        log.debug("REST request to get Creditcard : {}", id);
+        List<CreditcardDTO> creditcardDTO = (List<CreditcardDTO>) creditcardService.findOneByApplicationUserId(id);
+        return ResponseEntity.ok().body(creditcardDTO);
     }
 
     /**

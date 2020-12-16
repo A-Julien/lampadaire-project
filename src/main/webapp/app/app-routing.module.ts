@@ -7,7 +7,7 @@ import { Authority } from 'app/shared/constants/authority.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 
-const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
+const LAYOUT_ROUTES = [navbarRoute[0], ...errorRoute];
 
 @NgModule({
   imports: [
@@ -24,6 +24,14 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         {
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
+        },
+        {
+          path: 'core',
+          loadChildren: () => import('./core/core.module').then(m => m.LampaderumCoreModule),
+        },
+        {
+          path: 'home',
+          loadChildren: () => import('./home/home.module').then(m => m.LampaderumHomeModule),
         },
         ...LAYOUT_ROUTES,
       ],

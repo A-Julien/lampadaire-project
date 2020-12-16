@@ -1,0 +1,74 @@
+$grey-color: #000000;
+$red: #d23735;
+$green: #6fbb70;
+$text-font-size: 12px;
+
+* {
+  font-family: Lato;
+  color: $grey-color;
+}
+.data {
+  margin-left: 5em;
+  margin-top: 0.5em;
+}
+
+.specD {
+  margin-top: 0;
+}
+
+div.container {
+  background-image: url('../../core/pay-card/Credit_card.jpg');
+  background-size: cover;
+  border-radius: 25px;
+  height: 150px;
+  width: 250px;
+  box-shadow: 0px 0px 2px 0px lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1em auto auto auto;
+
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto 0 auto;
+
+    input,
+    input:focus {
+      border: 1px solid $grey-color;
+      border-radius: 4px;
+      padding: 5px;
+      outline: none;
+      font-size: $text-font-size;
+
+      &.invalid,
+      &.ng-dirty {
+        border-color: $red;
+      }
+      &.ng-valid {
+        border-color: $green;
+      }
+    }
+
+    p {
+      text-align: center;
+      font-size: $text-font-size;
+
+      &.valid:after {
+        color: $green;
+        content: 'Card Number is Valid!';
+      }
+
+      &.invalid:after {
+        color: $red;
+        content: 'Invalid Card Number!';
+      }
+    }
+  }
+}

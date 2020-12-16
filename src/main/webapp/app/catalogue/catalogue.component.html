@@ -1,0 +1,41 @@
+<div [ngSwitch]="isAuthenticated()">
+    <div class="alert alert-dismissible alert-success" *ngSwitchCase="true">
+            <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
+                  [translateValues]="{ username: account.login }">You are logged in as user "{{ account.login }}".</span>
+    </div>
+
+    <div class="alert alert-dismissible alert-warning" *ngSwitchCase="false">
+        <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
+        <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a><span jhiTranslate="global.messages.info.authenticated.suffix">, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
+    </div>
+
+    <div class="alert alert-dismissible alert-warning" *ngSwitchCase="false">
+        <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
+        <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+    </div>
+</div>
+
+<div>
+    <div class="jumbotron" [hidden]="orderFinished">
+        <p class="lead">Vous trouverez ci-dessous un large choix de produits pouvant correspondre, nous l'espérons, à toutes vos attentes.</p>
+        <hr class="my-4">
+        <p>Il est possible de changer l'affichage du catalogue sous forme de liste ou de grille selon vos préférences.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9" style="max-width: 100%">
+            <jhi-products-page #productsC
+                               [hidden]="orderFinished"></jhi-products-page>
+        </div>
+        <div class="col-md-3"
+             #stickyCart
+             [class.sticky] = "sticky">
+            <jhi-shopping-cart (onOrderFinished)=finishOrder($event) #shoppingCartC
+                               [hidden]="orderFinished"></jhi-shopping-cart>
+        </div>
+        <div class="col-md-6 offset-3">
+            <jhi-orders (onOrderFinished)=finishOrder($event) #ordersC
+                        [hidden]="!orderFinished"></jhi-orders>
+        </div>
+    </div>
+</div>

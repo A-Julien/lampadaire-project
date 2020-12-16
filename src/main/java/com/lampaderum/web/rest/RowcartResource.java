@@ -111,6 +111,19 @@ public class RowcartResource {
     }
 
     /**
+     * {@code GET  /rowcarts/cartpersi/:id} : get the "id" of the cartpersi of rowcart.
+     *
+     * @param id the id of the cartpersi of rowcartDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the rowcartDTO, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/rowcarts/cartpersi/{id}")
+    public ResponseEntity<List<RowcartDTO>> getRowcartByCartpersiId(@PathVariable Long id) {
+        log.debug("REST request to get Rowcart : {}", id);
+        List<RowcartDTO> rowcartDTO = rowcartService.findOneByCartpersiId(id);
+        return ResponseEntity.ok().body(rowcartDTO);
+    }
+
+    /**
      * {@code DELETE  /rowcarts/:id} : delete the "id" rowcart.
      *
      * @param id the id of the rowcartDTO to delete.

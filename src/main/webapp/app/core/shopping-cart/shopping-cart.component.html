@@ -1,18 +1,23 @@
 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-    <div class="card-header text-center">Votre Panier</div>
+    <div class="card-header text-center"><h4>Votre Panier</h4></div>
     <div class="card-body">
-        <h5 class="card-title">Total: {{total}} €</h5>
-        <hr>
-        <h6 class="card-title">Achats : </h6>
+        <h5 class="card-title">Vos articles : </h5>
 
         <ul>
             <li *ngFor="let order of orders.productOrders">
-                {{ order.product.libstreetlamp }} - {{ order.quantity}} pcs.
+                {{ order.product.libstreetlamp }} x{{ order.quantity}} - Prix/u : {{ order.product.pricestreetlamp}} €
             </li>
         </ul>
 
+        <hr>
+
+        <h5 class="card-title">Total : {{total}} €</h5>
+
+
+
         <button class="btn btn-primary btn-block" (click)="finishOrder()"
-                [disabled]="orders.productOrders.length == 0">Consulter
+                [disabled]="orders.productOrders.length == 0"
+                [routerLink]="['/home/recap']">Consulter
         </button>
     </div>
 </div>
