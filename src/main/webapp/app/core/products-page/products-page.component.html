@@ -1,3 +1,17 @@
+<form name="form" role="form" (ngSubmit)="getSearch()" [formGroup]="settingsForm">
+    <div class="form-group">
+        <label class="form-control-label" for="search" >Recherche</label>
+        <input type="text" class="form-control" id="search" name="search"
+               formControlName="search">
+
+        <label class="form-control-label" for="plusde40000">Plus de 40 000€</label>
+        <input type="checkbox" name= "plusde40000" id="plusde40000" value="true" formControlName="plusde40000" checked="">
+
+        <button type="submit" class="btn btn-primary" >GO</button>
+
+    </div>
+</form>
+
 <p class="lead">
     <button type="button" class="btn btn-outline-primary btn-sm btn-block"
             (click)="setListLayout(true)"
@@ -10,6 +24,7 @@
     >Afficher sous forme de grille</button>
 </p>
 
+
 <div class="row card-deck" [hidden]="isListLayout">
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders">
         <div class="card text-center">
@@ -17,7 +32,7 @@
                 <h4>{{order.product.libstreetlamp}}</h4>
             </div>
             <div class="card-body">
-                <a href="#"><img class="card-img-top" src={{order.product.imagepathstreetlamp}} alt="Image not found :'("></a>
+                <a href="" [routerLink]="[order.product.id, 'view']"><img class="card-img-top" src={{order.product.imagepathstreetlamp}} alt="Image not found :'("></a>
                 <!--<h5 class="card-title">${{order.product.price}}</h5>-->
                 <div class="row">
                     <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
@@ -32,7 +47,7 @@
                     <div>
                         <button type="submit"
                                 [routerLink]="[order.product.id, 'view']"
-                                class="btn btn-info btn-sm">Details
+                                class="btn btn-info btn-sm">Consulter
                         </button>
                     </div>
                     <div class="col-12" *ngIf="isProductSelected(order.product)">

@@ -2,13 +2,11 @@ package com.lampaderum.service.dto;
 
 import java.io.Serializable;
 
-import static com.lampaderum.config.Constants.SERV_IMG_URL;
-
 /**
  * A DTO for the {@link com.lampaderum.domain.Streetlamp} entity.
  */
 public class StreetlampDTO implements Serializable {
-
+    
     private Long id;
 
     private String libstreetlamp;
@@ -43,7 +41,7 @@ public class StreetlampDTO implements Serializable {
 
     private Double pricestreetlamp;
 
-
+    
     public Long getId() {
         return id;
     }
@@ -157,7 +155,7 @@ public class StreetlampDTO implements Serializable {
     }
 
     public String getImagepathstreetlamp() {
-        return SERV_IMG_URL + imagepathstreetlamp;
+        return imagepathstreetlamp;
     }
 
     public void setImagepathstreetlamp(String imagepathstreetlamp) {
