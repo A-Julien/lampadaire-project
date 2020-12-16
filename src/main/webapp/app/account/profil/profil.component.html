@@ -1,20 +1,35 @@
-<a routerLink="../../account/order"  >
-    <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
-    <span>Voir Commande</span>
-</a>
-<a routerLink="../../account/creditcards"  >
-    <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
-    <span>Voir carte de crédit</span>
-</a>
-<div>
-    <p>Prénom :</p>
-    <p>{{ Account!.firstName}}</p>
-    <p>Nom :</p>
-    <p>{{ Account!.lastName}}</p>
-    <p>Login :</p>
-    <p>{{ Account!.login}}</p>
-    <p>e-mail :</p>
-    <p>{{ Account!.email}}</p>
-    <p>Siret :</p>
-    <p>{{applicationUser!.siret}}</p>
+<div class="jumbotron">
+    <h4 class="display-3">Profil</h4>
+    <hr class="my-4">
+    <h5>Informations personnelles :</h5>
+    <hr class="my-4">
+    <div style="margin-left: 2em">
+        <p>Prénom : {{ Account!.firstName}}</p>
+        <p>Nom : {{ Account!.lastName}}</p>
+    </div>
+    <hr class="my-4">
+    <h5>Informations liées au compte :</h5>
+    <hr class="my-4">
+    <div style="margin-left: 2em">
+        <p>Login : {{ Account!.login}}</p>
+        <p></p>
+        <p>Adresse e-mail : {{ Account!.email}}</p>
+        <p></p>
+        <p>Numéro de Siret : {{applicationUser!.siret}}</p>
+        <p></p>
+    </div>
+    <hr class="my-4">
+    <h5>Accéder à : </h5>
+    <hr class="my-4">
+    <div style="margin-left: 2em">
+        <a href="../../account/order" target="_blank">
+            <h6>Mes commandes</h6>
+        </a>
+        <a href="../../account/creditcards" target="_blank">
+            <h6>Mes cartes de crédit</h6>
+        </a>
+    </div>
 </div>
+
+
+

@@ -7,6 +7,5 @@ export const activateRoute: Route = {
   component: ActivateComponent,
   data: {
     authorities: [],
-    pageTitle: 'activate.title',
   },
 };

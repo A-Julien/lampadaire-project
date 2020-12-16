@@ -168,14 +168,14 @@
                     <li *ngSwitchCase="true">
                         <a class="dropdown-item" routerLink="account/settings" routerLinkActive="active" (click)="collapseNavbar()">
                             <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
-                            <span>Settings</span>
+                            <span>Paramètres</span>
                         </a>
                     </li>
                         <li *ngSwitchCase="true">
                             <a class="dropdown-item" routerLink="account/profil" routerLinkActive="active" (click)="collapseNavbar()">
-
-                                <span>Voir Profil</span>
-                            </a>
+                                <fa-icon icon="eye" [fixedWidth]="true"></fa-icon>
+                                <span>Profil</span>
+                              </a>
                         </li>
                     <li *ngSwitchCase="true">
                         <a class="dropdown-item" routerLink="account/password" routerLinkActive="active" (click)="collapseNavbar()">
