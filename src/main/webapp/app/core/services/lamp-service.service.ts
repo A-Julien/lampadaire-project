@@ -106,6 +106,16 @@ export class LampService {
     this.productOrderSubject.next();
   }
 
+  public calculateTotal(products: ProductOrder[]): number {
+    let sum = 0;
+    products.forEach(value => {
+      if (value.product.pricestreetlamp !== undefined) {
+        sum += value.product.pricestreetlamp * value.quantity;
+      }
+    });
+    return sum;
+  }
+
   set ProductOrders(value: Cart) {
     this.orders = value;
     this.saveCart = value.productOrders;

@@ -17,6 +17,7 @@ export class PayRecapComponent implements OnInit {
 
   products: Streetlamp[] = [];
   selectedProductOrder!: ProductOrder;
+  cart!: Cart;
   sub!: Subscription;
   productSelected: boolean;
   private page: number;
@@ -36,13 +37,19 @@ export class PayRecapComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cart = this.lampService.get();
+    this.total = this.lampService.calculateTotal(this.cart.productOrders);
     this.productOrders = [];
-    this.loadProducts();
+    this.subToCart();
   }
 
-  loadProducts(): void {
+  private subToCart(): void {
     //this.productOrders = this.lampService.ProductOrders.productOrders;
-    this.productOrders = this.lampService.getCart();
+    //this.productOrders = this.lampService.getCart();
+    this.sub = this.lampService.ProductOrderChanged.subscribe(() => {
+      this.cart = this.lampService.get();
+      this.total = this.lampService.calculateTotal(this.cart.lamps);
+    });
   }
 
   getProductIndex(product: IStreetlamp): number {
@@ -55,18 +62,15 @@ export class PayRecapComponent implements OnInit {
     this.productSelected = true;
   }
 
-  removeFromCart(productOrder: ProductOrder): void {
-    const index = this.getProductIndex(productOrder.product);
+  removeFromCart(lamp: ProductOrder): void {
+    this.lampService.removeLamp(lamp);
+    /*const index = this.getProductIndex(productOrder.product);
     if (index > -1) {
       this.productOrders.splice(this.getProductIndex(productOrder.product), 1);
     }
     this.lampService.saveCart = this.productOrders;
     this.lampService.ProductOrders.productOrders = this.productOrders; //this.shoppingCartOrders;
-    this.productSelected = false;
-  }
-
-  isProductSelected(product: Streetlamp): boolean {
-    return this.getProductIndex(product) > -1;
+    this.productSelected = false;*/
   }
 
   trackId(index: number, item: ProductOrder): number {
