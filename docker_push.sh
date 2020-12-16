@@ -12,4 +12,4 @@ echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --passw
 
 #build&push image
 #./mvnw package -X -Pprod verify -DskipTests jib:build
-./mvnwntp -ntp -q package -Pprod verify -DskipTests jib:build
+./mvnw -ntp -q package -Pprod verify -DskipTests jib:build
