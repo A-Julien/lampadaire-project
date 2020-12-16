@@ -8,24 +8,17 @@ import { Roworder } from 'app/shared/model/roworder.model';
 import { StreetlampService } from 'app/entities/streetlamp/streetlamp.service';
 import { Streetlamp } from 'app/shared/model/streetlamp.model';
 
-import { ApplicationUser } from '../../shared/model/application-user.model';
-import { Creditcard } from '../../shared/model/creditcard.model';
+import { ApplicationUser } from 'app/shared/model/application-user.model';
+import { Creditcard } from 'app/shared/model/creditcard.model';
 
-import { Account } from '../../core/user/account.model';
-import { User } from '../../core/user/user.model';
-import { AccountService } from '../../core/auth/account.service';
-import { ApplicationUserService } from '../../entities/application-user/application-user.service';
-import { UserService } from '../../core/user/user.service';
+import { Account } from 'app/core/user/account.model';
+import { User } from 'app/core/user/user.model';
+import { AccountService } from 'app/core/auth/account.service';
+import { ApplicationUserService } from 'app/entities/application-user/application-user.service';
+import { UserService } from 'app/core/user/user.service';
 import { PdfServiceService } from 'app/core/services/pdf-service.service';
 import { Cart } from 'app/shared/model/Cart.model';
 import { ProductOrder } from 'app/shared/model/OrderProduct.model';
-import { Observable, of } from 'rxjs';
-import { logger } from 'codelyzer/util/logger';
-import { log } from 'util';
-
-/*declare global{
-  let l: any;//new Map<number, any>();
-}*/
 
 @Component({
   selector: 'jhi-order',
@@ -114,26 +107,6 @@ export class OrderComponent implements OnInit {
                         plap.body!.pricestreetlamp
                       )
                     );
-                    /*l.set(plip.body[j].id,
-                      new Streetlamp(
-                        plap.body!.id,
-                        plap.body!.libstreetlamp,
-                        plap.body!.modelestreetlamp,
-                        plap.body!.dureeviestreetlamp,
-                        plap.body!.uniteviestreetlamp,
-                        plap.body!.materiaustreetlamp,
-                        plap.body!.liblampe,
-                        plap.body!.pwlampe,
-                        plap.body!.formelampe,
-                        plap.body!.modelelampe,
-                        plap.body!.dureevielampe,
-                        plap.body!.unitevielampe,
-                        plap.body!.voltlampe,
-                        plap.body!.templampe,
-                        plap.body!.imagepathstreetlamp,
-                        plap.body!.stockstreetlamp,
-                        plap.body!.pricestreetlamp
-                      ));*/
                     this.setL(this.lamps);
                   });
                 }
@@ -146,6 +119,10 @@ export class OrderComponent implements OnInit {
         });
       });
     }
+  }
+
+  previousState(): void {
+    window.history.back();
   }
 
   setL(ll: Map<number, Streetlamp>): void {
