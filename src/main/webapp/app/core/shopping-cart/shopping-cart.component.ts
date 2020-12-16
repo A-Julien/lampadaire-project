@@ -50,10 +50,13 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.orders = new Cart();
+    //this.orders = new Cart();
+    this.orders = this.lampService.get();
 
     this.loadCart();
-    this.loadTotal();
+
+    //this.loadTotal();
+    this.total = this.calculateTotal(this.orders.productOrders);
 
     if (Account && this.lampService.ProductOrders.productOrders.length === 0) {
       this.accountService.identity().subscribe(account => {
@@ -127,7 +130,20 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   loadCart(): void {
-    this.orders = this.lampService.ProductOrders;
+    this.sub = this.lampService.ProductOrderChanged.subscribe(() => {
+      //console.log("NEW ITEM IN CART");
+      this.orders = this.lampService.get();
+      //console.log(this.orders.lamps);
+      this.total = this.calculateTotal(this.orders.lamps);
+      /*const productOrder = this.lampService.SelectedProductOrder;
+      if (productOrder) {
+        this.orders.productOrders.push(new ProductOrder(productOrder.product, productOrder.quantity));
+      }
+      this.lampService.ProductOrders = this.orders;
+      // this.orders = this.lampService.ProductOrders;
+      this.total = this.calculateTotal(this.orders.productOrders);*/
+    });
+    /*this.orders = this.lampService.ProductOrders;
     this.sub = this.lampService.ProductOrderChanged.subscribe(() => {
       const productOrder = this.lampService.SelectedProductOrder;
       if (productOrder) {
@@ -136,7 +152,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       this.lampService.ProductOrders = this.orders;
       // this.orders = this.lampService.ProductOrders;
       this.total = this.calculateTotal(this.orders.productOrders);
-    });
+    });*/
   }
 
   finishOrder(): void {

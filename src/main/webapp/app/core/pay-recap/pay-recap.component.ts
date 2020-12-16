@@ -23,6 +23,8 @@ export class PayRecapComponent implements OnInit {
   private itemsPerPage: number;
   links: any;
   isListLayout: boolean;
+  total: any;
+
   constructor(private lampService: LampService, protected parseLinks: JhiParseLinks) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.page = 0;

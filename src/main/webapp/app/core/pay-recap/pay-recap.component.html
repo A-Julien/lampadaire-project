@@ -17,23 +17,21 @@
                    [(ngModel)]=order.quantity>
         </td>
         <td>
-
-           <div class="col-12" *ngIf="isProductSelected(order.product)">
-                <button class="btn btn-primary btn-block"
-                        (click)="removeFromCart(order)">Retirer
-                </button>
-            </div>
+            <button class="btn btn-primary btn-block"
+                    (click)="removeFromCart(order)">Retirer
+            </button>
         </td>
     </tr>
     </tbody>
 </table>
 <div class="row">
     <button class="btn btn-primary col-2"  style="margin-right: 2em"
-            [routerLink]="['']">Revenir aux catalogue
+            [routerLink]="['/home/catalogue']">Revenir au catalogue
     </button>
     <button class="btn btn-primary col-2"  style="margin-right: 2em"
             [routerLink]="['/home/pay-form']">Aller au payement
     </button>
+    <h5 class="card-title">Total : {{total}} €</h5>
 
 </div>
 

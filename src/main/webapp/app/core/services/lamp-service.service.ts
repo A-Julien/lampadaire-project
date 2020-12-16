@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RowcartService } from 'app/entities/rowcart/rowcart.service';
 import { Rowcart } from 'app/shared/model/rowcart.model';
-import { Streetlamp } from 'app/shared/model/streetlamp.model';
+import { IStreetlamp, Streetlamp } from 'app/shared/model/streetlamp.model';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +32,7 @@ export class LampService {
   constructor(private http: HttpClient, private rc: RowcartService) {
     this.total = 0;
     this.idcartpresi = -1;
+    localStorage.setItem('LampCart', JSON.stringify(new Cart()));
   }
   set SelectedProductOrder(value: ProductOrder) {
     this.productOrder = value;
@@ -59,7 +60,19 @@ export class LampService {
   }
 
   set saveCart(cart: ProductOrder[]) {
-    localStorage.setItem('cart', JSON.stringify(ProductOrder));
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  get(): Cart {
+    const cartStorage = localStorage.getItem('LampCart');
+
+    const cart = new Cart();
+
+    if (cartStorage != null) {
+      cart.cp(JSON.parse(cartStorage) as Cart);
+    }
+
+    return cart;
   }
 
   getCart(): ProductOrder[] {
@@ -74,8 +87,28 @@ export class LampService {
     return cart.productOrders;
   }
 
+  public addLamp(lamp: ProductOrder): void {
+    const cart = this.get();
+
+    cart.addLamp(lamp);
+    localStorage.setItem('LampCart', JSON.stringify(cart));
+
+    this.productOrderSubject.next();
+  }
+
+  public removeLamp(lamp: ProductOrder): void {
+    const cart = this.get();
+
+    cart.removeLamp(lamp);
+
+    localStorage.setItem('LampCart', JSON.stringify(cart));
+
+    this.productOrderSubject.next();
+  }
+
   set ProductOrders(value: Cart) {
     this.orders = value;
+    this.saveCart = value.productOrders;
     this.ordersSubject.next();
   }
 
