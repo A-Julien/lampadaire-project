@@ -12,11 +12,11 @@ import { Roworder } from 'app/shared/model/roworder.model';
 import { CreditcardService } from 'app/entities/creditcard/creditcard.service';
 import { Creditcard } from 'app/shared/model/creditcard.model';
 
-import { Account } from '../../core/user/account.model';
-import { User } from '../../core/user/user.model';
+import { Account } from 'app/core/user/account.model';
+import { User } from 'app/core/user/user.model';
 
-import { AccountService } from '../../core/auth/account.service';
-import { UserService } from '../../core/user/user.service';
+import { AccountService } from 'app/core/auth/account.service';
+import { UserService } from 'app/core/user/user.service';
 
 @Component({
   selector: 'jhi-profil',

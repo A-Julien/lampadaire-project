@@ -1,16 +1,27 @@
-<div>
+<div class="jumbotron">
+    <h4 class="display-3">Historique de commandes</h4>
+    <hr class="my-4">
     <ul *ngFor="let order of sorders">
-        <li>
-            <p>Commande du : {{ order!.datecommande!.format("DD/MM/YYYY HH:mm:ss") }}</p>
-            <p>Articles :</p>
-            <ul *ngFor="let rorder of order!.roworders!">
-                <li>
-                    {{lamps!.get(rorder!.id!)!.libstreetlamp!}} au prix de : {{rorder!.price!}} avec une quantité de : {{rorder!.quantite!}} .
-                </li>
-            </ul>
-            <button class="btn btn-primary col-2"  type="submit" (click)="createBill(order)" style="width: 15%">
-                facture
-            </button>
-        </li>
+            <li>
+                <h5>Commande #{{ order!.id}} faite le {{ order!.datecommande!.format("DD/MM/YYYY") }} à {{ order!.datecommande!.format("HH:MM") }} </h5>
+                <ul>
+                    <li>
+                        <h6>Articles concernés :</h6>
+                        <ul *ngFor="let rorder of order!.roworders!">
+                            <li>
+                                {{lamps!.get(rorder!.id!)!.libstreetlamp!}} x{{rorder!.quantite!}} - Prix/unité : {{rorder!.price!}}€
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h6>Générer la facture :</h6>
+                        <button class="btn btn-primary" type="submit" (click)="createBill(order)">
+                            PDF
+                        </button>
+                    </li>
+                </ul>
+                <hr class="my-4">
+            </li>
     </ul>
 </div>
+
