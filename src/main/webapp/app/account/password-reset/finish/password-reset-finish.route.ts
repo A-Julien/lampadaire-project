@@ -7,6 +7,5 @@ export const passwordResetFinishRoute: Route = {
   component: PasswordResetFinishComponent,
   data: {
     authorities: [],
-    pageTitle: 'global.menu.account.password',
   },
 };

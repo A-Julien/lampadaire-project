@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApplicationUser } from '../../shared/model/application-user.model';
 
 import { CreditcardService } from 'app/entities/creditcard/creditcard.service';
@@ -23,7 +23,7 @@ export class CreditcardComponent implements OnInit {
   applicationUser: ApplicationUser | null = null;
   creditcards: Creditcard[];
   selectedCreditCard: Creditcard;
-
+  @Input() profileView = true;
   @Output() selectedCardEvent = new EventEmitter<Creditcard>();
 
   constructor(
@@ -74,5 +74,9 @@ export class CreditcardComponent implements OnInit {
 
   setCardSelected(creditcard: Creditcard): void {
     this.selectedCardEvent.emit(creditcard);
+  }
+
+  previousState(): void {
+    window.history.back();
   }
 }

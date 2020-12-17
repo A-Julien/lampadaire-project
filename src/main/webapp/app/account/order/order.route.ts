@@ -9,7 +9,6 @@ export const orderRoute: Route = {
   component: OrderComponent,
   data: {
     authorities: [Authority.USER],
-    pageTitle: 'global.menu.account.profil.order',
   },
   canActivate: [UserRouteAccessService],
 };

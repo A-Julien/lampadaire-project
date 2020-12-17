@@ -76,7 +76,6 @@ export class PayFormComponent implements OnInit, AfterViewInit {
 
         this.us.find(this.Account!.login).subscribe(user => {
           this.User = user;
-          alert(user.id);
           this.ap.findbyuserid(this.User.id).subscribe((body: any) => {
             this.applicationUser = new ApplicationUser(
               body.body.id,
@@ -149,6 +148,10 @@ export class PayFormComponent implements OnInit, AfterViewInit {
           )
           .subscribe(() => {});
       }
+    });
+    const c: Cart = this.lampService.get();
+    c.lamps.forEach(lamp => {
+      this.lampService.removeLamp(lamp);
     });
   }
 

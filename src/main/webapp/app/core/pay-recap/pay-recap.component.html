@@ -2,15 +2,17 @@
     <thead>
     <tr>
         <th scope="col"></th>
-        <th scope="col">Description</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Modèle</th>
         <th scope="col">Prix</th>
-        <th scope="col">Quantités</th>
+        <th scope="col">Quantité</th>
         <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
     <tr class="table-active" *ngFor="let order of cart.lamps">
         <th><img class="square" src={{order.product.imagepathstreetlamp}} alt="Image not found :'("></th>
+        <td>{{order.product.libstreetlamp}}</td>
         <td>{{order.product.modelestreetlamp}}</td>
         <td id="inner">{{order.product.pricestreetlamp}}</td>
         <td><input type="number" min="0" class="form-control col-5"
@@ -26,12 +28,11 @@
 </table>
 <div class="row">
     <button class="btn btn-primary col-2"  style="margin-right: 2em"
-            [routerLink]="['/home/catalogue']">Revenir au catalogue
+            [routerLink]="['/home/catalogue']">Retour
     </button>
     <button class="btn btn-primary col-2"  style="margin-right: 2em"
-            [routerLink]="['/home/pay-form']">Aller au payement
+            [routerLink]="['/home/pay-form']">Aller au paiement
     </button>
     <h5 class="card-title">Total : {{total}} €</h5>
 
 </div>
-

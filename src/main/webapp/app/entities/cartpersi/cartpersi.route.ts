@@ -40,7 +40,6 @@ export const cartpersiRoute: Routes = [
     component: CartpersiComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'lampaderumApp.cartpersi.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +51,6 @@ export const cartpersiRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'lampaderumApp.cartpersi.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +62,6 @@ export const cartpersiRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'lampaderumApp.cartpersi.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +73,6 @@ export const cartpersiRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'lampaderumApp.cartpersi.home.title',
     },
     canActivate: [UserRouteAccessService],
   },

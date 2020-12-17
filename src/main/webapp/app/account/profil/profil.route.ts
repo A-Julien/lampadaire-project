@@ -9,7 +9,6 @@ export const profilRoute: Route = {
   component: ProfilComponent,
   data: {
     authorities: [Authority.USER],
-    pageTitle: 'global.menu.account.profil',
   },
   canActivate: [UserRouteAccessService],
 };

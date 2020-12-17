@@ -15,7 +15,7 @@ export const HOME_ROUTE: Routes = [
     component: HomeComponent,
     data: {
       authorities: [],
-      pageTitle: 'home.title',
+      title: 'Lampaderum',
     },
   },
   {
@@ -23,7 +23,6 @@ export const HOME_ROUTE: Routes = [
     component: CatalogueComponent,
     data: {
       authorities: [],
-      pageTitle: 'catalogue',
     },
   },
   {
@@ -34,7 +33,6 @@ export const HOME_ROUTE: Routes = [
     },
     data: {
       authorities: [],
-      pageTitle: 'home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -43,7 +41,6 @@ export const HOME_ROUTE: Routes = [
     component: PayRecapComponent,
     data: {
       authorities: [],
-      pageTitle: 'home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +49,6 @@ export const HOME_ROUTE: Routes = [
     component: PayFormComponent,
     data: {
       authorities: [User],
-      pageTitle: 'home.title',
     },
     // canActivate: [UserRouteAccessService],
   },
