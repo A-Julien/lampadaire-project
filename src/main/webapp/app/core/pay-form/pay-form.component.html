@@ -10,7 +10,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="table-active" *ngFor="let order of productOrders">
+        <tr class="table-active" *ngFor="let order of cart.lamps">
             <th><img class="square" src={{order.product.imagepathstreetlamp}} alt="Image not found :'("></th>
             <td>{{order.product.modelestreetlamp}}</td>
             <td id="inner">{{order.product.pricestreetlamp}}</td>
