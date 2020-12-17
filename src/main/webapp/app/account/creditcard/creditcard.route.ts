@@ -9,7 +9,6 @@ export const CreditcardRoute: Route = {
   component: CreditcardComponent,
   data: {
     authorities: [Authority.USER],
-    pageTitle: 'global.menu.account.profil.creditcard',
   },
   canActivate: [UserRouteAccessService],
 };

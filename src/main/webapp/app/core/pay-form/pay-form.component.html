@@ -88,28 +88,28 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <button class="btn btn-primary col-3"  style="margin-right: 2em"
-                    [routerLink]="['']">Revenir au detail
+        <div class="row padding-2">
+            <button class="btn btn-primary col-2 marg"
+                    [routerLink]="['']">Retour
             </button>
-            <button class="btn btn-primary col-2"  type="submit" [disabled]="payFrom.invalid" style="width: 15%">
+            <button class="btn btn-primary col-2 marg"  type="submit" [disabled]="payFrom.invalid">
                 Payer
             </button>
-            <button class="btn btn-primary col-2"  type="submit" (click)="createBill()" style="width: 15%">
-                Payer
+            <button class="btn btn-primary col-2 marg"  type="submit" (click)="createBill()">
+                PDF
             </button>
         </div>
 
     </form>
 </div>
 
-<div class="col-md-6" [hidden]="!payNow">
+<div class="col-md-4" [hidden]="!payNow">
     <h2>Veuillez saisir vos informations de payement </h2>
     <div>Prix à payer : {{totalCmd}} €</div>
     <jhi-pay-card
         (numberCartEvent)="receivePayment($event)">
     </jhi-pay-card>
-    <button class="btn btn-primary col-2"  (click)="returnToForm()" style="width: 15%">
+    <button class="btn btn-primary col-2 dist"  (click)="returnToForm()" style="width: 15%">
         Retour
     </button>
 </div>

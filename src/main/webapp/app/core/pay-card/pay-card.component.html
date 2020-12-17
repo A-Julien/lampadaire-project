@@ -12,17 +12,20 @@
                     <option [value]="cardType" *ngFor="let cardType of creditCardTypes">{{cardType}}</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group ">
                 <label>Card Number</label>
                 <input type="text" formControlName="creditCard" class="form-control"  />
 
             </div>
+            <div class="form-group">
+                <button class="btn btn-primary p2 stickyCard text-white"
+                        [routerLink]="['payForm']"
+                        (click)="sendCardNumber()">
+                    Paiement
+                </button>
+            </div>
         </form>
-        <button class="btn btn-primary col-2 p2 stickyCard"
-                [routerLink]="['payForm']"
-                (click)="sendCardNumber()">
-            Payement
-        </button>
+
     </div>
 
     </div>

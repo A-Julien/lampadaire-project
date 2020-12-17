@@ -7,6 +7,5 @@ export const registerRoute: Route = {
   component: RegisterComponent,
   data: {
     authorities: [],
-    pageTitle: 'register.title',
   },
 };
