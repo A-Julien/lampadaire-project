@@ -4,8 +4,8 @@
         <h5 class="card-title">Vos articles : </h5>
 
         <ul>
-            <li *ngFor="let order of orders.productOrders">
-                {{ order.product.libstreetlamp }} x{{ order.quantity}} - Prix/u : {{ order.product.pricestreetlamp}} €
+            <li *ngFor="let order of orders.lamps">
+                {{ order.product.libstreetlamp }} x{{ order.quantity}} - Prix/u : {{order.product.pricestreetlamp}} €
             </li>
         </ul>
 
@@ -16,7 +16,7 @@
 
 
         <button class="btn btn-primary btn-block" (click)="finishOrder()"
-                [disabled]="orders.productOrders.length == 0"
+                [disabled]="orders.lamps.length == 0"
                 [routerLink]="['/home/recap']">Consulter
         </button>
     </div>

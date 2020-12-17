@@ -17,12 +17,15 @@ export class PayRecapComponent implements OnInit {
 
   products: Streetlamp[] = [];
   selectedProductOrder!: ProductOrder;
+  cart!: Cart;
   sub!: Subscription;
   productSelected: boolean;
   private page: number;
   private itemsPerPage: number;
   links: any;
   isListLayout: boolean;
+  total: any;
+
   constructor(private lampService: LampService, protected parseLinks: JhiParseLinks) {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.page = 0;
@@ -34,37 +37,30 @@ export class PayRecapComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cart = this.lampService.get();
+    this.total = this.lampService.calculateTotal(this.cart.productOrders);
     this.productOrders = [];
-    this.loadProducts();
+    this.subToCart();
   }
 
-  loadProducts(): void {
+  private subToCart(): void {
     //this.productOrders = this.lampService.ProductOrders.productOrders;
-    this.productOrders = this.lampService.getCart();
+    //this.productOrders = this.lampService.getCart();
+    this.sub = this.lampService.ProductOrderChanged.subscribe(() => {
+      this.cart = this.lampService.get();
+      this.total = this.lampService.calculateTotal(this.cart.lamps);
+    });
   }
 
-  getProductIndex(product: IStreetlamp): number {
-    return this.lampService.ProductOrders.productOrders.findIndex((value: { product: Streetlamp }) => value.product === product);
-  }
-
-  addToCart(order: ProductOrder): void {
-    this.lampService.SelectedProductOrder = order;
-    this.selectedProductOrder = this.lampService.SelectedProductOrder;
-    this.productSelected = true;
-  }
-
-  removeFromCart(productOrder: ProductOrder): void {
-    const index = this.getProductIndex(productOrder.product);
+  removeFromCart(lamp: ProductOrder): void {
+    this.lampService.removeLamp(lamp);
+    /*const index = this.getProductIndex(productOrder.product);
     if (index > -1) {
       this.productOrders.splice(this.getProductIndex(productOrder.product), 1);
     }
     this.lampService.saveCart = this.productOrders;
     this.lampService.ProductOrders.productOrders = this.productOrders; //this.shoppingCartOrders;
-    this.productSelected = false;
-  }
-
-  isProductSelected(product: Streetlamp): boolean {
-    return this.getProductIndex(product) > -1;
+    this.productSelected = false;*/
   }
 
   trackId(index: number, item: ProductOrder): number {

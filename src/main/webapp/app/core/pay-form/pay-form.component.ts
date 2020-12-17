@@ -17,6 +17,8 @@ import { NgbDateMomentAdapter } from 'app/shared/util/datepicker-adapter';
 import * as moment from 'moment';
 import { pdfMake } from 'pdfmake/build/vfs_fonts';
 import { PdfServiceService } from 'app/core/services/pdf-service.service';
+import { Cart } from 'app/shared/model/Cart.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'jhi-pay-form',
@@ -33,6 +35,9 @@ export class PayFormComponent implements OnInit, AfterViewInit {
   stickyForm: boolean | undefined;
   elementPosition: any;
   numberCard: number | undefined;
+
+  cart!: Cart;
+  sub!: Subscription;
 
   Account: Account | null = null;
   User: User | null = null;
@@ -61,28 +66,29 @@ export class PayFormComponent implements OnInit, AfterViewInit {
     this.payNow = false;
     this.submitted = false;
     this.productOrders = [];
-    this.loadProducts();
-    this.totalCmd = this.lampService.Total;
+    this.subToCart();
+    this.cart = this.lampService.get();
+    this.totalCmd = this.lampService.calculateTotal(this.cart.lamps);
 
     if (Account) {
       this.accountService.identity().subscribe(account => {
         this.Account = account;
-      });
 
-      this.us.find(this.Account!.login).subscribe(user => {
-        this.User = user;
-
-        this.ap.findbyuserid(this.User.id).subscribe((body: any) => {
-          this.applicationUser = new ApplicationUser(
-            body.body.id,
-            body.body.siret,
-            body.body.userLogin,
-            body.body.userId,
-            new SOrder()[0],
-            new Creditcard()[0],
-            body.body.cartpersiId
-          );
-          //this.sOrderService.create(
+        this.us.find(this.Account!.login).subscribe(user => {
+          this.User = user;
+          alert(user.id);
+          this.ap.findbyuserid(this.User.id).subscribe((body: any) => {
+            this.applicationUser = new ApplicationUser(
+              body.body.id,
+              body.body.siret,
+              body.body.userLogin,
+              body.body.userId,
+              new SOrder()[0],
+              new Creditcard()[0],
+              body.body.cartpersiId
+            );
+            //this.sOrderService.create(
+          });
         });
       });
     }
@@ -93,6 +99,15 @@ export class PayFormComponent implements OnInit, AfterViewInit {
       cmdCity: new FormControl(null, [Validators.required]),
       cmdAddr: new FormControl(null, [Validators.required]),
       cmdLName: new FormControl(null, [Validators.required]),
+    });
+  }
+
+  private subToCart(): void {
+    //this.productOrders = this.lampService.ProductOrders.productOrders;
+    //this.productOrders = this.lampService.getCart();
+    this.sub = this.lampService.ProductOrderChanged.subscribe(() => {
+      this.cart = this.lampService.get();
+      this.totalCmd = this.lampService.calculateTotal(this.cart.lamps);
     });
   }
 
@@ -142,16 +157,12 @@ export class PayFormComponent implements OnInit, AfterViewInit {
     this.payNow = true;
   }
 
-  loadProducts(): void {
-    this.productOrders = this.lampService.getCart(); //this.lampService.ProductOrders.productOrders;
-  }
-
   returnToForm(): void {
     this.payNow = false;
   }
 
   createBill(): void {
-    this.pdfservice.addProduct(this.lampService.getCart());
+    this.pdfservice.addProduct(this.lampService.get().lamps);
     this.pdfservice.generatePDF();
   }
 }

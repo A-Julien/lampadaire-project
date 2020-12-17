@@ -72,7 +72,9 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3">
-    <jhi-shopping-cart #shoppingCartC></jhi-shopping-cart>
+    <div class="col-md-3"
+            #stickyCart
+           [class.sticky] = "sticky">
+        <jhi-shopping-cart></jhi-shopping-cart>
     </div>
 </div>
