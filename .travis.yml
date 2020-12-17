@@ -68,7 +68,7 @@ install:
 script:
   - chmod +x mvnw
   - ./mvnw -ntp -q checkstyle:check
-  - ./mvnw -ntp -X clean verify
+  - ./mvnw -ntp clean verify
   - ./mvnw -ntp -q com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test' -Dmaven.repo.local=$MAVEN_USER_HOME
   - ./mvnw -ntp -q verify -Pprod -DskipTests
 
