@@ -1,6 +1,7 @@
 package com.lampaderum.web.rest;
 
 import com.lampaderum.service.SOrderService;
+import com.lampaderum.service.dto.CreditcardDTO;
 import com.lampaderum.web.rest.errors.BadRequestAlertException;
 import com.lampaderum.service.dto.SOrderDTO;
 
@@ -110,6 +111,18 @@ public class SOrderResource {
         return ResponseUtil.wrapOrNotFound(sOrderDTO);
     }
 
+    /**
+     * {@code GET  /s-orders/:id} : get the "id" of the applicationuser of sOrder.
+     *
+     * @param id the id of the sOrderDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the sOrderDTO, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/s-orders/ApplicationUserId/{id}")
+    public ResponseEntity<List<SOrderDTO>> getSOrderByApplicationUserId(@PathVariable Long id) {
+        log.debug("REST request to get Creditcard : {}", id);
+        List<SOrderDTO> sorder = (List<SOrderDTO>) sOrderService.findByApplicationUserId(id);
+        return ResponseEntity.ok().body(sorder);
+    }
     /**
      * {@code DELETE  /s-orders/:id} : delete the "id" sOrder.
      *

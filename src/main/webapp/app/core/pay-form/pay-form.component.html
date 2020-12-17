@@ -1,0 +1,112 @@
+<div class="container row" [hidden]="payNow">
+    <table class="table table-hover col-7" >
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Description</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Quantité</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-active" *ngFor="let order of cart.lamps">
+            <th><img class="square" src={{order.product.imagepathstreetlamp}} alt="Image not found :'("></th>
+            <td>{{order.product.modelestreetlamp}}</td>
+            <td id="inner">{{order.product.pricestreetlamp}}</td>
+            <td>{{order.quantity}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--<div>Prix à payer : {{totalCmd}} €</div>-->
+
+    <form class="col-5" [formGroup]="payFrom" (ngSubmit)="onSubmit()"
+          #stickyForm
+          [class.sticky] = "stickyForm">
+        <div>Prix à payer : {{totalCmd}} €</div>
+        <div class="form-row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="Nom">Nom: <span class="lblError">*</span></label>
+                    <div class="controls">
+                        <input type="text" id="Nom" placeholder="Nom" class="form-control" formControlName="cmdName">
+                        <p class="lblError" *ngIf="payFrom.get('cmdName').hasError('required') && !payFrom.get('cmdName').pristine">
+                            Champs obligatoire
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="Prenom">Prénom <span class="lblError">*</span></label>
+                    <div class="controls">
+                        <input type="text" id="Prenom" placeholder="Prenom" class="form-control" formControlName="cmdLName">
+                        <p class="lblError" *ngIf="payFrom.get('cmdLName').hasError('required') && !payFrom.get('cmdLName').pristine">
+                            Champs obligatoire
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <label for="country">Pays:</label>
+                <div class="controls">
+                    <select id="country" formControlName="cmdCountry" class="form-control">
+                        <option value="France">France</option>
+                        <option value="Germanie">Germanie</option>
+                        <option value="Italia">Italia</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="City">Ville <span class="lblError">*</span></label>
+                    <div class="controls">
+                        <input type="text" id="City" placeholder="Grenoble" class="form-control" formControlName="cmdCity">
+                        <p class="lblError" *ngIf="payFrom.get('cmdCity').hasError('required') && !payFrom.get('cmdCity').pristine">
+                            Champs obligatoire
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label for="Addr">Adresse <span class="lblError">*</span></label>
+                    <div class="controls">
+                        <input type="text" id="Addr" placeholder="9 rue du Saint Lampadaire" class="form-control" formControlName="cmdAddr">
+                        <p class="lblError" *ngIf="payFrom.get('cmdAddr').hasError('required') && !payFrom.get('cmdAddr').pristine">
+                            Champs obligatoire
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row padding-2">
+            <button class="btn btn-primary col-2 marg"
+                    [routerLink]="['','recap']">Retour
+            </button>
+            <button class="btn btn-primary col-2 marg" type="submit" [disabled]="payFrom.invalid">
+                Payer
+            </button>
+        </div>
+
+    </form>
+</div>
+
+<div class="col-md-11" [hidden]="!payNow">
+    <h2>Veuillez saisir vos informations de paiement </h2>
+    <div>Prix : {{totalCmd}} €</div>
+    <jhi-pay-card
+        (numberCartEvent)="receivePayment($event)">
+    </jhi-pay-card>
+    <button class="btn btn-primary col-2 dist"  (click)="returnToForm()" style="width: 15%">
+        Retour
+    </button>
+</div>

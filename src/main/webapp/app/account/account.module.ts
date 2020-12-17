@@ -11,6 +11,11 @@ import { PasswordResetInitComponent } from './password-reset/init/password-reset
 import { PasswordResetFinishComponent } from './password-reset/finish/password-reset-finish.component';
 import { SettingsComponent } from './settings/settings.component';
 import { accountState } from './account.route';
+import { ProfilComponent } from './profil/profil.component';
+import { OrderComponent } from './order/order.component';
+import { CreditcardComponent } from './creditcard/creditcard.component';
+import { LampaderumCoreModule } from 'app/core/core.module';
+import { CardComponent } from 'app/account/card/card.component';
 
 @NgModule({
   imports: [LampaderumSharedModule, RouterModule.forChild(accountState)],
@@ -22,6 +27,11 @@ import { accountState } from './account.route';
     PasswordResetInitComponent,
     PasswordResetFinishComponent,
     SettingsComponent,
+    ProfilComponent,
+    OrderComponent,
+    CreditcardComponent,
+    CardComponent,
   ],
+  exports: [CreditcardComponent, CardComponent],
 })
 export class AccountModule {}

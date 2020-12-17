@@ -2,6 +2,7 @@ package com.lampaderum.service;
 
 import com.lampaderum.domain.SOrder;
 import com.lampaderum.repository.SOrderRepository;
+import com.lampaderum.service.dto.CreditcardDTO;
 import com.lampaderum.service.dto.SOrderDTO;
 import com.lampaderum.service.mapper.SOrderMapper;
 import org.slf4j.Logger;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -70,6 +73,29 @@ public class SOrderService {
         log.debug("Request to get SOrder : {}", id);
         return sOrderRepository.findById(id)
             .map(sOrderMapper::toDto);
+    }
+
+    /**
+     * Get one sOrder by ApplicationUser id.
+     *
+     * @param id the id of ApplicationUser of the entity.
+     * @return the entity.
+     */
+    @Transactional(readOnly = true)
+    public List<SOrderDTO> findByApplicationUserId(Long id) {
+        log.debug("Request to get Creditcard : {}", id);
+
+        Object[] plop=sOrderRepository.findAll().stream()
+            .map(sOrderMapper::toDto).toArray();
+        ArrayList<SOrderDTO> sorders= new ArrayList<SOrderDTO>();
+
+        for (int i=0;i< plop.length;i++){
+            if(id.equals(((SOrderDTO)plop[i]).getApplicationUserId())){
+
+                sorders.add((SOrderDTO) plop[i]);
+            }
+        }
+        return sorders;
     }
 
     /**

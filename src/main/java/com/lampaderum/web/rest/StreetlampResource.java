@@ -3,6 +3,8 @@ package com.lampaderum.web.rest;
 import com.lampaderum.service.StreetlampService;
 import com.lampaderum.web.rest.errors.BadRequestAlertException;
 import com.lampaderum.service.dto.StreetlampDTO;
+import com.lampaderum.service.dto.StreetlampCriteria;
+import com.lampaderum.service.StreetlampQueryService;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
@@ -39,8 +41,11 @@ public class StreetlampResource {
 
     private final StreetlampService streetlampService;
 
-    public StreetlampResource(StreetlampService streetlampService) {
+    private final StreetlampQueryService streetlampQueryService;
+
+    public StreetlampResource(StreetlampService streetlampService, StreetlampQueryService streetlampQueryService) {
         this.streetlampService = streetlampService;
+        this.streetlampQueryService = streetlampQueryService;
     }
 
     /**
@@ -87,14 +92,27 @@ public class StreetlampResource {
      * {@code GET  /streetlamps} : get all the streetlamps.
      *
      * @param pageable the pagination information.
+     * @param criteria the criteria which the requested entities should match.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of streetlamps in body.
      */
     @GetMapping("/streetlamps")
-    public ResponseEntity<List<StreetlampDTO>> getAllStreetlamps(Pageable pageable) {
-        log.debug("REST request to get a page of Streetlamps");
-        Page<StreetlampDTO> page = streetlampService.findAll(pageable);
+    public ResponseEntity<List<StreetlampDTO>> getAllStreetlamps(StreetlampCriteria criteria, Pageable pageable) {
+        log.debug("REST request to get Streetlamps by criteria: {}", criteria);
+        Page<StreetlampDTO> page = streetlampQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code GET  /streetlamps/count} : count all the streetlamps.
+     *
+     * @param criteria the criteria which the requested entities should match.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the count in body.
+     */
+    @GetMapping("/streetlamps/count")
+    public ResponseEntity<Long> countStreetlamps(StreetlampCriteria criteria) {
+        log.debug("REST request to count Streetlamps by criteria: {}", criteria);
+        return ResponseEntity.ok().body(streetlampQueryService.countByCriteria(criteria));
     }
 
     /**

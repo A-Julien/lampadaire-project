@@ -12,7 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * Service Implementation for managing {@link ApplicationUser}.
@@ -69,6 +71,30 @@ public class ApplicationUserService {
     public Optional<ApplicationUserDTO> findOne(Long id) {
         log.debug("Request to get ApplicationUser : {}", id);
         return applicationUserRepository.findById(id)
+            .map(applicationUserMapper::toDto);
+    }
+
+    /**
+     * Get one applicationUser by userID.
+     *
+     * @param id the id of the user.
+     * @return the entity.
+     */
+    @Transactional(readOnly = true)
+    public Optional<ApplicationUserDTO> findOneByUserId(Long id) {
+
+        log.debug("Request to get ApplicationUser by UserId : {}", id);
+        Long plop = null;
+        Stream<ApplicationUserDTO> app = applicationUserRepository.findAll().stream().map(applicationUserMapper::toDto);
+        Object[] plip= app.toArray();
+        for (int i=0;i<plip.length;i++)
+        {
+            if (id==((ApplicationUserDTO) plip[i]).getUserId())
+            {
+                plop=((ApplicationUserDTO) plip[i]).getId();
+            }
+        }
+        return applicationUserRepository.findById(plop)
             .map(applicationUserMapper::toDto);
     }
 

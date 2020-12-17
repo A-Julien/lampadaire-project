@@ -40,7 +40,6 @@ export const streetlampRoute: Routes = [
     component: StreetlampComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'lampaderumApp.streetlamp.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +51,6 @@ export const streetlampRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'lampaderumApp.streetlamp.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +62,6 @@ export const streetlampRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'lampaderumApp.streetlamp.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +73,6 @@ export const streetlampRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'lampaderumApp.streetlamp.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
