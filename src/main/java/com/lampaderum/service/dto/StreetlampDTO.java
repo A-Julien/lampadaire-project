@@ -158,6 +158,7 @@ public class StreetlampDTO implements Serializable {
 
     public String getImagepathstreetlamp() {
         return SERV_IMG_URL + imagepathstreetlamp;
+        //return imagepathstreetlamp;
     }
 
     public void setImagepathstreetlamp(String imagepathstreetlamp) {

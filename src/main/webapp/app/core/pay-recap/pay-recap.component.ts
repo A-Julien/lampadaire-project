@@ -38,7 +38,7 @@ export class PayRecapComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this.lampService.get();
-    this.total = this.lampService.calculateTotal(this.cart.productOrders);
+    this.total = this.lampService.calculateTotal(this.cart.lamps);
     this.productOrders = [];
     this.subToCart();
   }

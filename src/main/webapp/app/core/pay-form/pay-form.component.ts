@@ -130,9 +130,24 @@ export class PayFormComponent implements OnInit, AfterViewInit {
   }
 
   receivePayment($event: any): void {
-    this.createBill();
-
     this.numberCard = $event;
+    //console.log(this.cart.lamps.length);
+    //console.log(this.cart.lamps);
+   /*const res = await this.sOrderService.create(this.createSorder()).toPromise();
+    if(res.body != null){
+      for (let i = 0; i < this.cart.lamps.length; i++) {
+        await this.roworderService.create(
+            new Roworder(
+              undefined,
+              this.cart.lamps[i].product.pricestreetlamp,
+              this.cart.lamps[i].quantity,
+              this.cart.lamps[i].product.id,
+              res.body.id
+            )
+          ).toPromise();
+      }
+    }*/
+    this.productOrders = this.cart.lamps;
 
     this.sOrderService.create(this.createSorder()).subscribe((body: any) => {
       for (let i = 0; i < this.productOrders.length; i++) {
@@ -140,7 +155,7 @@ export class PayFormComponent implements OnInit, AfterViewInit {
           .create(
             new Roworder(
               undefined,
-              12, //this.productOrders[i].product.pricestreetlamp,
+              this.productOrders[i].product.pricestreetlamp,
               this.productOrders[i].quantity,
               this.productOrders[i].product.id,
               body.body.id
@@ -149,6 +164,9 @@ export class PayFormComponent implements OnInit, AfterViewInit {
           .subscribe(() => {});
       }
     });
+
+    this.createBill();
+
     const c: Cart = this.lampService.get();
     c.lamps.forEach(lamp => {
       this.lampService.removeLamp(lamp);

@@ -610,7 +610,7 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>registry.hub.docker.com/jalaimo/lampaderum:${env.TAG}</image>
+                            <image>registry.hub.docker.com/jalaimo/lampaderum:0.0.1-SNAPSHOT_recette</image>
                         </to>
                         <container>
                             <entrypoint>
