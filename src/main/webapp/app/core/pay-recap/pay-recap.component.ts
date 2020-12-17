@@ -52,16 +52,6 @@ export class PayRecapComponent implements OnInit {
     });
   }
 
-  getProductIndex(product: IStreetlamp): number {
-    return this.lampService.ProductOrders.productOrders.findIndex((value: { product: Streetlamp }) => value.product === product);
-  }
-
-  addToCart(order: ProductOrder): void {
-    this.lampService.SelectedProductOrder = order;
-    this.selectedProductOrder = this.lampService.SelectedProductOrder;
-    this.productSelected = true;
-  }
-
   removeFromCart(lamp: ProductOrder): void {
     this.lampService.removeLamp(lamp);
     /*const index = this.getProductIndex(productOrder.product);

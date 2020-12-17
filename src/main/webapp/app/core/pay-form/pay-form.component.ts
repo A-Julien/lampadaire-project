@@ -73,22 +73,22 @@ export class PayFormComponent implements OnInit, AfterViewInit {
     if (Account) {
       this.accountService.identity().subscribe(account => {
         this.Account = account;
-      });
 
-      this.us.find(this.Account!.login).subscribe(user => {
-        this.User = user;
-
-        this.ap.findbyuserid(this.User.id).subscribe((body: any) => {
-          this.applicationUser = new ApplicationUser(
-            body.body.id,
-            body.body.siret,
-            body.body.userLogin,
-            body.body.userId,
-            new SOrder()[0],
-            new Creditcard()[0],
-            body.body.cartpersiId
-          );
-          //this.sOrderService.create(
+        this.us.find(this.Account!.login).subscribe(user => {
+          this.User = user;
+          alert(user.id);
+          this.ap.findbyuserid(this.User.id).subscribe((body: any) => {
+            this.applicationUser = new ApplicationUser(
+              body.body.id,
+              body.body.siret,
+              body.body.userLogin,
+              body.body.userId,
+              new SOrder()[0],
+              new Creditcard()[0],
+              body.body.cartpersiId
+            );
+            //this.sOrderService.create(
+          });
         });
       });
     }
@@ -157,16 +157,12 @@ export class PayFormComponent implements OnInit, AfterViewInit {
     this.payNow = true;
   }
 
-  loadProducts(): void {
-    this.productOrders = this.lampService.getCart(); //this.lampService.ProductOrders.productOrders;
-  }
-
   returnToForm(): void {
     this.payNow = false;
   }
 
   createBill(): void {
-    this.pdfservice.addProduct(this.lampService.getCart());
+    this.pdfservice.addProduct(this.lampService.get().lamps);
     this.pdfservice.generatePDF();
   }
 }

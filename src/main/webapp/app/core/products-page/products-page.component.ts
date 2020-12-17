@@ -95,10 +95,6 @@ export class ProductsPageComponent implements OnInit {
     }
   }
 
-  getProductIndex(product: IStreetlamp): number {
-    return this.lampService.ProductOrders.productOrders.findIndex((value: { product: Streetlamp }) => value.product === product);
-  }
-
   loadOrders(): void {
     this.sub = this.lampService.OrdersChanged.subscribe(() => {
       this.shoppingCartOrders = this.lampService.ProductOrders;
