@@ -1755,7 +1755,6 @@ public class StreetlampResourceIT {
             .andExpect(jsonPath("$.[*].unitevielampe").value(hasItem(DEFAULT_UNITEVIELAMPE)))
             .andExpect(jsonPath("$.[*].voltlampe").value(hasItem(DEFAULT_VOLTLAMPE.doubleValue())))
             .andExpect(jsonPath("$.[*].templampe").value(hasItem(DEFAULT_TEMPLAMPE.doubleValue())))
-            .andExpect(jsonPath("$.[*].imagepathstreetlamp").value(hasItem(DEFAULT_IMAGEPATHSTREETLAMP)))
             .andExpect(jsonPath("$.[*].stockstreetlamp").value(hasItem(DEFAULT_STOCKSTREETLAMP)))
             .andExpect(jsonPath("$.[*].pricestreetlamp").value(hasItem(DEFAULT_PRICESTREETLAMP.doubleValue())));
 
