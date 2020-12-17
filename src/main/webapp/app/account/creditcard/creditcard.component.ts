@@ -23,9 +23,8 @@ export class CreditcardComponent implements OnInit {
   applicationUser: ApplicationUser | null = null;
   creditcards: Creditcard[];
   selectedCreditCard: Creditcard;
-
-  @Output() selectedCardEvent = new EventEmitter<Creditcard>();
   @Input() profileView = true;
+  @Output() selectedCardEvent = new EventEmitter<Creditcard>();
 
   constructor(
     private accountService: AccountService,
