@@ -5,7 +5,7 @@
             <th scope="col"></th>
             <th scope="col">Description</th>
             <th scope="col">Prix</th>
-            <th scope="col">Quantités</th>
+            <th scope="col">Quantité</th>
 
         </tr>
         </thead>
@@ -32,7 +32,7 @@
                     <div class="controls">
                         <input type="text" id="Nom" placeholder="Nom" class="form-control" formControlName="cmdName">
                         <p class="lblError" *ngIf="payFrom.get('cmdName').hasError('required') && !payFrom.get('cmdName').pristine">
-                            C'est mieux de renseigner se champs pour le livreur !
+                            Champs obligatoire
                         </p>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="controls">
                         <input type="text" id="Prenom" placeholder="Prenom" class="form-control" formControlName="cmdLName">
                         <p class="lblError" *ngIf="payFrom.get('cmdLName').hasError('required') && !payFrom.get('cmdLName').pristine">
-                            C'est mieux de renseigner se champs pour le livreur !
+                            Champs obligatoire
                         </p>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                     <div class="controls">
                         <input type="text" id="City" placeholder="Grenoble" class="form-control" formControlName="cmdCity">
                         <p class="lblError" *ngIf="payFrom.get('cmdCity').hasError('required') && !payFrom.get('cmdCity').pristine">
-                            C'est mieux de renseigner se champs pour le livreur !
+                            Champs obligatoire
                         </p>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     <div class="controls">
                         <input type="text" id="Addr" placeholder="9 rue du Saint Lampadaire" class="form-control" formControlName="cmdAddr">
                         <p class="lblError" *ngIf="payFrom.get('cmdAddr').hasError('required') && !payFrom.get('cmdAddr').pristine">
-                            L'adresse est obligatoire, nous pensons que vous comprendrez..
+                            Champs obligatoire
                         </p>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
         </div>
         <div class="row padding-2">
             <button class="btn btn-primary col-2 marg"
-                    [routerLink]="['']">Retour
+                    [routerLink]="['','recap']">Retour
             </button>
             <button class="btn btn-primary col-2 marg" type="submit" [disabled]="payFrom.invalid">
                 Payer
@@ -103,9 +103,9 @@
     </form>
 </div>
 
-<div class="col-md-4" [hidden]="!payNow">
-    <h2>Veuillez saisir vos informations de payement </h2>
-    <div>Prix à payer : {{totalCmd}} €</div>
+<div class="col-md-11" [hidden]="!payNow">
+    <h2>Veuillez saisir vos informations de paiement </h2>
+    <div>Prix : {{totalCmd}} €</div>
     <jhi-pay-card
         (numberCartEvent)="receivePayment($event)">
     </jhi-pay-card>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApplicationUser } from '../../shared/model/application-user.model';
 
 import { CreditcardService } from 'app/entities/creditcard/creditcard.service';
@@ -25,6 +25,7 @@ export class CreditcardComponent implements OnInit {
   selectedCreditCard: Creditcard;
 
   @Output() selectedCardEvent = new EventEmitter<Creditcard>();
+  @Input() profileView = true;
 
   constructor(
     private accountService: AccountService,
